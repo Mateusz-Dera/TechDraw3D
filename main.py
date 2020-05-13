@@ -1,17 +1,24 @@
-from extruder.svg import SVG
+# Libs
+import logging
+
+# My modules
+from libs.extruder.svg import SVG
+from libs.base import logger, args
+
+
+_logger = logging.getLogger(__name__)
 
 
 if __name__ == '__main__':
-    file_object  = open("extruder/iw.svg", "r") 
-
-    print(file_object)
+    logger.configure_logging(args.paramArgsSimple())
     
-    # import pdb; pdb.set_trace()
+    _logger.info("Start program")
+
     svgObj = SVG()
+    res = svgObj.create_svg_object("data/iw.svg", kwargs={'logger': _logger})
 
-    res = svgObj.create_svg_object("extruder/iw.svg")
-
-    print(res)
+    
+    # print(res)
     a, b, c = svgObj.parse_svg_dict(res)
 
-    print("\n" + str(b))
+    # print("\n" + str(b))
