@@ -3,6 +3,7 @@ import logging
 
 # My modules
 from libs.extruder.svg import SVG
+from libs.extruder.dwginput import DWGInput
 from libs.base import logger, args
 
 
@@ -14,11 +15,15 @@ if __name__ == '__main__':
     
     _logger.info("Start program")
 
-    svgObj = SVG()
-    res = svgObj.create_svg_object("data/iw.svg", kwargs={'logger': _logger})
+    # svgObj = SVG()
+    # res = svgObj.create_svg_object("data/iw.svg", kwargs={'logger': _logger})
 
-    
-    # print(res)
-    a, b, c = svgObj.parse_svg_dict(res)
+    dwg = DWGInput()
+    dwg.openconvertDWGTEST('/home/jschwarz/Projekty/Prywatne/TechDraw3D/data/footer.DWG')
 
-    # print("\n" + str(b))
+    print(dwg.DWG)
+
+    dwg.returnSVG()
+
+    # a, b, c = svgObj.parse_svg_dict(res)
+
