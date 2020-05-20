@@ -1,4 +1,6 @@
 #Mateusz Dera
+#'C:\Program Files\Blender Foundation\Blender 2.82\blender.exe' -b --python main.py
+
 import bpy
 import os.path
 from os import path
