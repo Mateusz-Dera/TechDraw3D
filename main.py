@@ -5,7 +5,7 @@ import logging
 from libs.extruder.svg import SVG
 from libs.extruder.dwginput import DWGInput
 from libs.base import logger, args
-
+from libs.base.argparser import *
 
 _logger = logging.getLogger(__name__)
 
@@ -18,6 +18,9 @@ if __name__ == '__main__':
     # svgObj = SVG()
     # res = svgObj.create_svg_object("data/iw.svg", kwargs={'logger': _logger})
 
+    parser = make_parser()
+    args = parser.parse_args()
+    print(args)
     dwg = DWGInput()
     dwg.openconvertDWGTEST('/home/jschwarz/Projekty/Prywatne/TechDraw3D/data/footer.DWG')
 
