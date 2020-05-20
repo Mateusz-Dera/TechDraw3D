@@ -1,6 +1,7 @@
 # Libs
 import logging
 import subprocess
+import os.path
 
 # My modules
 from svgpathtools import svg2paths, svg2paths2, wsvg
@@ -11,6 +12,13 @@ _logger = logging.getLogger(__name__)
 
 class DWGInput():
     DWG = ""
+
+    def make_path(p):
+        p = os.path.expanduser(p)
+        p = os.path.normpath(p)
+        p = os.path.realpath(p)
+        p = os.path.abspath(p)
+        return p
 
     def openconvertDWGTEST(self, name):
 
