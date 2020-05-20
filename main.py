@@ -22,11 +22,11 @@ if __name__ == '__main__':
     args = parser.parse_args()
     print(args)
     dwg = DWGInput()
-    dwg.openconvertDWGTEST('/home/jschwarz/Projekty/Prywatne/TechDraw3D/data/footer.DWG')
+    dwg.dwg2svg_converter(args.file.name)
 
-    print(dwg.DWG)
+    #print(dwg.DWG)
 
-    dwg.returnSVG()
+    #dwg.returnSVG()
 
     # a, b, c = svgObj.parse_svg_dict(res)
 
