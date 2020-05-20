@@ -2,9 +2,9 @@ from sys import platform
 import logging
 import os
 
-
 def configure_logging(mode):
 
+    # Wybór ścieżki w zależności od systemu.
     if platform == "win32":
         logpath = "TechDraw3D/logs/debug.log"
     
@@ -19,6 +19,7 @@ def configure_logging(mode):
             filemode='a')
 
     except FileNotFoundError as e:
+        # Tworzenie folderu logs w sytuacji, gdyby został usunięty.
         if not os.path.isdir(logpath[:-10]):
             os.mkdir(logpath[:-10])
 

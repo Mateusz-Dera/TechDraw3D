@@ -7,9 +7,7 @@ import os.path
 # My modules
 from svgpathtools import svg2paths, svg2paths2, wsvg
 
-
 _logger = logging.getLogger(__name__)
-
 
 class DWGInput():
     DWG = ""
@@ -22,7 +20,7 @@ class DWGInput():
         p = os.path.abspath(p)
         return p
 
-    # Wrapper do LibreDWG / dwg2SVG
+    # Wrapper do LibreDWG / dwg2SVG.
     def dwg2svg_converter(self, name):
 
         dwg2svg_windows = ".\\TechDraw3D\\LibreDWG\\dwg2SVG.exe"
@@ -33,6 +31,7 @@ class DWGInput():
         svgfilepath_windows = ".\\TechDraw3D\\data\\svg\\" + os.path.basename(dwgfilepath)[:-4] + ".svg"
         svgfilepath_linux = "./data/svg/" + os.path.basename(dwgfilepath)[:-4] + ".svg"
 
+        # Wybór platformy.
         if platform == "win32":
             print ("WINDOWS")
             print ("DWG file path:", dwgfilepath)

@@ -18,9 +18,12 @@ if __name__ == '__main__':
     # svgObj = SVG()
     # res = svgObj.create_svg_object("data/iw.svg", kwargs={'logger': _logger})
 
+    # Uruchomienie parsera argumentów.
     parser = make_parser()
     args = parser.parse_args()
     print(args)
+
+    # Uruchomienie funkcji konwertującej dwg2svg.
     dwg = DWGInput()
     dwg.dwg2svg_converter(args.file.name)
 
