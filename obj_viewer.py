@@ -84,8 +84,9 @@ def move_camera(dt):
         scene.camera.position.z -= camera_speed * dt
         print_camera_position()
 
-window = pyglet.window.Window()
+window = pyglet.window.Window(resizable = True)
 keys = key.KeyStateHandler()
+window.set_caption("TechDraw3D")
 window.push_handlers(keys)
 
 object = load_object(filename)
