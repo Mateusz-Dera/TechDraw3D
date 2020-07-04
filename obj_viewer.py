@@ -1,8 +1,13 @@
 import pyglet
 from pyglet.window import key
 import ratcave as rc
+import sys 
 
-filename = "assets/teapot.obj"
+if len(sys.argv) == 1:
+    print("Brak argumentów. Podaj ścieżkę do pliku .obj.")
+    exit(1)
+
+filename = sys.argv[1]
 
 # Wyszukiwanie "body name" pliku obj.
 def get_body_name(file):
