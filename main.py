@@ -40,7 +40,7 @@ if __name__ == '__main__':
         dxf.dxf2svg_converter(args.dxf2svg.name)
 
     if args.makeobj:
-        subprocess.call([r'.\testrun.bat'])
+        subprocess.call([r'.\faceplacer.bat'])
 
     if args.viewobj:
         runpy.run_path(path_name='./libs/base/obj_viewer.py')

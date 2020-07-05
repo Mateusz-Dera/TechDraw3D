@@ -27,7 +27,7 @@ def load_object(file):
     # Insert filename into WavefrontReader.
     file_reader = rc.WavefrontReader(file)
     # Create Mesh
-    object = file_reader.get_mesh(get_body_name(file), position=(0, 0, -1.5), scale=1.0)
+    object = file_reader.get_mesh(get_body_name(file), position=(0, 0, 0), scale=1.0)
     set_material(object)
     return object
     
@@ -99,7 +99,7 @@ object = load_object(filename)
 scene = rc.Scene(meshes=[object])
 scene.bgColor = 0.2, 0.2, 0.2
 scene.light.position = 0, 0, 10
-camera_position(0, 0, 5)
+camera_position(0, 0, 1)
 
 pyglet.clock.schedule(move_camera)
 pyglet.clock.schedule(rotate_meshes)

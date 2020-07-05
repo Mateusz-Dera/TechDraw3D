@@ -1,2 +1,0 @@
-start /w /b "" "C:\Program Files\Blender Foundation\Blender 2.83\blender.exe" -b --python ./libs/faceplacer/part0.py
-start /w /b "" "C:\Program Files\Blender Foundation\Blender 2.83\blender.exe" -b --python ./libs/faceplacer/part1.py
