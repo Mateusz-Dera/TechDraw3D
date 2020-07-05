@@ -8,7 +8,6 @@ from libs.extruder.svg import SVG
 from libs.extruder.dwginput import DWGInput
 from libs.extruder.dxfinput import DXFInput
 from libs.base import logger, args, argparser
-from libs.base.argparser import *
 
 _logger = logging.getLogger(__name__)
 
