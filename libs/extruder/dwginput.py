@@ -45,7 +45,8 @@ class DWGInput():
 
         dwg2dxf_windows = makepath.make_path(".\\tools\\LibreDWG\\dwg2dxf.exe")
         dwg2dxf_linux = "dwg2dxf"
-        parameters = "-m"
+        parameter1 = "-m"
+        parameter2 = "-o"
 
         dwgfilepath = makepath.make_path(name)
         dxffilepath_windows = makepath.make_path(".\\assets\\dxf\\") + "\\" + os.path.basename(dwgfilepath)[:-4] + ".dxf"
@@ -56,8 +57,8 @@ class DWGInput():
             print ("WINDOWS")
             print ("DWG file path:", dwgfilepath)
             print ("DXF file path:", dxffilepath_windows)
-            print (dwg2dxf_windows, parameters, dwgfilepath)
-            subprocess.Popen([dwg2dxf_windows, parameters, dwgfilepath], shell=True)
+            print (dwg2dxf_windows, parameter1, parameter2, dxffilepath_windows, dwgfilepath)
+            subprocess.Popen([dwg2dxf_windows, parameter1, parameter2, dxffilepath_windows, dwgfilepath], shell=True)
 
         if platform == "linux":
             print ("LINUX")
