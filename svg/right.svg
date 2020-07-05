@@ -1,0 +1,114 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<svg
+   xmlns:dc="http://purl.org/dc/elements/1.1/"
+   xmlns:cc="http://creativecommons.org/ns#"
+   xmlns:rdf="http://www.w3.org/1999/02/22-rdf-syntax-ns#"
+   xmlns:svg="http://www.w3.org/2000/svg"
+   xmlns="http://www.w3.org/2000/svg"
+   xmlns:sodipodi="http://sodipodi.sourceforge.net/DTD/sodipodi-0.dtd"
+   xmlns:inkscape="http://www.inkscape.org/namespaces/inkscape"
+   inkscape:version="1.0 (4035a4fb49, 2020-05-01)"
+   sodipodi:docname="right.svg"
+   id="svg90"
+   width="300"
+   viewBox="-13.636363636363637 -228.5662441405586 300.0 239.45035100439475"
+   version="1.1"
+   height="300">
+  <metadata
+     id="metadata94">
+    <rdf:RDF>
+      <cc:Work
+         rdf:about="">
+        <dc:format>image/svg+xml</dc:format>
+        <dc:type
+           rdf:resource="http://purl.org/dc/dcmitype/StillImage" />
+        <dc:title></dc:title>
+      </cc:Work>
+    </rdf:RDF>
+  </metadata>
+  <sodipodi:namedview
+     inkscape:current-layer="svg90"
+     inkscape:window-maximized="1"
+     inkscape:window-y="-8"
+     inkscape:window-x="-8"
+     inkscape:cy="150"
+     inkscape:cx="150"
+     inkscape:zoom="2.8333333"
+     showgrid="false"
+     id="namedview92"
+     inkscape:window-height="1017"
+     inkscape:window-width="2560"
+     inkscape:pageshadow="2"
+     inkscape:pageopacity="0"
+     guidetolerance="10"
+     gridtolerance="10"
+     objecttolerance="10"
+     borderopacity="1"
+     bordercolor="#666666"
+     pagecolor="#ffffff" />
+  <defs
+     id="defs2" />
+  <line
+     id="line20"
+     y2="113.97012506875092"
+     y1="113.97012506875092"
+     x2="275.7151484496271"
+     x1="325.7151484496271"
+     transform="scale(0.8320268750869991,-0.8320268750869991)"
+     stroke-width="1.2018842539135977"
+     stroke="black" />
+  <line
+     id="line22"
+     y2="113.97012506875092"
+     y1="98.97012506875092"
+     x2="325.7151484496271"
+     x1="325.7151484496271"
+     transform="scale(0.8320268750869991,-0.8320268750869991)"
+     stroke-width="1.2018842539135977"
+     stroke="black" />
+  <line
+     id="line24"
+     y2="113.97012506875092"
+     y1="98.97012506875092"
+     x2="275.7151484496271"
+     x1="275.7151484496271"
+     transform="scale(0.8320268750869991,-0.8320268750869991)"
+     stroke-width="1.2018842539135977"
+     stroke="black" />
+  <line
+     id="line26"
+     y2="98.97012506875092"
+     y1="98.97012506875092"
+     x2="275.7151484496226"
+     x1="325.7151484496226"
+     transform="scale(0.8320268750869991,-0.8320268750869991)"
+     stroke-width="1.2018842539135977"
+     stroke="black" />
+  <line
+     id="line28"
+     y2="98.97012506875092"
+     y1="83.97012506875092"
+     x2="325.7151484496226"
+     x1="325.7151484496226"
+     transform="scale(0.8320268750869991,-0.8320268750869991)"
+     stroke-width="1.2018842539135977"
+     stroke="black" />
+  <line
+     id="line30"
+     y2="98.97012506875092"
+     y1="83.97012506875092"
+     x2="275.7151484496226"
+     x1="275.7151484496226"
+     transform="scale(0.8320268750869991,-0.8320268750869991)"
+     stroke-width="1.2018842539135977"
+     stroke="black" />
+  <line
+     id="line32"
+     y2="83.97012506875092"
+     y1="83.97012506875092"
+     x2="275.7151484496226"
+     x1="325.7151484496226"
+     transform="scale(0.8320268750869991,-0.8320268750869991)"
+     stroke-width="1.2018842539135977"
+     stroke="black" />
+</svg>
