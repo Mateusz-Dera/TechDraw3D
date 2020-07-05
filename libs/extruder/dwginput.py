@@ -23,13 +23,13 @@ class DWGInput():
     # Wrapper do LibreDWG / dwg2SVG.
     def dwg2svg_converter(self, name):
 
-        dwg2svg_windows = ".\\TechDraw3D\\LibreDWG\\dwg2SVG.exe"
+        dwg2svg_windows = ".\\tools\\LibreDWG\\dwg2SVG.exe"
         dwg2svg_linux = "dwg2SVG"
         parameters = "--mspace"
 
         dwgfilepath = self.make_path(name)
-        svgfilepath_windows = ".\\TechDraw3D\\data\\svg\\" + os.path.basename(dwgfilepath)[:-4] + ".svg"
-        svgfilepath_linux = "./data/svg/" + os.path.basename(dwgfilepath)[:-4] + ".svg"
+        svgfilepath_windows = ".\\assets\\svg\\" + os.path.basename(dwgfilepath)[:-4] + ".svg"
+        svgfilepath_linux = "./assets/svg/" + os.path.basename(dwgfilepath)[:-4] + ".svg"
 
         # Wybór platformy.
         if platform == "win32":

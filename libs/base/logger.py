@@ -6,7 +6,7 @@ def configure_logging(mode):
 
     # Wybór ścieżki w zależności od systemu.
     if platform == "win32":
-        logpath = "TechDraw3D/logs/debug.log"
+        logpath = "logs/debug.log"
     
     if platform == "linux":
         logpath = "logs/debug.log"

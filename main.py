@@ -29,6 +29,6 @@ if __name__ == '__main__':
     # Obsługa SVG
 
     svgObj = SVG()
-    res = svgObj.create_svg_object("data/iw.svg", kwargs={'logger': _logger})
+    res = svgObj.create_svg_object("assets/svg/iw.svg", kwargs={'logger': _logger})
     a, b, c = svgObj.parse_svg_dict(res)
 
