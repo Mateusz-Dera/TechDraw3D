@@ -43,19 +43,35 @@ class DWGInput():
             print ("DWG file path: ", dwgfilepath)
             print ("SVG file path: ", svgfilepath_linux)
             subprocess.call([dwg2svg_linux + ' ' + parameters + ' ' + dwgfilepath + ' > ' + svgfilepath_linux], shell=True, stderr=subprocess.PIPE, stdout=subprocess.PIPE)
-
-        #command = "dwg2SVG %s" % name  # the shell command
-        #process = subprocess.Popen(command, stdout=subprocess.PIPE, stderr=None, shell=True)
-
-        #Launch the shell command:
-        #self.DWG = process.communicate()
-
-        # print (output[0])
-
-        # a = subprocess.check_output(["/bin/bash", "pwd" ])
-        # print(a)
-        # DWG = subprocess.check_output(["/bin/sh", "dwg2svg %s" % name])
     
+    # Wrapper do LibreDWG / dwg2dxf.
+
+    # TODO: Zapisywanie do folderu assets/dxf!
+    
+    def dwg2dxf_converter(self, name):
+
+        dwg2dxf_windows = self.make_path(".\\tools\\LibreDWG\\dwg2dxf.exe")
+        dwg2dxf_linux = "dwg2dxf"
+        parameters = "-m"
+
+        dwgfilepath = self.make_path(name)
+        dxffilepath_windows = self.make_path(".\\assets\\dxf\\") + "\\" + os.path.basename(dwgfilepath)[:-4] + ".dxf"
+        dxffilepath_linux = "./assets/dxf/" + os.path.basename(dwgfilepath)[:-4] + ".dxf"
+
+        # Wybór platformy.
+        if platform == "win32":
+            print ("WINDOWS")
+            print ("DWG file path:", dwgfilepath)
+            print ("DXF file path:", dxffilepath_windows)
+            print (dwg2dxf_windows, parameters, dwgfilepath)
+            subprocess.Popen([dwg2dxf_windows, parameters, dwgfilepath], shell=True)
+
+        if platform == "linux":
+            print ("LINUX")
+            print ("DWG file path: ", dwgfilepath)
+            print ("DXF file path: ", dxffilepath_linux)
+            subprocess.call([dwg2dxf_linux + ' ' + parameters + ' ' + dxffilepath_linux + ' ' + dwgfilepath], shell=True, stderr=subprocess.PIPE, stdout=subprocess.PIPE)
+
     def returnSVG(self):
         f = open('data/returned/footer.svg', 'x')
         f.write(str(self.DWG))

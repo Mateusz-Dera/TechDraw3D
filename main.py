@@ -20,15 +20,21 @@ if __name__ == '__main__':
     parser = argparser.make_parser()
     args = parser.parse_args()
     
-    # print(args)
+    if not args.dwg2svg and not args.dwg2dxf:
+        print("No arguments.")
+        exit(1)
 
-    # Uruchomienie funkcji konwertującej dwg2svg.
-    dwg = DWGInput()
-    dwg.dwg2svg_converter(args.file.name)
+    if args.dwg2svg:
+        dwg = DWGInput()
+        dwg.dwg2svg_converter(args.dwg2svg.name)
+
+    if args.dwg2dxf:
+        dwg = DWGInput()
+        dwg.dwg2dxf_converter(args.dwg2dxf.name)      
 
     # Obsługa SVG
 
-    svgObj = SVG()
-    res = svgObj.create_svg_object("assets/svg/iw.svg", kwargs={'logger': _logger})
-    a, b, c = svgObj.parse_svg_dict(res)
+    # svgObj = SVG()
+    # res = svgObj.create_svg_object("assets/svg/iw.svg", kwargs={'logger': _logger})
+    # a, b, c = svgObj.parse_svg_dict(res)
 

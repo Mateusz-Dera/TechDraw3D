@@ -9,5 +9,7 @@ def make_parser():
     parser = argparse.ArgumentParser(prog = "TechDraw3D")
     parser.description = "Aplikacja przetwarzająca wybrane formaty rysunków technicznych do modelu 3D."
 
-    parser.add_argument('-f', '--file', help="DWG file", type=argparse.FileType('r'), required=True)
+    parser.add_argument('-dwg2svg', '--dwg2svg', help="Konwersja pliku DWG na SVG.", type=argparse.FileType('r'), required=False)
+    parser.add_argument('-dwg2dxf', '--dwg2dxf', help="Konwersja pliku DWG na DXF.", type=argparse.FileType('r'), required=False)
+
     return parser
