@@ -1,6 +1,7 @@
 # Libs
 import logging
 import runpy
+import subprocess
 
 # My modules
 from libs.extruder.svg import SVG
@@ -22,7 +23,7 @@ if __name__ == '__main__':
     parser = argparser.make_parser()
     args = parser.parse_args()
     
-    if not args.dwg2svg and not args.dwg2dxf and not args.viewobj and not args.dxf2svg:
+    if not args.dwg2svg and not args.dwg2dxf and not args.viewobj and not args.dxf2svg and not args.makeobj:
         print("No arguments.")
         exit(1)
 
@@ -37,6 +38,9 @@ if __name__ == '__main__':
     if args.dxf2svg:
         dxf = DXFInput()
         dxf.dxf2svg_converter(args.dxf2svg.name)
+
+    if args.makeobj:
+        subprocess.call([r'.\testrun.bat'])
 
     if args.viewobj:
         runpy.run_path(path_name='./libs/base/obj_viewer.py')
