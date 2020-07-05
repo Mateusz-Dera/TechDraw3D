@@ -11,6 +11,7 @@ def make_parser():
 
     parser.add_argument('-dwg2svg', '--dwg2svg', help="Konwersja pliku DWG na SVG.", type=argparse.FileType('r'), required=False)
     parser.add_argument('-dwg2dxf', '--dwg2dxf', help="Konwersja pliku DWG na DXF.", type=argparse.FileType('r'), required=False)
+    parser.add_argument('-dxf2svg', '--dxf2svg', help="Konwersja pliku DXF na SVG", type=argparse.FileType('r'), required=False)
     parser.add_argument('-viewobj', '--viewobj', help="Podgląd pliku OBJ.", type=argparse.FileType('r'), required=False)
 
     return parser

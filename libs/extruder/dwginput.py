@@ -3,6 +3,7 @@ from sys import platform
 import logging
 import subprocess
 import os.path
+from libs.base import makepath
 
 # My modules
 from svgpathtools import svg2paths, svg2paths2, wsvg
@@ -12,14 +13,6 @@ _logger = logging.getLogger(__name__)
 class DWGInput():
     DWG = ""
 
-    # Funkcja zwracająca ścieżkę absolutną.
-    def make_path(self, p):
-        p = os.path.expanduser(p)
-        p = os.path.normpath(p)
-        p = os.path.realpath(p)
-        p = os.path.abspath(p)
-        return p
-
     # Wrapper do LibreDWG / dwg2SVG.
     def dwg2svg_converter(self, name):
 
@@ -27,7 +20,7 @@ class DWGInput():
         dwg2svg_linux = "dwg2SVG"
         parameters = "--mspace"
 
-        dwgfilepath = self.make_path(name)
+        dwgfilepath = makepath.make_path(name)
         svgfilepath_windows = ".\\assets\\svg\\" + os.path.basename(dwgfilepath)[:-4] + ".svg"
         svgfilepath_linux = "./assets/svg/" + os.path.basename(dwgfilepath)[:-4] + ".svg"
 
@@ -50,12 +43,12 @@ class DWGInput():
     
     def dwg2dxf_converter(self, name):
 
-        dwg2dxf_windows = self.make_path(".\\tools\\LibreDWG\\dwg2dxf.exe")
+        dwg2dxf_windows = makepath.make_path(".\\tools\\LibreDWG\\dwg2dxf.exe")
         dwg2dxf_linux = "dwg2dxf"
         parameters = "-m"
 
-        dwgfilepath = self.make_path(name)
-        dxffilepath_windows = self.make_path(".\\assets\\dxf\\") + "\\" + os.path.basename(dwgfilepath)[:-4] + ".dxf"
+        dwgfilepath = makepath.make_path(name)
+        dxffilepath_windows = makepath.make_path(".\\assets\\dxf\\") + "\\" + os.path.basename(dwgfilepath)[:-4] + ".dxf"
         dxffilepath_linux = "./assets/dxf/" + os.path.basename(dwgfilepath)[:-4] + ".dxf"
 
         # Wybór platformy.

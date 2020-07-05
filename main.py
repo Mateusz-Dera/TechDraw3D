@@ -5,6 +5,7 @@ import runpy
 # My modules
 from libs.extruder.svg import SVG
 from libs.extruder.dwginput import DWGInput
+from libs.extruder.dxfinput import DXFInput
 from libs.base import logger, args, argparser
 from libs.base.argparser import *
 
@@ -21,7 +22,7 @@ if __name__ == '__main__':
     parser = argparser.make_parser()
     args = parser.parse_args()
     
-    if not args.dwg2svg and not args.dwg2dxf and not args.viewobj:
+    if not args.dwg2svg and not args.dwg2dxf and not args.viewobj and not args.dxf2svg:
         print("No arguments.")
         exit(1)
 
@@ -32,6 +33,10 @@ if __name__ == '__main__':
     if args.dwg2dxf:
         dwg = DWGInput()
         dwg.dwg2dxf_converter(args.dwg2dxf.name)      
+
+    if args.dxf2svg:
+        dxf = DXFInput()
+        dxf.dxf2svg_converter(args.dxf2svg.name)
 
     if args.viewobj:
         runpy.run_path(path_name='./libs/base/obj_viewer.py')
