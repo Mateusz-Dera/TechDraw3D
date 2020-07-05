@@ -34,7 +34,7 @@ if __name__ == '__main__':
         dwg.dwg2dxf_converter(args.dwg2dxf.name)      
 
     if args.viewobj:
-        runpy.run_path(path_name='obj_viewer.py')
+        runpy.run_path(path_name='./libs/base/obj_viewer.py')
 
     # Obsługa SVG
 
