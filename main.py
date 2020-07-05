@@ -1,5 +1,6 @@
 # Libs
 import logging
+import runpy
 
 # My modules
 from libs.extruder.svg import SVG
@@ -20,7 +21,7 @@ if __name__ == '__main__':
     parser = argparser.make_parser()
     args = parser.parse_args()
     
-    if not args.dwg2svg and not args.dwg2dxf:
+    if not args.dwg2svg and not args.dwg2dxf and not args.viewobj:
         print("No arguments.")
         exit(1)
 
@@ -31,6 +32,9 @@ if __name__ == '__main__':
     if args.dwg2dxf:
         dwg = DWGInput()
         dwg.dwg2dxf_converter(args.dwg2dxf.name)      
+
+    if args.viewobj:
+        runpy.run_path(path_name='obj_viewer.py')
 
     # Obsługa SVG
 

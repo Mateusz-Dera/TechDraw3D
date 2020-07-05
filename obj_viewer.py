@@ -7,7 +7,7 @@ if len(sys.argv) == 1:
     print("Brak argumentów. Podaj ścieżkę do pliku .obj.")
     exit(1)
 
-filename = sys.argv[1]
+filename = sys.argv[2]
 
 # Wyszukiwanie "body name" pliku obj.
 def get_body_name(file):
