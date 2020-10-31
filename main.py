@@ -1,4 +1,5 @@
 # Libs
+from sys import platform
 import logging
 import runpy
 import subprocess
@@ -19,6 +20,7 @@ if __name__ == '__main__':
 
 
     # Uruchomienie parsera argumentów.
+    # NOTE: Dla linuxa aby skonwertować DWG na SVG trzeba dokonać następujących konswersji: DWG->DXF->SVG
     parser = argparser.make_parser()
     args = parser.parse_args()
     
@@ -39,7 +41,11 @@ if __name__ == '__main__':
         dxf.dxf2svg_converter(args.dxf2svg.name)
 
     if args.makeobj:
-        subprocess.call([r'.\faceplacer.bat'])
+        if platform == "win32":
+            subprocess.call([r'.\faceplacer.bat'])
+        if platform == "linux":
+            #TODO: tymczasowo uruchamiany powinien być plik faceplecer_runner.py z katalogu libs/faceplecer/
+            pass
 
     if args.viewobj:
         runpy.run_path(path_name='./libs/base/obj_viewer.py')
