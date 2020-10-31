@@ -64,7 +64,7 @@ class DWGInput():
             print ("LINUX")
             print ("DWG file path: ", dwgfilepath)
             print ("DXF file path: ", dxffilepath_linux)
-            subprocess.call([dwg2dxf_linux + ' ' + parameters + ' ' + dxffilepath_linux + ' ' + dwgfilepath], shell=True, stderr=subprocess.PIPE, stdout=subprocess.PIPE)
+            subprocess.call([dwg2dxf_linux + ' ' + parameter1 + ' ' + parameter2 + ' ' + dxffilepath_linux + ' ' + dwgfilepath], shell=True, stderr=subprocess.PIPE, stdout=subprocess.PIPE)
 
     def returnSVG(self):
         f = open('data/returned/footer.svg', 'x')
