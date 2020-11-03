@@ -127,3 +127,27 @@ dmypy.json
 
 # Pyre type checker
 .pyre/
+assets/obj/temp/faces/front.mtl
+assets/obj/temp/faces/front.obj
+assets/obj/temp/faces/right.mtl
+assets/obj/temp/faces/right.obj
+assets/obj/temp/faces/top.mtl
+assets/obj/temp/faces/top.obj
+assets/obj/temp/meshes/front.mtl
+assets/obj/temp/meshes/front.obj
+assets/obj/temp/meshes/right.mtl
+assets/obj/temp/meshes/right.obj
+assets/obj/temp/meshes/top.mtl
+assets/obj/temp/meshes/top.obj
+assets/obj/temp2222/faces/front.mtl
+assets/obj/temp2222/faces/front.obj
+assets/obj/temp2222/faces/right.mtl
+assets/obj/temp2222/faces/right.obj
+assets/obj/temp2222/faces/top.mtl
+assets/obj/temp2222/faces/top.obj
+assets/obj/temp2222/meshes/front.mtl
+assets/obj/temp2222/meshes/front.obj
+assets/obj/temp2222/meshes/right.mtl
+assets/obj/temp2222/meshes/right.obj
+assets/obj/temp2222/meshes/top.mtl
+assets/obj/temp2222/meshes/top.obj
