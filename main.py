@@ -24,7 +24,7 @@ if __name__ == '__main__':
     parser = argparser.make_parser()
     args = parser.parse_args()
     
-    if not args.dwg2svg and not args.dwg2dxf and not args.viewobj and not args.dxf2svg and not args.makeobj:
+    if not args.dwg2svg and not args.dwg2dxf and not args.viewobj and not args.dxf2svg and not args.make_walls and not args.makeobj and not args.do_all:
         print("No arguments.")
         exit(1)
 
@@ -40,6 +40,11 @@ if __name__ == '__main__':
         dxf = DXFInput()
         dxf.dxf2svg_converter(args.dxf2svg.name)
 
+    if args.make_walls:
+        svg = SVG(args.make_walls.name)
+        svg.split_svg()
+        svg.save_walls()
+
     if args.makeobj:
         if platform == "win32":
             subprocess.call([r'.\faceplacer.bat'])
@@ -49,6 +54,12 @@ if __name__ == '__main__':
 
     if args.viewobj:
         runpy.run_path(path_name='./libs/base/obj_viewer.py')
+
+    if args.do_all:
+        if platform == "win32":
+            subprocess.call([r'.\faceplacer.bat'])
+        if platform == "linux":
+            pass
 
     # Obsługa SVG
 
