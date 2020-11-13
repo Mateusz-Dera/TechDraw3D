@@ -2,7 +2,7 @@
 import logging
 
 # My modules
-from svgpathtools import svg2paths, svg2paths2, wsvg
+from svgpathtools import svg2paths, svg2paths2, wsvg, paths2svg
 
 
 _logger = logging.getLogger(__name__)
@@ -21,8 +21,21 @@ class SVG():
         # TODO: docstring classy
         # TODO: Obsługa pliku wczytywanego z systemu jak i np STRINGIO (imitacja pliku jako bufora IO)
 
-        self.paths, self.attributes = svg2paths('./assets/svg/P003.svg')
+        self.paths, self.attributes = svg2paths(svg)
         self.svg_xy_center = {"x": 0, "y": 0}
+
+    def _format_float(self, f):
+        return '{:f}'.format(f).rstrip('0').rstrip('.')
+
+    def _center_viewport(self, paths):
+        (xmin, xmax, ymin, ymax) = paths2svg.big_bounding_box(paths)
+        width = xmax - xmin
+        height = ymax - ymin
+
+        svg_attributes = {}
+        svg_attributes['viewBox'] = ' '.join(map(self._format_float, (xmin, ymin, width, height)))
+
+        return svg_attributes
 
     def split_svg(self):
         # Kopia listy wektorów do pracy lokalnej
@@ -46,7 +59,7 @@ class SVG():
         
         for path in self.paths:
             if path.start.real < self.svg_xy_center['x'] and path.start.imag > self.svg_xy_center['y']:
-                self.svg_top .append(path)
+                self.svg_top.append(path)
             elif path.start.real > self.svg_xy_center['x'] and path.start.imag > self.svg_xy_center['y']:
                 self.svg_3d.append(path)
             elif path.start.real > self.svg_xy_center['x'] and path.start.imag < self.svg_xy_center['y']:
@@ -55,11 +68,10 @@ class SVG():
                 self.svg_front.append(path)
 
     def save_walls(self):
-        wsvg(paths=self.svg_front, filename="./assets/svg/temp/walls/front.svg")
-        wsvg(paths=self.svg_right, filename="./assets/svg/temp/walls/right.svg")
-        wsvg(paths=self.svg_top, filename="./assets/svg/temp/walls/top.svg")
-        wsvg(paths=self.svg_3d, filename="./assets/svg/temp/walls/svg3d.svg")
-
+        wsvg(paths=self.svg_front, svg_attributes=self._center_viewport(self.svg_front), filename="./assets/svg/temp/walls/front.svg")
+        wsvg(paths=self.svg_right, svg_attributes=self._center_viewport(self.svg_right), filename="./assets/svg/temp/walls/right.svg")
+        wsvg(paths=self.svg_top, svg_attributes=self._center_viewport(self.svg_top), filename="./assets/svg/temp/walls/top.svg")
+        wsvg(paths=self.svg_3d, svg_attributes=self._center_viewport(self.svg_3d), filename="./assets/svg/temp/walls/svg3d.svg")
 
     # def __create_svg_dict(self, paths, attributes, context = None, **kwargs):
     #     # ctx = {'file': file, 'type': type }
