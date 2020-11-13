@@ -42,6 +42,17 @@ def main():
                              main_menu_style,
                              cycle_cursor=True,
                              clear_screen=True)
+
+    about_menu_title = "\n"
+    about_menu_items = ["Powrót"]
+    about_menu_back = False
+    about_menu = TerminalMenu(about_menu_items,
+                             about_menu_title,
+                             main_menu_cursor,
+                             main_menu_cursor_style,
+                             main_menu_style,
+                             cycle_cursor=True,
+                             clear_screen=False)
 # /home/jschwarz/Projekty/Prywatne/TechDraw3D/assets/dwg/P001.dwg
 # /home/jschwarz/Projekty/Prywatne/TechDraw3D/assets/dwg
     while not main_menu_exit:
@@ -111,8 +122,24 @@ def main():
 
             time.sleep(5)
         elif main_sel == 2:
-            print("O programie")
-            time.sleep(5)
+            while not about_menu_back:
+                print(chr(27)+'[2j')
+                print('\033c')
+                print('\x1bc')
+                
+                print("""
+TechDraw3D
+Wersja: 0.1
+
+Autorzy:
+Tomasz Nowak
+Mateusz Dera
+Jakub Schwarz
+
+2020""")
+                about_sel = about_menu.show()
+                if about_sel == 0:
+                    about_menu_back = True
         elif main_sel == 3:
             main_menu_exit = True
             print("Dziękujemy za skorzystanie z programu TechDraw3D")
