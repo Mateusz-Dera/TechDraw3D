@@ -18,6 +18,6 @@ def make_parser():
     parser.add_argument('-make_walls', '--make_walls', metavar="plik.svg", help="Rozbicie pliku SVG na ściany", type=argparse.FileType('r'), required=False)
     parser.add_argument('-viewobj', '--viewobj', metavar="plik.obj",help="Podgląd pliku OBJ.", type=argparse.FileType('r'), required=False)
     parser.add_argument('-makeobj', '--makeobj', help="Tworzenie obiektu 3D.", action='store_true', required=False)
-    parser.add_argument('-da', '--do_all', metavar="plik.dwg", help="Tworzenie obiektu 3D z pliku DWG", type=argparse.FileType('r'), required=False)
+    parser.add_argument('-do_all', '--do_all', metavar="plik.dwg", help="Tworzenie obiektu 3D z pliku DWG", type=argparse.FileType('r'), required=False)
 
     return parser

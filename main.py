@@ -9,6 +9,7 @@ from libs.extruder.svg import SVG
 from libs.extruder.dwginput import DWGInput
 from libs.extruder.dxfinput import DXFInput
 from libs.base import logger, args, argparser
+from libs.faceplacer.faceplacer_runner import run_faceplacer as rf
 
 _logger = logging.getLogger(__name__)
 
@@ -49,7 +50,6 @@ if __name__ == '__main__':
         if platform == "win32":
             subprocess.call([r'.\faceplacer.bat'])
         if platform == "linux":
-            #TODO: tymczasowo uruchamiany powinien być plik faceplecer_runner.py z katalogu libs/faceplecer/
             pass
 
     if args.viewobj:
@@ -59,7 +59,16 @@ if __name__ == '__main__':
         if platform == "win32":
             subprocess.call([r'.\faceplacer.bat'])
         if platform == "linux":
-            pass
+            dwg = DWGInput()
+            dxf = DXFInput()
+            dwg.dwg2dxf_converter(args.do_all.name)
+            dxf.dxf2svg_converter(args.do_all.name.replace("dwg", "dxf"))
+
+            svg = SVG(args.do_all.name.replace("dxf", "svg"))
+            svg.split_svg()
+            svg.save_walls()
+
+            rf()
 
     # Obsługa SVG
 
