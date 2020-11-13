@@ -45,7 +45,7 @@ wheel
 # PyMesh dependences
 scipy
 numpy
+# bpy library
 # bpy
-bpy
 # other python packages
 simple-term-menu

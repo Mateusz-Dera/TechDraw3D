@@ -10,6 +10,7 @@ Aplikacja przetwarzająca wybrane formaty rysunków technicznych do modelu 3D or
 
 ## Wymagania
 - python 3.7
+- Blender > 2.80
 
 ## Instalacja
 ### Pierwsze kroki
@@ -35,7 +36,8 @@ git clone https://github.com/Mateusz-Dera/TechDraw3D.git
 ```shell
 pip install -r requirements.txt
 ```
-**Instalacja bibliotek może potrwać nawet około 30 minut z powodu instalacji biblioteki bpy**
+~~**Instalacja bibliotek może potrwać nawet około 30 minut z powodu instalacji biblioteki bpy**~~
+W celu uruchomienia aplikacji należy mieć zainstalowany program Blender w wersji wyższej niż 2.80
 
 2. Po instalacji bibliotek dla pythona wraz z biblioteką bpy, nastąpił czas na instalację biblioteki PyMesh, która wymaga ręcznej kompilacji.
 
