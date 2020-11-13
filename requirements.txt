@@ -1,0 +1,51 @@
+# bpy dependences
+astroid
+bleach
+bpy-build
+certifi
+chardet
+cmake
+cmake-generators
+colorama
+docutils
+future-fstrings
+gitdb
+GitPython
+idna
+importlib-metadata
+isort
+keyring
+lazy-object-proxy
+mccabe
+nose
+packaging
+pkginfo
+Pygments
+pylint
+pyparsing
+python-dateutil
+pywin32-ctypes
+readme-renderer
+requests
+requests-toolbelt
+rope
+six
+scikit-build
+smmap
+svn
+toml
+tqdm
+twine
+typed-ast
+urllib3
+webencodings
+wrapt
+zipp
+wheel
+# PyMesh dependences
+scipy
+numpy
+# bpy
+bpy
+# other python packages
+simple-term-menu
