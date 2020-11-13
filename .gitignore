@@ -151,3 +151,6 @@ assets/obj/temp2222/meshes/right.mtl
 assets/obj/temp2222/meshes/right.obj
 assets/obj/temp2222/meshes/top.mtl
 assets/obj/temp2222/meshes/top.obj
+.vscode/settings.json
+Pipfile.lock
+Pipfile
