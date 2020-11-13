@@ -45,7 +45,7 @@ def run_faceplacer():
 
     if meshes_exist[5] == True:
         back = pymesh.load_mesh(meshes_path[5])
-        print("front")
+        print("back")
 
     a = None
     b = None
@@ -80,8 +80,6 @@ def run_faceplacer():
 
     if a == None and b != None and c != None:
         output_mesh = pymesh.boolean(b, c, operation="intersection")
-
-    import pdb; pdb.set_trace()
 
     pymesh.save_mesh("./assets/obj/export/export.obj", output_mesh, ascii=True);
 

@@ -123,8 +123,8 @@ def main():
                 dxf = DXFInput()
                 dwg.dwg2dxf_converter(file)
                 dxf.dxf2svg_converter(file.replace("dwg", "dxf"))
-
-                svg = SVG(file.replace("dxf", "svg"))
+                
+                svg = SVG(file.replace("dwg", "svg"))
                 svg.split_svg()
                 svg.save_walls()
 
