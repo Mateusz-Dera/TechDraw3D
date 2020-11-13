@@ -19,9 +19,9 @@ import time
 def main():
     main_menu_title = "TechDraw3D\n"
     main_menu_items = ["Konwertuj DWG na inny format", "Konwertuj DWG na obiekt 3D", "O programie", "Wyjście"]
-    main_menu_cursor = "> "
-    main_menu_cursor_style = ("fg_blue", "bold")
-    main_menu_style = ("bg_red", "fg_yellow")
+    main_menu_cursor = "< > "
+    main_menu_cursor_style = ("fg_red", "bg_black")
+    main_menu_style = ("bg_black", "fg_red", "bold")
     main_menu_exit = False
 
     main_menu = TerminalMenu(menu_entries=main_menu_items,
