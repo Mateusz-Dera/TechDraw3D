@@ -14,7 +14,8 @@ faces_path = ('./assets/obj/temp/faces/top.obj','./assets/obj/temp/faces/bottom.
 faces_exist = (path.exists(faces_path[0]), path.exists(faces_path[1]), path.exists(faces_path[2]), path.exists(faces_path[3]), path.exists(faces_path[4]), path.exists(faces_path[5]))
 
 # Czyszczenie sceny ze wszystkich domyślnie ładowanych obiektów
-bpy.ops.wm.read_factory_settings(use_empty=True)
+bpy.ops.object.select_all(action='SELECT')
+bpy.ops.object.delete(use_global=False, confirm=False)
 
 # Sprawdzenie czy istnieją co najmniej 2 rzuty z różnych perspektyw
 x = int(faces_exist[0]) + int(faces_exist[1])
@@ -84,6 +85,8 @@ if faces_exist[5]:
     bpy.data.objects["face5"].rotation_euler = (0, 0, radians(90))
     len_y[3] = bpy.data.objects["face5"].dimensions.z
     len_z[1] = bpy.data.objects["face5"].dimensions.x
+
+print('Koniec obracania')
 
 val_x = max(len_x)
 val_y = max(len_y)

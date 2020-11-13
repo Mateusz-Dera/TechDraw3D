@@ -1,5 +1,5 @@
 # Mateusz Dera
-# 1.0 (Blender 2.82)
+# 1.1 (Blender 2.82)
 # - dodaje głębię do ścian tworząc z nich obiekt 3D
 # - sprawdza czy istnieją co najmniej 2 rzuty z różnych perspektyw 
 # cd C:\TechDraw3D\face_to_mesh\
@@ -14,7 +14,8 @@ faces_path = ('./assets/obj/temp/meshes/top.obj','./assets/obj/temp/meshes/botto
 faces_exist = (path.exists(faces_path[0]), path.exists(faces_path[1]), path.exists(faces_path[2]), path.exists(faces_path[3]), path.exists(faces_path[4]), path.exists(faces_path[5]))
 
 # Czyszczenie sceny ze wszystkich domyślnie ładowanych obiektów
-bpy.ops.wm.read_factory_settings(use_empty=True)
+bpy.ops.object.select_all(action='SELECT')
+bpy.ops.object.delete(use_global=False, confirm=False)
 
 for i in range(0,6):
     if faces_exist[i] == True:
