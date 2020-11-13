@@ -1,5 +1,5 @@
 # Mateusz Dera
-# 1.0 (Blender 2.82)
+# 1.1 (Blender 2.82)
 # "C:\Program Files\Blender Foundation\Blender 2.82\blender.exe" -b --python part0.py
 
 import bpy 
