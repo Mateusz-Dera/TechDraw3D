@@ -21,7 +21,7 @@ sudo dnf install eigen3-devel gmp-devel mpfr-devel boost-devel boost-thread tbb-
 ```
 #####  Ubuntu
 ```shell
-sudo apt install eigen3-devel gmp-devel mpfr-devel boost-devel boost-thread tbb-devel cmake json-devel subversion libpng-devel
+sudo apt install libeigen3-dev libgmp-dev libgmpxx4ldbl libmpfr-dev	libboost-dev libboost-thread-dev libtbb-dev	python3-dev	python3-setuptools python3-numpy python3-scipy python3-nose python3-pip cmake nlohmann-json-dev subversion libpng-dev
 ```
 
 ### Repozytorium TechDraw
