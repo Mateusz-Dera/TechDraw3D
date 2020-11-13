@@ -18,7 +18,7 @@ import time
 
 def main():
     main_menu_title = "TechDraw3D\n"
-    main_menu_items = ["Konwertuj DWG na inny format", "Konwertuj DWG na obiekt 3D", "O programie", "Wyjście"]
+    main_menu_items = ["Konwerter formatów", "Konwertuj DWG na obiekt 3D", "O programie", "Wyjście"]
     main_menu_cursor = "< > "
     main_menu_cursor_style = ("fg_red", "bg_black")
     main_menu_style = ("bg_black", "fg_red", "bold")
@@ -32,8 +32,8 @@ def main():
                              cycle_cursor=True,
                              clear_screen=True)
 
-    edit_menu_title = "Konwertuj DWG na ...\n"
-    edit_menu_items = ["DXF", "SVG", "Powrót do menu głównego"]
+    edit_menu_title = "Konwertuj ...\n"
+    edit_menu_items = ["DWG -> DXF", "DWG -> SVG", "DXF -> SVG", "Powrót do menu głównego"]
     edit_menu_back = False
     edit_menu = TerminalMenu(edit_menu_items,
                              edit_menu_title,
@@ -66,12 +66,12 @@ def main():
                     file = input("Lokalizacja: ")
                     
                     if os.path.isfile(file):
-                        print("Konwertowanie na dxf")
+                        print("Konwertowanie DWG na DXF")
                         dwg = DWGInput()
                         dwg.dwg2dxf_converter(file) 
                         print("Plik dostępny w katalogu: ")
                         print(file.replace("dwg", "dxf"))
-                        time.sleep(5)
+                        time.sleep(10)
                     else: 
                         print("Błędna nazwa pliku!")
                         time.sleep(2)
@@ -82,18 +82,34 @@ def main():
                     file = input("Lokalizacja: ")
                     
                     if os.path.isfile(file):
-                        print("Konwertowanie na dxf")
+                        print("Konwertowanie DWG na SVG")
                         dwg = DWGInput()
                         dxf = DXFInput()
                         dwg.dwg2dxf_converter(file)
                         dxf.dxf2svg_converter(file.replace("dwg", "dxf"))
                         print("Plik dostępny w katalogu: ")
                         print(file.replace("dwg", "svg"))
-                        time.sleep(5)
+                        time.sleep(10)
                     else: 
                         print("Błędna nazwa pliku!")
                         time.sleep(2)
                 elif edit_sel == 2:
+                    print("Podaj lokalizacje pliku np.: /home/dummy_user/plik.dxf")
+                    file = input("Lokalizacja: ")
+                    
+                    if os.path.isfile(file):
+                        print("Konwertowanie DXF na SVG")
+
+                        dxf = DXFInput()
+                        dxf.dxf2svg_converter(file)
+
+                        print("Plik dostępny w katalogu: ")
+                        print(file.replace("dxf", "svg"))
+                        time.sleep(10)
+                    else: 
+                        print("Błędna nazwa pliku!")
+                        time.sleep(2)
+                elif edit_sel == 3:
                     edit_menu_back = True
                     print("Powrót do menu głównego")
             edit_menu_back = False
@@ -127,16 +143,15 @@ def main():
                 print('\033c')
                 print('\x1bc')
                 
-                print("""
-TechDraw3D
-Wersja: 0.1
+                print("""    TechDraw3D
+    Wersja: 0.1
 
-Autorzy:
-Tomasz Nowak
-Mateusz Dera
-Jakub Schwarz
+    Autorzy:
+    Tomasz Nowak
+    Mateusz Dera
+    Jakub Schwarz
 
-2020""")
+    2020""")
                 about_sel = about_menu.show()
                 if about_sel == 0:
                     about_menu_back = True
