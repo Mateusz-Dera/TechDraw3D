@@ -58,7 +58,8 @@ if path.isfile(top_path) == True:
     bpy.ops.mesh.remove_doubles()
     bpy.ops.mesh.edge_face_add()
 
-    #bpy.ops.object.origin_set(type="GEOMETRY_ORIGIN")
+    bpy.ops.object.origin_set(type="GEOMETRY_ORIGIN")
+    
     bpy.ops.export_scene.obj(filepath=export_path+"/" + name + ".obj", check_existing=False, axis_forward='-Z', axis_up='Y', filter_glob="*.obj;*.mtl", use_selection=True, use_animation=False, use_mesh_modifiers=True, use_edges=True, use_smooth_groups=False, use_smooth_groups_bitflags=False, use_normals=True, use_uvs=True, use_materials=True, use_triangles=False, use_nurbs=False, use_vertex_groups=False, use_blen_objects=True, group_by_object=False, group_by_material=False, keep_vertex_order=False, global_scale=1, path_mode='AUTO')
     for item in bpy.data.meshes:
         bpy.data.meshes.remove(item)
@@ -84,7 +85,8 @@ if path.isfile(bottom_path) == True:
     bpy.ops.mesh.remove_doubles()
     bpy.ops.mesh.edge_face_add()
 
-    #bpy.ops.object.origin_set(type="GEOMETRY_ORIGIN")
+    bpy.ops.object.origin_set(type="GEOMETRY_ORIGIN")
+
     bpy.ops.export_scene.obj(filepath=export_path+"/" + name + ".obj", check_existing=False, axis_forward='-Z', axis_up='Y', filter_glob="*.obj;*.mtl", use_selection=True, use_animation=False, use_mesh_modifiers=True, use_edges=True, use_smooth_groups=False, use_smooth_groups_bitflags=False, use_normals=True, use_uvs=True, use_materials=True, use_triangles=False, use_nurbs=False, use_vertex_groups=False, use_blen_objects=True, group_by_object=False, group_by_material=False, keep_vertex_order=False, global_scale=1, path_mode='AUTO')
     for item in bpy.data.meshes:
         bpy.data.meshes.remove(item)
@@ -110,7 +112,8 @@ if path.isfile(left_path) == True:
     bpy.ops.mesh.remove_doubles()
     bpy.ops.mesh.edge_face_add()
 
-    #bpy.ops.object.origin_set(type="GEOMETRY_ORIGIN")
+    bpy.ops.object.origin_set(type="GEOMETRY_ORIGIN")
+
     bpy.ops.export_scene.obj(filepath=export_path+"/" + name + ".obj", check_existing=False, axis_forward='-Z', axis_up='Y', filter_glob="*.obj;*.mtl", use_selection=True, use_animation=False, use_mesh_modifiers=True, use_edges=True, use_smooth_groups=False, use_smooth_groups_bitflags=False, use_normals=True, use_uvs=True, use_materials=True, use_triangles=False, use_nurbs=False, use_vertex_groups=False, use_blen_objects=True, group_by_object=False, group_by_material=False, keep_vertex_order=False, global_scale=1, path_mode='AUTO')
     for item in bpy.data.meshes:
         bpy.data.meshes.remove(item)
@@ -136,7 +139,8 @@ if path.isfile(right_path) == True:
     bpy.ops.mesh.remove_doubles()
     bpy.ops.mesh.edge_face_add()
 
-    #bpy.ops.object.origin_set(type="GEOMETRY_ORIGIN")
+    bpy.ops.object.origin_set(type="GEOMETRY_ORIGIN")
+
     bpy.ops.export_scene.obj(filepath=export_path+"/" + name + ".obj", check_existing=False, axis_forward='-Z', axis_up='Y', filter_glob="*.obj;*.mtl", use_selection=True, use_animation=False, use_mesh_modifiers=True, use_edges=True, use_smooth_groups=False, use_smooth_groups_bitflags=False, use_normals=True, use_uvs=True, use_materials=True, use_triangles=False, use_nurbs=False, use_vertex_groups=False, use_blen_objects=True, group_by_object=False, group_by_material=False, keep_vertex_order=False, global_scale=1, path_mode='AUTO')
     for item in bpy.data.meshes:
         bpy.data.meshes.remove(item)
@@ -162,7 +166,8 @@ if path.isfile(front_path) == True:
     bpy.ops.mesh.remove_doubles()
     bpy.ops.mesh.edge_face_add()
 
-    #bpy.ops.object.origin_set(type="GEOMETRY_ORIGIN")
+    bpy.ops.object.origin_set(type="GEOMETRY_ORIGIN")
+
     bpy.ops.export_scene.obj(filepath=export_path+"/" + name + ".obj", check_existing=False, axis_forward='-Z', axis_up='Y', filter_glob="*.obj;*.mtl", use_selection=True, use_animation=False, use_mesh_modifiers=True, use_edges=True, use_smooth_groups=False, use_smooth_groups_bitflags=False, use_normals=True, use_uvs=True, use_materials=True, use_triangles=False, use_nurbs=False, use_vertex_groups=False, use_blen_objects=True, group_by_object=False, group_by_material=False, keep_vertex_order=False, global_scale=1, path_mode='AUTO')
     for item in bpy.data.meshes:
         bpy.data.meshes.remove(item)
@@ -188,7 +193,8 @@ if path.isfile(back_path) == True:
     bpy.ops.mesh.remove_doubles()
     bpy.ops.mesh.edge_face_add()
 
-    #bpy.ops.object.origin_set(type="GEOMETRY_ORIGIN")
+    bpy.ops.object.origin_set(type="GEOMETRY_ORIGIN")
+
     bpy.ops.export_scene.obj(filepath=export_path+"/" + name + ".obj", check_existing=False, axis_forward='-Z', axis_up='Y', filter_glob="*.obj;*.mtl", use_selection=True, use_animation=False, use_mesh_modifiers=True, use_edges=True, use_smooth_groups=False, use_smooth_groups_bitflags=False, use_normals=True, use_uvs=True, use_materials=True, use_triangles=False, use_nurbs=False, use_vertex_groups=False, use_blen_objects=True, group_by_object=False, group_by_material=False, keep_vertex_order=False, global_scale=1, path_mode='AUTO')
     for item in bpy.data.meshes:
         bpy.data.meshes.remove(item)
