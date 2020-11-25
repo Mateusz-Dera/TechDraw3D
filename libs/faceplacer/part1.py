@@ -113,7 +113,7 @@ if faces_exist[0]:
     modifier = object.modifiers.new(name="Triangulate", type='TRIANGULATE')
     bpy.ops.object.modifier_apply(modifier="Triangulate")
 
-    object.location.z += val_x/2
+    #object.location.z += val_x/2
     bpy.ops.export_scene.obj(filepath="./assets/obj/temp/meshes/top.obj", check_existing=False, axis_forward='-Z', axis_up='Y', filter_glob="*.obj;*.mtl", use_selection=True, use_animation=False, use_mesh_modifiers=True, use_edges=True, use_smooth_groups=False, use_smooth_groups_bitflags=False, use_normals=True, use_uvs=True, use_materials=True, use_triangles=False, use_nurbs=False, use_vertex_groups=False, use_blen_objects=True, group_by_object=False, group_by_material=False, keep_vertex_order=False, global_scale=1, path_mode='AUTO')
 
 if faces_exist[1]:
@@ -132,7 +132,7 @@ if faces_exist[1]:
 
     modifier = object.modifiers.new(name="Triangulate", type='TRIANGULATE')
     bpy.ops.object.modifier_apply(modifier="Triangulate")
-    object.location.z += val_x/2
+    #object.location.z += val_x/2
     bpy.ops.export_scene.obj(filepath="./assets/obj/temp/meshes/bottom.obj", check_existing=False, axis_forward='-Z', axis_up='Y', filter_glob="*.obj;*.mtl", use_selection=True, use_animation=False, use_mesh_modifiers=True, use_edges=True, use_smooth_groups=False, use_smooth_groups_bitflags=False, use_normals=True, use_uvs=True, use_materials=True, use_triangles=False, use_nurbs=False, use_vertex_groups=False, use_blen_objects=True, group_by_object=False, group_by_material=False, keep_vertex_order=False, global_scale=1, path_mode='AUTO')
 
 if faces_exist[2]:
@@ -151,7 +151,7 @@ if faces_exist[2]:
 
     modifier = object.modifiers.new(name="Triangulate", type='TRIANGULATE')
     bpy.ops.object.modifier_apply(modifier="Triangulate")
-    object.location.y += val_y/2
+    #object.location.y += val_y/2
     bpy.ops.export_scene.obj(filepath="./assets/obj/temp/meshes/left.obj", check_existing=False, axis_forward='-Z', axis_up='Y', filter_glob="*.obj;*.mtl", use_selection=True, use_animation=False, use_mesh_modifiers=True, use_edges=True, use_smooth_groups=False, use_smooth_groups_bitflags=False, use_normals=True, use_uvs=True, use_materials=True, use_triangles=False, use_nurbs=False, use_vertex_groups=False, use_blen_objects=True, group_by_object=False, group_by_material=False, keep_vertex_order=False, global_scale=1, path_mode='AUTO')
 
 if faces_exist[3]:
@@ -170,7 +170,7 @@ if faces_exist[3]:
 
     modifier = object.modifiers.new(name="Triangulate", type='TRIANGULATE')
     bpy.ops.object.modifier_apply(modifier="Triangulate")
-    object.location.y += val_y/2
+    #object.location.y += val_y/2
     bpy.ops.export_scene.obj(filepath="./assets/obj/temp/meshes/right.obj", check_existing=False, axis_forward='-Z', axis_up='Y', filter_glob="*.obj;*.mtl", use_selection=True, use_animation=False, use_mesh_modifiers=True, use_edges=True, use_smooth_groups=False, use_smooth_groups_bitflags=False, use_normals=True, use_uvs=True, use_materials=True, use_triangles=False, use_nurbs=False, use_vertex_groups=False, use_blen_objects=True, group_by_object=False, group_by_material=False, keep_vertex_order=False, global_scale=1, path_mode='AUTO')
 
 if faces_exist[4]:
@@ -189,7 +189,7 @@ if faces_exist[4]:
     
     modifier = object.modifiers.new(name="Triangulate", type='TRIANGULATE')
     bpy.ops.object.modifier_apply(modifier="Triangulate")
-    object.location.x -= val_x/2
+    #object.location.x -= val_x/2
     bpy.ops.export_scene.obj(filepath="./assets/obj/temp/meshes/front.obj", check_existing=False, axis_forward='-Z', axis_up='Y', filter_glob="*.obj;*.mtl", use_selection=True, use_animation=False, use_mesh_modifiers=True, use_edges=True, use_smooth_groups=False, use_smooth_groups_bitflags=False, use_normals=True, use_uvs=True, use_materials=True, use_triangles=False, use_nurbs=False, use_vertex_groups=False, use_blen_objects=True, group_by_object=False, group_by_material=False, keep_vertex_order=False, global_scale=1, path_mode='AUTO')
     
 if faces_exist[5]:
@@ -208,6 +208,6 @@ if faces_exist[5]:
     
     modifier = object.modifiers.new(name="Triangulate", type='TRIANGULATE')
     bpy.ops.object.modifier_apply(modifier="Triangulate")
-    object.location.x -= val_x/2
+    #object.location.x -= val_x/2
     bpy.ops.export_scene.obj(filepath="./assets/obj/temp/meshes/back.obj", check_existing=False, axis_forward='-Z', axis_up='Y', filter_glob="*.obj;*.mtl", use_selection=True, use_animation=False, use_mesh_modifiers=True, use_edges=True, use_smooth_groups=False, use_smooth_groups_bitflags=False, use_normals=True, use_uvs=True, use_materials=True, use_triangles=False, use_nurbs=False, use_vertex_groups=False, use_blen_objects=True, group_by_object=False, group_by_material=False, keep_vertex_order=False, global_scale=1, path_mode='AUTO')
     
