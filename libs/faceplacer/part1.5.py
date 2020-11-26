@@ -1,9 +1,4 @@
 # Mateusz Dera
-# 1.1 (Blender 2.82)
-# - dodaje głębię do ścian tworząc z nich obiekt 3D
-# - sprawdza czy istnieją co najmniej 2 rzuty z różnych perspektyw 
-# cd C:\TechDraw3D\face_to_mesh\
-# 'C:\Program Files\Blender Foundation\Blender 2.82\blender.exe' -b --python part1.py
 
 import bpy
 import os.path
@@ -31,75 +26,105 @@ if faces_exist[0]:
     bpy.context.view_layer.objects.active = object
     bpy.ops.object.select_all(action='DESELECT')
     object.select_set(True)
-    modifier = object.modifiers.new(name="Remesh", type='REMESH')
-    bpy.ops.object.modifier_apply(modifier="Remesh")
+
+    modifier = object.modifiers.new(name="Subdivision", type='SUBSURF')
+    modifier.render_levels = 1
+    modifier.render_levels = 0
+    modifier.subdivision_type = 'SIMPLE'
+    bpy.ops.object.modifier_apply(modifier="Subdivision")
+
     modifier = object.modifiers.new(name="Triangulate", type='TRIANGULATE')
     bpy.ops.object.modifier_apply(modifier="Triangulate")
     bpy.ops.transform.resize(value=(100, 100, 100), orient_type='GLOBAL', orient_matrix=((1, 0, 0), (0, 1, 0), (0, 0, 1)), orient_matrix_type='GLOBAL', mirror=True, use_proportional_edit=False, proportional_edit_falloff='SMOOTH', proportional_size=1, use_proportional_connected=False, use_proportional_projected=False)
     bpy.ops.object.origin_set(type="GEOMETRY_ORIGIN")
-    bpy.ops.export_scene.obj(filepath="./assets/obj/temp/meshes/top.obj", check_existing=False, axis_forward='-Z', axis_up='Y', filter_glob="*.obj;*.mtl", use_selection=True, use_animation=False, use_mesh_modifiers=True, use_edges=True, use_smooth_groups=False, use_smooth_groups_bitflags=False, use_normals=True, use_uvs=True, use_materials=True, use_triangles=False, use_nurbs=False, use_vertex_groups=False, use_blen_objects=True, group_by_object=False, group_by_material=False, keep_vertex_order=False, global_scale=1, path_mode='AUTO')
+    bpy.ops.export_scene.obj(filepath="./assets/obj/temp/fixed/top.obj", check_existing=False, axis_forward='-Z', axis_up='Y', filter_glob="*.obj;*.mtl", use_selection=True, use_animation=False, use_mesh_modifiers=True, use_edges=True, use_smooth_groups=False, use_smooth_groups_bitflags=False, use_normals=True, use_uvs=True, use_materials=True, use_triangles=False, use_nurbs=False, use_vertex_groups=False, use_blen_objects=True, group_by_object=False, group_by_material=False, keep_vertex_order=False, global_scale=1, path_mode='AUTO')
 
 if faces_exist[1]:
     object = bpy.data.objects['face1']
     bpy.context.view_layer.objects.active = object
     bpy.ops.object.select_all(action='DESELECT')
     object.select_set(True)
-    modifier = object.modifiers.new(name="Remesh", type='REMESH')
-    bpy.ops.object.modifier_apply(modifier="Remesh")
+
+    modifier = object.modifiers.new(name="Subdivision", type='SUBSURF')
+    modifier.render_levels = 1
+    modifier.render_levels = 0
+    modifier.subdivision_type = 'SIMPLE'
+    bpy.ops.object.modifier_apply(modifier="Subdivision")
+    
     modifier = object.modifiers.new(name="Triangulate", type='TRIANGULATE')
     bpy.ops.object.modifier_apply(modifier="Triangulate")
     bpy.ops.transform.resize(value=(100, 100, 100), orient_type='GLOBAL', orient_matrix=((1, 0, 0), (0, 1, 0), (0, 0, 1)), orient_matrix_type='GLOBAL', mirror=True, use_proportional_edit=False, proportional_edit_falloff='SMOOTH', proportional_size=1, use_proportional_connected=False, use_proportional_projected=False)
     bpy.ops.object.origin_set(type="GEOMETRY_ORIGIN")
-    bpy.ops.export_scene.obj(filepath="./assets/obj/temp/meshes/bottom.obj", check_existing=False, axis_forward='-Z', axis_up='Y', filter_glob="*.obj;*.mtl", use_selection=True, use_animation=False, use_mesh_modifiers=True, use_edges=True, use_smooth_groups=False, use_smooth_groups_bitflags=False, use_normals=True, use_uvs=True, use_materials=True, use_triangles=False, use_nurbs=False, use_vertex_groups=False, use_blen_objects=True, group_by_object=False, group_by_material=False, keep_vertex_order=False, global_scale=1, path_mode='AUTO')
+    bpy.ops.export_scene.obj(filepath="./assets/obj/temp/fixed/bottom.obj", check_existing=False, axis_forward='-Z', axis_up='Y', filter_glob="*.obj;*.mtl", use_selection=True, use_animation=False, use_mesh_modifiers=True, use_edges=True, use_smooth_groups=False, use_smooth_groups_bitflags=False, use_normals=True, use_uvs=True, use_materials=True, use_triangles=False, use_nurbs=False, use_vertex_groups=False, use_blen_objects=True, group_by_object=False, group_by_material=False, keep_vertex_order=False, global_scale=1, path_mode='AUTO')
 
 if faces_exist[2]:
     object = bpy.data.objects['face2']
     bpy.context.view_layer.objects.active = object
     bpy.ops.object.select_all(action='DESELECT')
     object.select_set(True)
-    modifier = object.modifiers.new(name="Remesh", type='REMESH')
-    bpy.ops.object.modifier_apply(modifier="Remesh")
+
+    modifier = object.modifiers.new(name="Subdivision", type='SUBSURF')
+    modifier.render_levels = 1
+    modifier.render_levels = 0
+    modifier.subdivision_type = 'SIMPLE'
+    bpy.ops.object.modifier_apply(modifier="Subdivision")
+
     modifier = object.modifiers.new(name="Triangulate", type='TRIANGULATE')
     bpy.ops.object.modifier_apply(modifier="Triangulate")
     bpy.ops.transform.resize(value=(100, 100, 100), orient_type='GLOBAL', orient_matrix=((1, 0, 0), (0, 1, 0), (0, 0, 1)), orient_matrix_type='GLOBAL', mirror=True, use_proportional_edit=False, proportional_edit_falloff='SMOOTH', proportional_size=1, use_proportional_connected=False, use_proportional_projected=False)
     bpy.ops.object.origin_set(type="GEOMETRY_ORIGIN")
-    bpy.ops.export_scene.obj(filepath="./assets/obj/temp/meshes/left.obj", check_existing=False, axis_forward='-Z', axis_up='Y', filter_glob="*.obj;*.mtl", use_selection=True, use_animation=False, use_mesh_modifiers=True, use_edges=True, use_smooth_groups=False, use_smooth_groups_bitflags=False, use_normals=True, use_uvs=True, use_materials=True, use_triangles=False, use_nurbs=False, use_vertex_groups=False, use_blen_objects=True, group_by_object=False, group_by_material=False, keep_vertex_order=False, global_scale=1, path_mode='AUTO')
+    bpy.ops.export_scene.obj(filepath="./assets/obj/temp/fixed/left.obj", check_existing=False, axis_forward='-Z', axis_up='Y', filter_glob="*.obj;*.mtl", use_selection=True, use_animation=False, use_mesh_modifiers=True, use_edges=True, use_smooth_groups=False, use_smooth_groups_bitflags=False, use_normals=True, use_uvs=True, use_materials=True, use_triangles=False, use_nurbs=False, use_vertex_groups=False, use_blen_objects=True, group_by_object=False, group_by_material=False, keep_vertex_order=False, global_scale=1, path_mode='AUTO')
 
 if faces_exist[3]:
     object = bpy.data.objects['face3']
     bpy.context.view_layer.objects.active = object
     bpy.ops.object.select_all(action='DESELECT')
     object.select_set(True)
-    modifier = object.modifiers.new(name="Remesh", type='REMESH')
-    bpy.ops.object.modifier_apply(modifier="Remesh")
+
+    modifier = object.modifiers.new(name="Subdivision", type='SUBSURF')
+    modifier.render_levels = 1
+    modifier.render_levels = 0
+    modifier.subdivision_type = 'SIMPLE'
+    bpy.ops.object.modifier_apply(modifier="Subdivision")
+
     modifier = object.modifiers.new(name="Triangulate", type='TRIANGULATE')
     bpy.ops.object.modifier_apply(modifier="Triangulate")
     bpy.ops.transform.resize(value=(100, 100, 100), orient_type='GLOBAL', orient_matrix=((1, 0, 0), (0, 1, 0), (0, 0, 1)), orient_matrix_type='GLOBAL', mirror=True, use_proportional_edit=False, proportional_edit_falloff='SMOOTH', proportional_size=1, use_proportional_connected=False, use_proportional_projected=False)
     bpy.ops.object.origin_set(type="GEOMETRY_ORIGIN")
-    bpy.ops.export_scene.obj(filepath="./assets/obj/temp/meshes/right.obj", check_existing=False, axis_forward='-Z', axis_up='Y', filter_glob="*.obj;*.mtl", use_selection=True, use_animation=False, use_mesh_modifiers=True, use_edges=True, use_smooth_groups=False, use_smooth_groups_bitflags=False, use_normals=True, use_uvs=True, use_materials=True, use_triangles=False, use_nurbs=False, use_vertex_groups=False, use_blen_objects=True, group_by_object=False, group_by_material=False, keep_vertex_order=False, global_scale=1, path_mode='AUTO')
+    bpy.ops.export_scene.obj(filepath="./assets/obj/temp/fixed/right.obj", check_existing=False, axis_forward='-Z', axis_up='Y', filter_glob="*.obj;*.mtl", use_selection=True, use_animation=False, use_mesh_modifiers=True, use_edges=True, use_smooth_groups=False, use_smooth_groups_bitflags=False, use_normals=True, use_uvs=True, use_materials=True, use_triangles=False, use_nurbs=False, use_vertex_groups=False, use_blen_objects=True, group_by_object=False, group_by_material=False, keep_vertex_order=False, global_scale=1, path_mode='AUTO')
 
 if faces_exist[4]:
     object = bpy.data.objects['face4']
     bpy.context.view_layer.objects.active = object
     bpy.ops.object.select_all(action='DESELECT')
     object.select_set(True)
-    modifier = object.modifiers.new(name="Remesh", type='REMESH')
-    bpy.ops.object.modifier_apply(modifier="Remesh")
+
+    modifier = object.modifiers.new(name="Subdivision", type='SUBSURF')
+    modifier.render_levels = 1
+    modifier.render_levels = 0
+    modifier.subdivision_type = 'SIMPLE'
+    bpy.ops.object.modifier_apply(modifier="Subdivision")
+
     modifier = object.modifiers.new(name="Triangulate", type='TRIANGULATE')
     bpy.ops.object.modifier_apply(modifier="Triangulate")
     bpy.ops.transform.resize(value=(100, 100, 100), orient_type='GLOBAL', orient_matrix=((1, 0, 0), (0, 1, 0), (0, 0, 1)), orient_matrix_type='GLOBAL', mirror=True, use_proportional_edit=False, proportional_edit_falloff='SMOOTH', proportional_size=1, use_proportional_connected=False, use_proportional_projected=False)
     bpy.ops.object.origin_set(type="GEOMETRY_ORIGIN")
-    bpy.ops.export_scene.obj(filepath="./assets/obj/temp/meshes/front.obj", check_existing=False, axis_forward='-Z', axis_up='Y', filter_glob="*.obj;*.mtl", use_selection=True, use_animation=False, use_mesh_modifiers=True, use_edges=True, use_smooth_groups=False, use_smooth_groups_bitflags=False, use_normals=True, use_uvs=True, use_materials=True, use_triangles=False, use_nurbs=False, use_vertex_groups=False, use_blen_objects=True, group_by_object=False, group_by_material=False, keep_vertex_order=False, global_scale=1, path_mode='AUTO')
+    bpy.ops.export_scene.obj(filepath="./assets/obj/temp/fixed/front.obj", check_existing=False, axis_forward='-Z', axis_up='Y', filter_glob="*.obj;*.mtl", use_selection=True, use_animation=False, use_mesh_modifiers=True, use_edges=True, use_smooth_groups=False, use_smooth_groups_bitflags=False, use_normals=True, use_uvs=True, use_materials=True, use_triangles=False, use_nurbs=False, use_vertex_groups=False, use_blen_objects=True, group_by_object=False, group_by_material=False, keep_vertex_order=False, global_scale=1, path_mode='AUTO')
 
 if faces_exist[5]:
     object = bpy.data.objects['face5']
     bpy.context.view_layer.objects.active = object
     bpy.ops.object.select_all(action='DESELECT')
     object.select_set(True)
-    modifier = object.modifiers.new(name="Remesh", type='REMESH')
-    bpy.ops.object.modifier_apply(modifier="Remesh")
+
+    modifier = object.modifiers.new(name="Subdivision", type='SUBSURF')
+    modifier.render_levels = 1
+    modifier.render_levels = 0
+    modifier.subdivision_type = 'SIMPLE'
+    bpy.ops.object.modifier_apply(modifier="Subdivision")
+    
     modifier = object.modifiers.new(name="Triangulate", type='TRIANGULATE')
     bpy.ops.object.modifier_apply(modifier="Triangulate")
     bpy.ops.transform.resize(value=(100, 100, 100), orient_type='GLOBAL', orient_matrix=((1, 0, 0), (0, 1, 0), (0, 0, 1)), orient_matrix_type='GLOBAL', mirror=True, use_proportional_edit=False, proportional_edit_falloff='SMOOTH', proportional_size=1, use_proportional_connected=False, use_proportional_projected=False)
     bpy.ops.object.origin_set(type="GEOMETRY_ORIGIN")
-    bpy.ops.export_scene.obj(filepath="./assets/obj/temp/meshes/back.obj", check_existing=False, axis_forward='-Z', axis_up='Y', filter_glob="*.obj;*.mtl", use_selection=True, use_animation=False, use_mesh_modifiers=True, use_edges=True, use_smooth_groups=False, use_smooth_groups_bitflags=False, use_normals=True, use_uvs=True, use_materials=True, use_triangles=False, use_nurbs=False, use_vertex_groups=False, use_blen_objects=True, group_by_object=False, group_by_material=False, keep_vertex_order=False, global_scale=1, path_mode='AUTO')
+    bpy.ops.export_scene.obj(filepath="./assets/obj/temp/fixed/back.obj", check_existing=False, axis_forward='-Z', axis_up='Y', filter_glob="*.obj;*.mtl", use_selection=True, use_animation=False, use_mesh_modifiers=True, use_edges=True, use_smooth_groups=False, use_smooth_groups_bitflags=False, use_normals=True, use_uvs=True, use_materials=True, use_triangles=False, use_nurbs=False, use_vertex_groups=False, use_blen_objects=True, group_by_object=False, group_by_material=False, keep_vertex_order=False, global_scale=1, path_mode='AUTO')

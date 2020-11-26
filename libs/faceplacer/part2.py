@@ -5,8 +5,15 @@ import os.path
 from os import path
 import pymesh
 
-meshes_path = ('./assets/obj/temp/meshes/top.obj','./assets/obj/temp/meshes/bottom.obj','./assets/obj/temp/meshes/left.obj','./assets/obj/temp/meshes/right.obj','./assets/obj/temp/meshes/front.obj','./assets/obj/temp/meshes/back.obj')
+meshes_path = ('./assets/obj/temp/fixed/top.obj','./assets/obj/temp/fixed/bottom.obj','./assets/obj/temp/fixed/left.obj','./assets/obj/temp/fixed/right.obj','./assets/obj/temp/fixed/front.obj','./assets/obj/temp/fixed/back.obj')
 meshes_exist = (path.exists(meshes_path[0]), path.exists(meshes_path[1]), path.exists(meshes_path[2]), path.exists(meshes_path[3]), path.exists(meshes_path[4]), path.exists(meshes_path[5]))
+
+top = None
+bottom = None
+right = None
+left =None
+front = None
+back = None
 
 if meshes_exist[0] == True:
     top = pymesh.load_mesh(meshes_path[0])
@@ -70,3 +77,5 @@ pymesh.save_mesh("./assets/obj/export/export.obj", output_mesh, ascii=True);
 
 with open('./assets/obj/export/export.obj', 'r') as original: data = original.read()
 with open('./assets/obj/export/export.obj', 'w') as modified: modified.write("o Export\n" + data)
+
+print('Koniec')
