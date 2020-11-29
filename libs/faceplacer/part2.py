@@ -35,6 +35,7 @@ if faces_exist[0]:
 
     modifier = object.modifiers.new(name="Triangulate", type='TRIANGULATE')
     bpy.ops.object.modifier_apply(modifier="Triangulate")
+
     bpy.ops.transform.resize(value=(100, 100, 100), orient_type='GLOBAL', orient_matrix=((1, 0, 0), (0, 1, 0), (0, 0, 1)), orient_matrix_type='GLOBAL', mirror=True, use_proportional_edit=False, proportional_edit_falloff='SMOOTH', proportional_size=1, use_proportional_connected=False, use_proportional_projected=False)
     bpy.ops.object.origin_set(type="GEOMETRY_ORIGIN")
     
@@ -42,6 +43,11 @@ if faces_exist[0]:
     modifier.mode = 'BLOCKS'
     bpy.ops.object.modifier_apply(modifier="Remesh")
     
+    modifier = object.modifiers.new(name="Triangulate", type='TRIANGULATE')
+    bpy.ops.object.modifier_apply(modifier="Triangulate")    
+
+    bpy.ops.transform.rotate(value=1.5708, orient_axis='X', orient_type='GLOBAL', orient_matrix=((1, 0, 0), (0, 1, 0), (0, 0, 1)), orient_matrix_type='GLOBAL', constraint_axis=(True, False, False), mirror=True, use_proportional_edit=False, proportional_edit_falloff='SMOOTH', proportional_size=1, use_proportional_connected=False, use_proportional_projected=False)
+
     bpy.ops.export_scene.obj(filepath="./assets/obj/temp/fixed1/top.obj", check_existing=False, axis_forward='-Z', axis_up='Y', filter_glob="*.obj;*.mtl", use_selection=True, use_animation=False, use_mesh_modifiers=True, use_edges=True, use_smooth_groups=False, use_smooth_groups_bitflags=False, use_normals=True, use_uvs=True, use_materials=True, use_triangles=False, use_nurbs=False, use_vertex_groups=False, use_blen_objects=True, group_by_object=False, group_by_material=False, keep_vertex_order=False, global_scale=1, path_mode='AUTO')
 
 if faces_exist[1]:
@@ -58,12 +64,18 @@ if faces_exist[1]:
     
     modifier = object.modifiers.new(name="Triangulate", type='TRIANGULATE')
     bpy.ops.object.modifier_apply(modifier="Triangulate")
+
     bpy.ops.transform.resize(value=(100, 100, 100), orient_type='GLOBAL', orient_matrix=((1, 0, 0), (0, 1, 0), (0, 0, 1)), orient_matrix_type='GLOBAL', mirror=True, use_proportional_edit=False, proportional_edit_falloff='SMOOTH', proportional_size=1, use_proportional_connected=False, use_proportional_projected=False)
     bpy.ops.object.origin_set(type="GEOMETRY_ORIGIN")
 
     modifier = object.modifiers.new(name="Remesh", type='REMESH')
     modifier.mode = 'BLOCKS'
     bpy.ops.object.modifier_apply(modifier="Remesh")
+    
+    modifier = object.modifiers.new(name="Triangulate", type='TRIANGULATE')
+    bpy.ops.object.modifier_apply(modifier="Triangulate")
+
+    bpy.ops.transform.rotate(value=1.5708, orient_axis='X', orient_type='GLOBAL', orient_matrix=((1, 0, 0), (0, 1, 0), (0, 0, 1)), orient_matrix_type='GLOBAL', constraint_axis=(True, False, False), mirror=True, use_proportional_edit=False, proportional_edit_falloff='SMOOTH', proportional_size=1, use_proportional_connected=False, use_proportional_projected=False)
 
     bpy.ops.export_scene.obj(filepath="./assets/obj/temp/fixed1/bottom.obj", check_existing=False, axis_forward='-Z', axis_up='Y', filter_glob="*.obj;*.mtl", use_selection=True, use_animation=False, use_mesh_modifiers=True, use_edges=True, use_smooth_groups=False, use_smooth_groups_bitflags=False, use_normals=True, use_uvs=True, use_materials=True, use_triangles=False, use_nurbs=False, use_vertex_groups=False, use_blen_objects=True, group_by_object=False, group_by_material=False, keep_vertex_order=False, global_scale=1, path_mode='AUTO')
 
@@ -81,12 +93,18 @@ if faces_exist[2]:
 
     modifier = object.modifiers.new(name="Triangulate", type='TRIANGULATE')
     bpy.ops.object.modifier_apply(modifier="Triangulate")
+    
     bpy.ops.transform.resize(value=(100, 100, 100), orient_type='GLOBAL', orient_matrix=((1, 0, 0), (0, 1, 0), (0, 0, 1)), orient_matrix_type='GLOBAL', mirror=True, use_proportional_edit=False, proportional_edit_falloff='SMOOTH', proportional_size=1, use_proportional_connected=False, use_proportional_projected=False)
     bpy.ops.object.origin_set(type="GEOMETRY_ORIGIN")
 
     modifier = object.modifiers.new(name="Remesh", type='REMESH')
     modifier.mode = 'BLOCKS'
     bpy.ops.object.modifier_apply(modifier="Remesh")
+    
+    modifier = object.modifiers.new(name="Triangulate", type='TRIANGULATE')
+    bpy.ops.object.modifier_apply(modifier="Triangulate")
+
+    bpy.ops.transform.rotate(value=-1.5708, orient_axis='Y', orient_type='GLOBAL', orient_matrix=((1, 0, 0), (0, 1, 0), (0, 0, 1)), orient_matrix_type='GLOBAL', constraint_axis=(False, True, False), mirror=True, use_proportional_edit=False, proportional_edit_falloff='SMOOTH', proportional_size=1, use_proportional_connected=False, use_proportional_projected=False)
 
     bpy.ops.export_scene.obj(filepath="./assets/obj/temp/fixed1/left.obj", check_existing=False, axis_forward='-Z', axis_up='Y', filter_glob="*.obj;*.mtl", use_selection=True, use_animation=False, use_mesh_modifiers=True, use_edges=True, use_smooth_groups=False, use_smooth_groups_bitflags=False, use_normals=True, use_uvs=True, use_materials=True, use_triangles=False, use_nurbs=False, use_vertex_groups=False, use_blen_objects=True, group_by_object=False, group_by_material=False, keep_vertex_order=False, global_scale=1, path_mode='AUTO')
 
@@ -104,12 +122,18 @@ if faces_exist[3]:
 
     modifier = object.modifiers.new(name="Triangulate", type='TRIANGULATE')
     bpy.ops.object.modifier_apply(modifier="Triangulate")
+    
     bpy.ops.transform.resize(value=(100, 100, 100), orient_type='GLOBAL', orient_matrix=((1, 0, 0), (0, 1, 0), (0, 0, 1)), orient_matrix_type='GLOBAL', mirror=True, use_proportional_edit=False, proportional_edit_falloff='SMOOTH', proportional_size=1, use_proportional_connected=False, use_proportional_projected=False)
     bpy.ops.object.origin_set(type="GEOMETRY_ORIGIN")
 
     modifier = object.modifiers.new(name="Remesh", type='REMESH')
     modifier.mode = 'BLOCKS'
     bpy.ops.object.modifier_apply(modifier="Remesh")
+
+    modifier = object.modifiers.new(name="Triangulate", type='TRIANGULATE')
+    bpy.ops.object.modifier_apply(modifier="Triangulate")
+
+    bpy.ops.transform.rotate(value=-1.5708, orient_axis='Y', orient_type='GLOBAL', orient_matrix=((1, 0, 0), (0, 1, 0), (0, 0, 1)), orient_matrix_type='GLOBAL', constraint_axis=(False, True, False), mirror=True, use_proportional_edit=False, proportional_edit_falloff='SMOOTH', proportional_size=1, use_proportional_connected=False, use_proportional_projected=False)
 
     bpy.ops.export_scene.obj(filepath="./assets/obj/temp/fixed1/right.obj", check_existing=False, axis_forward='-Z', axis_up='Y', filter_glob="*.obj;*.mtl", use_selection=True, use_animation=False, use_mesh_modifiers=True, use_edges=True, use_smooth_groups=False, use_smooth_groups_bitflags=False, use_normals=True, use_uvs=True, use_materials=True, use_triangles=False, use_nurbs=False, use_vertex_groups=False, use_blen_objects=True, group_by_object=False, group_by_material=False, keep_vertex_order=False, global_scale=1, path_mode='AUTO')
 
@@ -127,12 +151,16 @@ if faces_exist[4]:
 
     modifier = object.modifiers.new(name="Triangulate", type='TRIANGULATE')
     bpy.ops.object.modifier_apply(modifier="Triangulate")
+    
     bpy.ops.transform.resize(value=(100, 100, 100), orient_type='GLOBAL', orient_matrix=((1, 0, 0), (0, 1, 0), (0, 0, 1)), orient_matrix_type='GLOBAL', mirror=True, use_proportional_edit=False, proportional_edit_falloff='SMOOTH', proportional_size=1, use_proportional_connected=False, use_proportional_projected=False)
     bpy.ops.object.origin_set(type="GEOMETRY_ORIGIN")
 
     modifier = object.modifiers.new(name="Remesh", type='REMESH')
     modifier.mode = 'BLOCKS'
     bpy.ops.object.modifier_apply(modifier="Remesh")
+    
+    modifier = object.modifiers.new(name="Triangulate", type='TRIANGULATE')
+    bpy.ops.object.modifier_apply(modifier="Triangulate")
 
     bpy.ops.export_scene.obj(filepath="./assets/obj/temp/fixed1/front.obj", check_existing=False, axis_forward='-Z', axis_up='Y', filter_glob="*.obj;*.mtl", use_selection=True, use_animation=False, use_mesh_modifiers=True, use_edges=True, use_smooth_groups=False, use_smooth_groups_bitflags=False, use_normals=True, use_uvs=True, use_materials=True, use_triangles=False, use_nurbs=False, use_vertex_groups=False, use_blen_objects=True, group_by_object=False, group_by_material=False, keep_vertex_order=False, global_scale=1, path_mode='AUTO')
 
@@ -150,11 +178,15 @@ if faces_exist[5]:
     
     modifier = object.modifiers.new(name="Triangulate", type='TRIANGULATE')
     bpy.ops.object.modifier_apply(modifier="Triangulate")
+
     bpy.ops.transform.resize(value=(100, 100, 100), orient_type='GLOBAL', orient_matrix=((1, 0, 0), (0, 1, 0), (0, 0, 1)), orient_matrix_type='GLOBAL', mirror=True, use_proportional_edit=False, proportional_edit_falloff='SMOOTH', proportional_size=1, use_proportional_connected=False, use_proportional_projected=False)
     bpy.ops.object.origin_set(type="GEOMETRY_ORIGIN")
 
     modifier = object.modifiers.new(name="Remesh", type='REMESH')
     modifier.mode = 'BLOCKS'
     bpy.ops.object.modifier_apply(modifier="Remesh")
+    
+    modifier = object.modifiers.new(name="Triangulate", type='TRIANGULATE')
+    bpy.ops.object.modifier_apply(modifier="Triangulate")
 
     bpy.ops.export_scene.obj(filepath="./assets/obj/temp/fixed1/back.obj", check_existing=False, axis_forward='-Z', axis_up='Y', filter_glob="*.obj;*.mtl", use_selection=True, use_animation=False, use_mesh_modifiers=True, use_edges=True, use_smooth_groups=False, use_smooth_groups_bitflags=False, use_normals=True, use_uvs=True, use_materials=True, use_triangles=False, use_nurbs=False, use_vertex_groups=False, use_blen_objects=True, group_by_object=False, group_by_material=False, keep_vertex_order=False, global_scale=1, path_mode='AUTO')

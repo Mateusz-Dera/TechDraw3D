@@ -1,3 +1,5 @@
+#sudo docker run -v "~/libs/faceplacer":/root -it pymesh/pymesh python -c "import os; os.system('python ./part4.py')"
+
 import os.path
 from os import path
 import pymesh
@@ -10,7 +12,7 @@ def make_path(p):
     return p
 
 path = './assets/obj/temp/meshes/'
-save_path = "./assets/obj/temp/fixed1/"
+save_path = "./assets/obj/temp/fixed2/"
 print("Files path: " + str(path))
 
 names = ('top', 'bottom', 'left', 'right', 'front', 'bottom')
@@ -64,23 +66,25 @@ elif back != None:
 
 output_mesh = None
 
-if a != None and b != None and c != None:
-    output_mesh = pymesh.boolean(a, c, operation="intersection")
+output_mesh = pymesh.boolean(a, c , operation="intersection")
 
-if a != None and b != None and c == None:
-    output_mesh = pymesh.boolean(a, b, operation="intersection")
+# if a != None and b != None and c != None:
+#     output_mesh = pymesh.boolean(a, c, operation="intersection")
 
-if a != None and b == None and c != None:
-    output_mesh = pymesh.boolean(a, c, operation="intersection")
+# if a != None and b != None and c == None:
+#     output_mesh = pymesh.boolean(a, b, operation="intersection")
 
-if a == None and b != None and c != None:
-    output_mesh = pymesh.boolean(b, c, operation="intersection")
+# if a != None and b == None and c != None:
+#     output_mesh = pymesh.boolean(a, c, operation="intersection")
 
-print("OK")
+# if a == None and b != None and c != None:
+#     output_mesh = pymesh.boolean(b, c, operation="intersection")
 
-pymesh.save_mesh("./assets/obj/export/export.obj", output_mesh, ascii=True);
+# print("OK")
 
-with open('./assets/obj/export/export.obj', 'r') as original: data = original.read()
-with open('./assets/obj/export/export.obj', 'w') as modified: modified.write("o Export\n" + data)
+# pymesh.save_mesh("./assets/obj/export/export.obj", output_mesh, ascii=True);
+
+# with open('./assets/obj/export/export.obj', 'r') as original: data = original.read()
+# with open('./assets/obj/export/export.obj', 'w') as modified: modified.write("o Export\n" + data)
 
 print('Koniec')

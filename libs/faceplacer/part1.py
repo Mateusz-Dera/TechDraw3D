@@ -141,7 +141,7 @@ if faces_exist[2]:
     bpy.ops.object.select_all(action='DESELECT')
     object.select_set(True)
     modifier = object.modifiers.new(name="Solidify", type='SOLIDIFY')
-    modifier.thickness = val_y/2
+    modifier.thickness = val_x/2
     bpy.ops.object.modifier_apply(modifier="Solidify")
 
     modifier = object.modifiers.new(name="Mirror", type='MIRROR')
@@ -160,7 +160,7 @@ if faces_exist[3]:
     bpy.ops.object.select_all(action='DESELECT')
     object.select_set(True)
     modifier = object.modifiers.new(name="Solidify", type='SOLIDIFY')
-    modifier.thickness = val_y/2
+    modifier.thickness = val_x/2
     bpy.ops.object.modifier_apply(modifier="Solidify")
 
     modifier = object.modifiers.new(name="Mirror", type='MIRROR')
