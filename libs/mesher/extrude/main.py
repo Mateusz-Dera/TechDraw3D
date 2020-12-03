@@ -72,21 +72,25 @@ if faces_exist[1]:
 
 # Left
 if faces_exist[2]:
+    bpy.ops.transform.rotate(value=-1.5708, orient_axis='X', orient_type='GLOBAL', orient_matrix=((1, 0, 0), (0, 1, 0), (0, 0, 1)), orient_matrix_type='GLOBAL', constraint_axis=(True, False, False), mirror=True, use_proportional_edit=False, proportional_edit_falloff='SMOOTH', proportional_size=1, use_proportional_connected=False, use_proportional_projected=False)
     len_x[2] = bpy.data.objects[names[2]].dimensions.x
     len_z[3] = bpy.data.objects[names[2]].dimensions.z
 
 # Right
 if faces_exist[3]:
+    bpy.ops.transform.rotate(value=-1.5708, orient_axis='X', orient_type='GLOBAL', orient_matrix=((1, 0, 0), (0, 1, 0), (0, 0, 1)), orient_matrix_type='GLOBAL', constraint_axis=(True, False, False), mirror=True, use_proportional_edit=False, proportional_edit_falloff='SMOOTH', proportional_size=1, use_proportional_connected=False, use_proportional_projected=False)
     len_x[3] = bpy.data.objects[names[3]].dimensions.x
     len_z[2] = bpy.data.objects[names[3]].dimensions.z
 
 # Front
 if faces_exist[4]:
+    bpy.ops.transform.rotate(value=1.5708, orient_axis='Y', orient_type='GLOBAL', orient_matrix=((1, 0, 0), (0, 1, 0), (0, 0, 1)), orient_matrix_type='GLOBAL', constraint_axis=(False, True, False), mirror=True, use_proportional_edit=False, proportional_edit_falloff='SMOOTH', proportional_size=1, use_proportional_connected=False, use_proportional_projected=False)
     len_y[2] = bpy.data.objects[names[4]].dimensions.z
     len_z[0] = bpy.data.objects[names[4]].dimensions.x
 
 # Back
 if faces_exist[5]:
+    bpy.ops.transform.rotate(value=1.5708, orient_axis='Y', orient_type='GLOBAL', orient_matrix=((1, 0, 0), (0, 1, 0), (0, 0, 1)), orient_matrix_type='GLOBAL', constraint_axis=(False, True, False), mirror=True, use_proportional_edit=False, proportional_edit_falloff='SMOOTH', proportional_size=1, use_proportional_connected=False, use_proportional_projected=False)
     len_y[3] = bpy.data.objects[names[5]].dimensions.z
     len_z[1] = bpy.data.objects[names[5]].dimensions.x
 
