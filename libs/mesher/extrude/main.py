@@ -121,6 +121,15 @@ if faces_exist[0]:
     modifier = object.modifiers.new(name="Triangulate", type='TRIANGULATE')
     bpy.ops.object.modifier_apply(modifier="Triangulate")
 
+    # Switch to edit mode
+    bpy.ops.object.editmode_toggle()
+
+    # Select all edges
+    bpy.ops.mesh.select_all(action='SELECT')
+
+    # Move mesh to center
+    bpy.ops.object.origin_set(type="GEOMETRY_ORIGIN")
+
     #object.location.z += val_x/2
     bpy.ops.export_scene.obj(filepath=str(export_path) + str(names[0]) + '.obj', check_existing=False, axis_forward='-Z', axis_up='Y', filter_glob="*.obj;*.mtl", use_selection=True, use_animation=False, use_mesh_modifiers=True, use_edges=True, use_smooth_groups=False, use_smooth_groups_bitflags=False, use_normals=True, use_uvs=True, use_materials=True, use_triangles=False, use_nurbs=False, use_vertex_groups=False, use_blen_objects=True, group_by_object=False, group_by_material=False, keep_vertex_order=False, global_scale=1, path_mode='AUTO')
 
@@ -140,6 +149,16 @@ if faces_exist[1]:
 
     modifier = object.modifiers.new(name="Triangulate", type='TRIANGULATE')
     bpy.ops.object.modifier_apply(modifier="Triangulate")
+
+    # Switch to edit mode
+    bpy.ops.object.editmode_toggle()
+
+    # Select all edges
+    bpy.ops.mesh.select_all(action='SELECT')
+
+    # Move mesh to center
+    bpy.ops.object.origin_set(type="GEOMETRY_ORIGIN")
+
     #object.location.z += val_x/2
     bpy.ops.export_scene.obj(filepath=str(export_path) + str(names[1]) + '.obj', check_existing=False, axis_forward='-Z', axis_up='Y', filter_glob="*.obj;*.mtl", use_selection=True, use_animation=False, use_mesh_modifiers=True, use_edges=True, use_smooth_groups=False, use_smooth_groups_bitflags=False, use_normals=True, use_uvs=True, use_materials=True, use_triangles=False, use_nurbs=False, use_vertex_groups=False, use_blen_objects=True, group_by_object=False, group_by_material=False, keep_vertex_order=False, global_scale=1, path_mode='AUTO')
 
@@ -159,6 +178,16 @@ if faces_exist[2]:
 
     modifier = object.modifiers.new(name="Triangulate", type='TRIANGULATE')
     bpy.ops.object.modifier_apply(modifier="Triangulate")
+    
+    # Switch to edit mode
+    bpy.ops.object.editmode_toggle()
+
+    # Select all edges
+    bpy.ops.mesh.select_all(action='SELECT')
+
+    # Move mesh to center
+    bpy.ops.object.origin_set(type="GEOMETRY_ORIGIN")
+
     #object.location.y += val_y/2
     bpy.ops.export_scene.obj(filepath=str(export_path) + str(names[2]) + '.obj', check_existing=False, axis_forward='-Z', axis_up='Y', filter_glob="*.obj;*.mtl", use_selection=True, use_animation=False, use_mesh_modifiers=True, use_edges=True, use_smooth_groups=False, use_smooth_groups_bitflags=False, use_normals=True, use_uvs=True, use_materials=True, use_triangles=False, use_nurbs=False, use_vertex_groups=False, use_blen_objects=True, group_by_object=False, group_by_material=False, keep_vertex_order=False, global_scale=1, path_mode='AUTO')
 
@@ -178,6 +207,16 @@ if faces_exist[3]:
 
     modifier = object.modifiers.new(name="Triangulate", type='TRIANGULATE')
     bpy.ops.object.modifier_apply(modifier="Triangulate")
+    
+    # Switch to edit mode
+    bpy.ops.object.editmode_toggle()
+
+    # Select all edges
+    bpy.ops.mesh.select_all(action='SELECT')
+
+    # Move mesh to center
+    bpy.ops.object.origin_set(type="GEOMETRY_ORIGIN")
+
     #object.location.y += val_y/2
     bpy.ops.export_scene.obj(filepath=str(export_path) + str(names[3]) + '.obj', check_existing=False, axis_forward='-Z', axis_up='Y', filter_glob="*.obj;*.mtl", use_selection=True, use_animation=False, use_mesh_modifiers=True, use_edges=True, use_smooth_groups=False, use_smooth_groups_bitflags=False, use_normals=True, use_uvs=True, use_materials=True, use_triangles=False, use_nurbs=False, use_vertex_groups=False, use_blen_objects=True, group_by_object=False, group_by_material=False, keep_vertex_order=False, global_scale=1, path_mode='AUTO')
 
@@ -197,6 +236,16 @@ if faces_exist[4]:
     
     modifier = object.modifiers.new(name="Triangulate", type='TRIANGULATE')
     bpy.ops.object.modifier_apply(modifier="Triangulate")
+    
+    # Switch to edit mode
+    bpy.ops.object.editmode_toggle()
+
+    # Select all edges
+    bpy.ops.mesh.select_all(action='SELECT')
+
+    # Move mesh to center
+    bpy.ops.object.origin_set(type="GEOMETRY_ORIGIN")
+
     #object.location.x -= val_x/2
     bpy.ops.export_scene.obj(filepath=str(export_path) + str(names[4]) + '.obj', check_existing=False, axis_forward='-Z', axis_up='Y', filter_glob="*.obj;*.mtl", use_selection=True, use_animation=False, use_mesh_modifiers=True, use_edges=True, use_smooth_groups=False, use_smooth_groups_bitflags=False, use_normals=True, use_uvs=True, use_materials=True, use_triangles=False, use_nurbs=False, use_vertex_groups=False, use_blen_objects=True, group_by_object=False, group_by_material=False, keep_vertex_order=False, global_scale=1, path_mode='AUTO')
     
@@ -216,6 +265,15 @@ if faces_exist[5]:
     
     modifier = object.modifiers.new(name="Triangulate", type='TRIANGULATE')
     bpy.ops.object.modifier_apply(modifier="Triangulate")
+    
+    # Switch to edit mode
+    bpy.ops.object.editmode_toggle()
+
+    # Select all edges
+    bpy.ops.mesh.select_all(action='SELECT')
+
+    # Move mesh to center
+    bpy.ops.object.origin_set(type="GEOMETRY_ORIGIN")
+    
     #object.location.x -= val_x/2
     bpy.ops.export_scene.obj(filepath=str(export_path) + str(names[5]) + '.obj', check_existing=False, axis_forward='-Z', axis_up='Y', filter_glob="*.obj;*.mtl", use_selection=True, use_animation=False, use_mesh_modifiers=True, use_edges=True, use_smooth_groups=False, use_smooth_groups_bitflags=False, use_normals=True, use_uvs=True, use_materials=True, use_triangles=False, use_nurbs=False, use_vertex_groups=False, use_blen_objects=True, group_by_object=False, group_by_material=False, keep_vertex_order=False, global_scale=1, path_mode='AUTO')
-    
