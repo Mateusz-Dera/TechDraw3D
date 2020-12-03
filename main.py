@@ -9,7 +9,7 @@ from libs.extruder.svg import SVG
 from libs.extruder.dwginput import DWGInput
 from libs.extruder.dxfinput import DXFInput
 from libs.base import logger, args, argparser
-from libs.faceplacer.faceplacer_runner import run_faceplacer as rf
+#from libs.faceplacer.faceplacer_runner import run_faceplacer as rf
 
 _logger = logging.getLogger(__name__)
 
@@ -46,18 +46,19 @@ if __name__ == '__main__':
         svg.split_svg()
         svg.save_walls()
 
-    if args.makeobj:
-        if platform == "win32":
-            subprocess.call([r'.\faceplacer.bat'])
-        if platform == "linux":
-            pass
+    # if args.makeobj:
+    #     if platform == "win32":
+    #         subprocess.call([r'.\faceplacer.bat'])
+    #     if platform == "linux":
+    #         pass
 
     if args.viewobj:
         runpy.run_path(path_name='./libs/base/obj_viewer.py')
 
     if args.do_all:
         if platform == "win32":
-            subprocess.call([r'.\faceplacer.bat'])
+            # subprocess.call([r'.\faceplacer.bat'])
+            pass # <-
         if platform == "linux":
             dwg = DWGInput()
             dxf = DXFInput()

@@ -68,10 +68,10 @@ class SVG():
                 self.svg_front.append(path)
 
     def save_walls(self):
-        wsvg(paths=self.svg_front, svg_attributes=self._center_viewport(self.svg_front), filename="./assets/svg/temp/walls/front.svg")
-        wsvg(paths=self.svg_right, svg_attributes=self._center_viewport(self.svg_right), filename="./assets/svg/temp/walls/right.svg")
-        wsvg(paths=self.svg_top, svg_attributes=self._center_viewport(self.svg_top), filename="./assets/svg/temp/walls/top.svg")
-        wsvg(paths=self.svg_3d, svg_attributes=self._center_viewport(self.svg_3d), filename="./assets/svg/temp/walls/svg3d.svg")
+        wsvg(paths=self.svg_front, svg_attributes=self._center_viewport(self.svg_front), filename="./libs/mesher/face/tmp/front.svg")
+        wsvg(paths=self.svg_right, svg_attributes=self._center_viewport(self.svg_right), filename="./libs/mesher/face/tmp/right.svg")
+        wsvg(paths=self.svg_top, svg_attributes=self._center_viewport(self.svg_top), filename="./libs/mesher/face/tmp/top.svg")
+        #wsvg(paths=self.svg_3d, svg_attributes=self._center_viewport(self.svg_3d), filename="./libs/mesher/face/tmp/svg3d.svg")
 
     # def __create_svg_dict(self, paths, attributes, context = None, **kwargs):
     #     # ctx = {'file': file, 'type': type }
