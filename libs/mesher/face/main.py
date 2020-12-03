@@ -5,7 +5,7 @@ import os
 print("Start")
 
 path = str(sys.argv[3])[:-7] + "tmp/"
-export_path = str(sys.argv[3])[:-7] + "export/"
+export_path = str(sys.argv[3])[:-7] + "../extrude/tmp/"
 
 print("Import path: " + path)
 print("Export path: " + export_path)

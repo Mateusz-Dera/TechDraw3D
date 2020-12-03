@@ -5,7 +5,7 @@ from math import radians
 import sys
 
 path = str(sys.argv[3])[:-7] + "tmp/"
-export_path = str(sys.argv[3])[:-7] + "export/"
+export_path = str(sys.argv[3])[:-7] + "../boolean/tmp/"
 
 print("Import path: " + path)
 print("Export path: " + export_path)
@@ -110,13 +110,13 @@ if faces_exist[0]:
     bpy.ops.object.select_all(action='DESELECT')
     object.select_set(True)
     modifier = object.modifiers.new(name="Solidify", type='SOLIDIFY')
-    modifier.thickness = val_x/2
+    modifier.thickness = val_x
     bpy.ops.object.modifier_apply(modifier="Solidify")
 
-    modifier = object.modifiers.new(name="Mirror", type='MIRROR')
-    modifier.use_axis[0] = False
-    modifier.use_axis[1] = True
-    bpy.ops.object.modifier_apply(modifier="Mirror")
+    # modifier = object.modifiers.new(name="Mirror", type='MIRROR')
+    # modifier.use_axis[0] = False
+    # modifier.use_axis[1] = True
+    # bpy.ops.object.modifier_apply(modifier="Mirror")
 
     modifier = object.modifiers.new(name="Triangulate", type='TRIANGULATE')
     bpy.ops.object.modifier_apply(modifier="Triangulate")
@@ -130,13 +130,13 @@ if faces_exist[1]:
     bpy.ops.object.select_all(action='DESELECT')
     object.select_set(True)
     modifier = object.modifiers.new(name="Solidify", type='SOLIDIFY')
-    modifier.thickness = val_x/2
+    modifier.thickness = val_x
     bpy.ops.object.modifier_apply(modifier="Solidify")
 
-    modifier = object.modifiers.new(name="Mirror", type='MIRROR')
-    modifier.use_axis[0] = False
-    modifier.use_axis[1] = True
-    bpy.ops.object.modifier_apply(modifier="Mirror")
+    # modifier = object.modifiers.new(name="Mirror", type='MIRROR')
+    # modifier.use_axis[0] = False
+    # modifier.use_axis[1] = True
+    # bpy.ops.object.modifier_apply(modifier="Mirror")
 
     modifier = object.modifiers.new(name="Triangulate", type='TRIANGULATE')
     bpy.ops.object.modifier_apply(modifier="Triangulate")
@@ -149,13 +149,13 @@ if faces_exist[2]:
     bpy.ops.object.select_all(action='DESELECT')
     object.select_set(True)
     modifier = object.modifiers.new(name="Solidify", type='SOLIDIFY')
-    modifier.thickness = val_x/2
+    modifier.thickness = val_x
     bpy.ops.object.modifier_apply(modifier="Solidify")
 
-    modifier = object.modifiers.new(name="Mirror", type='MIRROR')
-    modifier.use_axis[0] = False
-    modifier.use_axis[1] = True
-    bpy.ops.object.modifier_apply(modifier="Mirror")
+    # modifier = object.modifiers.new(name="Mirror", type='MIRROR')
+    # modifier.use_axis[0] = False
+    # modifier.use_axis[1] = True
+    # bpy.ops.object.modifier_apply(modifier="Mirror")
 
     modifier = object.modifiers.new(name="Triangulate", type='TRIANGULATE')
     bpy.ops.object.modifier_apply(modifier="Triangulate")
@@ -168,13 +168,13 @@ if faces_exist[3]:
     bpy.ops.object.select_all(action='DESELECT')
     object.select_set(True)
     modifier = object.modifiers.new(name="Solidify", type='SOLIDIFY')
-    modifier.thickness = val_x/2
+    modifier.thickness = val_x
     bpy.ops.object.modifier_apply(modifier="Solidify")
 
-    modifier = object.modifiers.new(name="Mirror", type='MIRROR')
-    modifier.use_axis[0] = False
-    modifier.use_axis[1] = True
-    bpy.ops.object.modifier_apply(modifier="Mirror")
+    # modifier = object.modifiers.new(name="Mirror", type='MIRROR')
+    # modifier.use_axis[0] = False
+    # modifier.use_axis[1] = True
+    # bpy.ops.object.modifier_apply(modifier="Mirror")
 
     modifier = object.modifiers.new(name="Triangulate", type='TRIANGULATE')
     bpy.ops.object.modifier_apply(modifier="Triangulate")
@@ -187,13 +187,13 @@ if faces_exist[4]:
     bpy.ops.object.select_all(action='DESELECT')
     object.select_set(True)
     modifier = object.modifiers.new(name="Solidify", type='SOLIDIFY')
-    modifier.thickness = val_x/2
+    modifier.thickness = val_x
     bpy.ops.object.modifier_apply(modifier="Solidify")
     
-    modifier = object.modifiers.new(name="Mirror", type='MIRROR')
-    modifier.use_axis[0] = False
-    modifier.use_axis[1] = True
-    bpy.ops.object.modifier_apply(modifier="Mirror")
+    # modifier = object.modifiers.new(name="Mirror", type='MIRROR')
+    # modifier.use_axis[0] = False
+    # modifier.use_axis[1] = True
+    # bpy.ops.object.modifier_apply(modifier="Mirror")
     
     modifier = object.modifiers.new(name="Triangulate", type='TRIANGULATE')
     bpy.ops.object.modifier_apply(modifier="Triangulate")
@@ -206,13 +206,13 @@ if faces_exist[5]:
     bpy.ops.object.select_all(action='DESELECT')
     object.select_set(True)
     modifier = object.modifiers.new(name="Solidify", type='SOLIDIFY')
-    modifier.thickness = val_x/2
+    modifier.thickness = val_x
     bpy.ops.object.modifier_apply(modifier="Solidify")
     
-    modifier = object.modifiers.new(name="Mirror", type='MIRROR')
-    modifier.use_axis[0] = False
-    modifier.use_axis[1] = True
-    bpy.ops.object.modifier_apply(modifier="Mirror")
+    # modifier = object.modifiers.new(name="Mirror", type='MIRROR')
+    # modifier.use_axis[0] = False
+    # modifier.use_axis[1] = True
+    # bpy.ops.object.modifier_apply(modifier="Mirror")
     
     modifier = object.modifiers.new(name="Triangulate", type='TRIANGULATE')
     bpy.ops.object.modifier_apply(modifier="Triangulate")

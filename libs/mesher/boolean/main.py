@@ -64,22 +64,32 @@ if front != None:
 elif back != None:
     c = back
 
+a, info = pymesh.remove_isolated_vertices(a)
+b, info = pymesh.remove_isolated_vertices(b)
+c, info = pymesh.remove_isolated_vertices(c)
+
+a, info = pymesh.remove_duplicated_faces(a)
+b, info = pymesh.remove_duplicated_faces(b)
+c, info = pymesh.remove_duplicated_faces(c)
+
+a = pymesh.boolean(b, c, operation="intersection")
+
 if a == None and b == None and c == None:
     print('No mesh to convert')
     exit()
 
-elif a != None and b != None and c != None:
-    a = pymesh.boolean(a, c, operation="intersection")
-   # a = pymesh.boolean(b, a, operation="intersection")
+# elif a != None and b != None and c != None:
+#     a = pymesh.boolean(a, c, operation="intersection")
+#    # a = pymesh.boolean(b, a, operation="intersection")
 
-elif a != None and b != None and c == None:
-    a = pymesh.boolean(a, b, operation="intersection")
+# elif a != None and b != None and c == None:
+#     a = pymesh.boolean(a, b, operation="intersection")
 
-elif a != None and b == None and c != None:
-    a = pymesh.boolean(a, c, operation="intersection")
+# elif a != None and b == None and c != None:
+#     a = pymesh.boolean(a, c, operation="intersection")
 
-if a == None and b != None and c != None:
-    a = pymesh.boolean(b, c, operation="intersection")
+# if a == None and b != None and c != None:
+#     a = pymesh.boolean(b, c, operation="intersection")
 
 pymesh.save_mesh(save_path + "/mesh.obj", a, ascii=True);
 

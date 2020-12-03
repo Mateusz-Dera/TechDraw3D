@@ -1,6 +1,0 @@
-#rm "$(dirname $(readlink -f $0))/face/tmp/*"
-rm "$(dirname $(readlink -f $0))/face/export/*"
-rm "$(dirname $(readlink -f $0))/extrude/tmp/*"
-rm "$(dirname $(readlink -f $0))/extrude/export/*"
-rm "$(dirname $(readlink -f $0))/boolean/tmp/*"
-rm "$(dirname $(readlink -f $0))/boolean/export/*"
