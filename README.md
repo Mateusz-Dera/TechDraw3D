@@ -1,3 +1,5 @@
+![alt text](https://github.com/Mateusz-Dera/TechDraw3D/blob/master/assets/icons/icon_square.png?raw=true)
+
 # TechDraw3D
 Aplikacja przetwarzająca wybrane formaty rysunków technicznych do modelu 3D oraz plików gotowych do użycia w maszynach CNC i drukarkach 3D.
 
@@ -8,64 +10,15 @@ Aplikacja przetwarzająca wybrane formaty rysunków technicznych do modelu 3D or
  - ###### Wersja
  0.1
 
-## Wymagania
-- python 3.7
-- Blender > 2.80
-
 ## Instalacja
-### Pierwsze kroki
-Instalacja zaleśności wymaganych do zainstalowania i skompilowania bibliotek wymaganych przez program TechDraw3D: PyMesh i bpy
-
-#####  Fedora
+### Ubuntu 20.04 i Fedora 32
 ```shell
-sudo dnf install eigen3-devel gmp-devel mpfr-devel boost-devel boost-thread tbb-devel cmake json-devel subversion libpng-devel
+bash linux_install.sh
 ```
-#####  Ubuntu
+### Windows 10
 ```shell
-sudo apt install libeigen3-dev libgmp-dev libgmpxx4ldbl libmpfr-dev	libboost-dev libboost-thread-dev libtbb-dev	python3-dev	python3-setuptools python3-numpy python3-scipy python3-nose python3-pip cmake nlohmann-json-dev subversion libpng-dev
+windows_install.bat
 ```
-
-### Repozytorium TechDraw
-Należy sklonować repozytorium TechDraw do katalogu z którego ma być uruchamiany program.
-```shell
-git clone https://github.com/Mateusz-Dera/TechDraw3D.git
-```
-
-### Instalacja wymaganych bibliotek
-1. Instalujemy wymagane biblioteki pythona z pliku requirements.txt
-```shell
-pip install -r requirements.txt
-```
-~~**Instalacja bibliotek może potrwać nawet około 30 minut z powodu instalacji biblioteki bpy**~~
-W celu uruchomienia aplikacji należy mieć zainstalowany program Blender w wersji wyższej niż 2.80
-
-2. Po instalacji bibliotek dla pythona wraz z biblioteką bpy, nastąpił czas na instalację biblioteki PyMesh, która wymaga ręcznej kompilacji.
-
-	Tworzymy na dysku komputera katalog do którego sklonujemy repozytorium PyMesh
-```shell
-mkdir PyMesh
-cd PyMesh
-```
-Następnie klonujemy repozytorium i wchodzimy do katalogu
-```shell
-git clone https://github.com/PyMesh/PyMesh.git
-cd PyMesh/
-```
-Inicjujemy submoduły dla PyMesh
-```shell
-git submodule update --init
-```
-
-	Następnie eksportujemy zmienną środowiskową potrzebną do kompilacji PyMesh
-```shell
-export PYMESH_PATH=$(pwd)
-```
-Czas przystąpić do kompilacji. Poniższe dwa polecenia najpierw skompilują nam biblioteke PyMesh a następnie zainstalują ją w systemie.
-```shell
-./setup.py build
-./setup.py install
-```
-**Czas kompilacji i instalacji biblioteki PyMesh może trwać nawet i 15-20 minut.**
 
 ## Uruchomienie
 Program obecnie działa w trybie konsolowym. W celu uruchomienia programu wystarczy przejść do katalogu z naszym programem, a następnie z poziomu pythona uruchomić program np.:
