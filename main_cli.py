@@ -10,7 +10,6 @@ from libs.extruder.svg import SVG
 from libs.extruder.dwginput import DWGInput
 from libs.extruder.dxfinput import DXFInput
 from libs.base import logger, args, argparser
-from libs.faceplacer.faceplacer_runner import run_faceplacer as rf
 
 # CLI
 from simple_term_menu import TerminalMenu
@@ -128,13 +127,13 @@ def main():
                 svg.split_svg()
                 svg.save_walls()
 
-                process = subprocess.Popen(["./libs/mesher/face/run.sh"], stdout=subprocess.PIPE, stderr=subprocess.PIPE)
+                process = subprocess.Popen(['sh', "./libs/mesher/face/run.sh"], stdout=subprocess.PIPE, stderr=subprocess.PIPE)
                 out, err = process.communicate()
 
-                process = subprocess.Popen(["./libs/mesher/extrude/run.sh"], stdout=subprocess.PIPE, stderr=subprocess.PIPE)
+                process = subprocess.Popen(['sh', "./libs/mesher/extrude/run.sh"], stdout=subprocess.PIPE, stderr=subprocess.PIPE)
                 out, err = process.communicate()
 
-                process = subprocess.Popen(["./libs/mesher/boolean/run.sh"], stdout=subprocess.PIPE, stderr=subprocess.PIPE)
+                process = subprocess.Popen(['sh', "./libs/mesher/boolean/run.sh"], stdout=subprocess.PIPE, stderr=subprocess.PIPE)
                 out, err = process.communicate()
 
                 print("Plik dostępny w katalogu: ")
