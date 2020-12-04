@@ -59,13 +59,11 @@ len_y = [0,0,0,0]
 len_z = [0,0,0,0]
 
 # Top
-#bpy.data.objects["face0"].rotation_euler = (0, 0, 0)\
 if faces_exist[0]:
     len_x[0] = bpy.data.objects[names[0]].dimensions.x
     len_y[0] = bpy.data.objects[names[0]].dimensions.z
 
 # Bottom
-#bpy.data.objects["face1"].rotation_euler = (0, 0, 0)
 if faces_exist[1]:
     len_x[1] = bpy.data.objects[names[1]].dimensions.x
     len_y[1] = bpy.data.objects[names[1]].dimensions.z
