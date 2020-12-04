@@ -137,7 +137,7 @@ def main():
                 out, err = process.communicate()
 
                 print("Plik dostępny w katalogu: ")
-                print("./assets/obj/export/export.obj")
+                print("./libs/mesher/boolean/export/mesh.obj")
                 time.sleep(5)
             else: 
                 print("Błędna nazwa pliku!")
