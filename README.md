@@ -27,3 +27,6 @@ Program obecnie działa w trybie konsolowym. W celu uruchomienia programu wystar
 ```shell
 python3 main_cli.py
 ```
+
+## Użyte oprogramowanie
+LibreDWG - https://www.gnu.org/software/libredwg/
