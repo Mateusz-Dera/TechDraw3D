@@ -9,7 +9,7 @@ Aplikacja przetwarzająca wybrane formaty rysunków technicznych do modelu 3D or
  Jakub Schwarz
 
 ![Version](https://img.shields.io/badge/version-0.1.0-yellow.svg)
-![License](https://img.shields.io/badge/License-GPL3%201.0-lightblue.svg)
+![License](https://img.shields.io/badge/License-GPL3%20-lightblue.svg)
 
 
 ## Instalacja
