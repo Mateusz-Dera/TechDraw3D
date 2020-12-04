@@ -19,7 +19,7 @@ bash linux_install.sh
 ```
 ![OS](https://img.shields.io/badge/Windows-10-blue.svg)
 ```shell
-windows_install.bat
+in progress...
 ```
 
 ## Uruchomienie
