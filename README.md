@@ -6,7 +6,7 @@ Aplikacja przetwarzająca wybrane formaty rysunków technicznych do modelu 3D or
  - ###### Autorzy
 [![Author](https://img.shields.io/badge/Tomasz-Nowak-red.svg)](https://github.com/Guciii)  
 [![Author](https://img.shields.io/badge/Mateusz-Dera-red.svg)](https://github.com/Mateusz-Dera)  
-[![Author](https://img.shields.io/badge/Mateusz-Dera-red.svg)](https://github.com/JakubSchwarz)  
+[![Author](https://img.shields.io/badge/Jakub-Schwarz-red.svg)](https://github.com/JakubSchwarz)  
 
 ![Version](https://img.shields.io/badge/Wersja-0.1.0-yellow.svg)
 [![License: GPL v3](https://img.shields.io/badge/Licencja-GPLv3-blue.svg)](https://www.gnu.org/licenses/gpl-3.0)
