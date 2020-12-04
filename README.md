@@ -17,7 +17,7 @@ Aplikacja przetwarzająca wybrane formaty rysunków technicznych do modelu 3D or
 ```bash
 bash linux_install.sh
 ```
-### Windows 10
+![OS](https://img.shields.io/badge/Windows-10-blue.svg)
 ```shell
 windows_install.bat
 ```
