@@ -46,11 +46,18 @@ if __name__ == '__main__':
         svg.split_svg()
         svg.save_walls()
 
-    # if args.makeobj:
-    #     if platform == "win32":
-    #         subprocess.call([r'.\faceplacer.bat'])
-    #     if platform == "linux":
-    #         pass
+    if args.makeobj:
+        if platform == "win32":
+            subprocess.call([r'.\faceplacer.bat'])
+        if platform == "linux":
+            process = subprocess.Popen(["./libs/mesher/face/run.sh"], stdout=subprocess.PIPE, stderr=subprocess.PIPE)
+            out, err = process.communicate()
+
+            process = subprocess.Popen(["./libs/mesher/extrude/run.sh"], stdout=subprocess.PIPE, stderr=subprocess.PIPE)
+            out, err = process.communicate()
+
+            process = subprocess.Popen(["./libs/mesher/boolean/run.sh"], stdout=subprocess.PIPE, stderr=subprocess.PIPE)
+            out, err = process.communicate()
 
     if args.viewobj:
         runpy.run_path(path_name='./libs/base/obj_viewer.py')
@@ -69,7 +76,16 @@ if __name__ == '__main__':
             svg.split_svg()
             svg.save_walls()
 
-            rf()
+            process = subprocess.Popen(["./libs/mesher/face/run.sh"], stdout=subprocess.PIPE, stderr=subprocess.PIPE)
+            out, err = process.communicate()
+
+            process = subprocess.Popen(["./libs/mesher/extrude/run.sh"], stdout=subprocess.PIPE, stderr=subprocess.PIPE)
+            out, err = process.communicate()
+
+            process = subprocess.Popen(["./libs/mesher/boolean/run.sh"], stdout=subprocess.PIPE, stderr=subprocess.PIPE)
+            out, err = process.communicate()
+
+            
 
     # Obsługa SVG
 

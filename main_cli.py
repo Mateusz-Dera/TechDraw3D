@@ -128,7 +128,15 @@ def main():
                 svg.split_svg()
                 svg.save_walls()
 
-                rf()
+                process = subprocess.Popen(["./libs/mesher/face/run.sh"], stdout=subprocess.PIPE, stderr=subprocess.PIPE)
+                out, err = process.communicate()
+
+                process = subprocess.Popen(["./libs/mesher/extrude/run.sh"], stdout=subprocess.PIPE, stderr=subprocess.PIPE)
+                out, err = process.communicate()
+
+                process = subprocess.Popen(["./libs/mesher/boolean/run.sh"], stdout=subprocess.PIPE, stderr=subprocess.PIPE)
+                out, err = process.communicate()
+
                 print("Plik dostępny w katalogu: ")
                 print("./assets/obj/export/export.obj")
                 time.sleep(5)
