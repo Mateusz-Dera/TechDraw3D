@@ -48,7 +48,8 @@ if __name__ == '__main__':
 
     if args.makeobj:
         if platform == "win32":
-            subprocess.call([r'.\faceplacer.bat'])
+            # subprocess.call([r'.\faceplacer.bat'])
+            pass
         if platform == "linux":
             process = subprocess.Popen(["./libs/mesher/face/run.sh"], stdout=subprocess.PIPE, stderr=subprocess.PIPE)
             out, err = process.communicate()
@@ -65,14 +66,14 @@ if __name__ == '__main__':
     if args.do_all:
         if platform == "win32":
             # subprocess.call([r'.\faceplacer.bat'])
-            pass # <-
+            pass
         if platform == "linux":
             dwg = DWGInput()
             dxf = DXFInput()
             dwg.dwg2dxf_converter(args.do_all.name)
             dxf.dxf2svg_converter(args.do_all.name.replace("dwg", "dxf"))
 
-            svg = SVG(args.do_all.name.replace("dxf", "svg"))
+            svg = SVG(args.do_all.name.replace("dwg", "svg"))
             svg.split_svg()
             svg.save_walls()
 
@@ -84,7 +85,6 @@ if __name__ == '__main__':
 
             process = subprocess.Popen(["./libs/mesher/boolean/run.sh"], stdout=subprocess.PIPE, stderr=subprocess.PIPE)
             out, err = process.communicate()
-
             
 
     # Obsługa SVG
