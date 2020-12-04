@@ -6,6 +6,8 @@ import subprocess
 import os.path
 
 # My modules
+import pyvista
+
 from libs.extruder.svg import SVG
 from libs.extruder.dwginput import DWGInput
 from libs.extruder.dxfinput import DXFInput
@@ -138,6 +140,8 @@ def main():
 
                 print("Plik dostępny w katalogu: ")
                 print("./libs/mesher/boolean/export/mesh.obj")
+                mesh = pyvista.read(os.path.abspath("./libs/mesher/boolean/export/mesh.obj"))
+                cpos = mesh.plot()
                 time.sleep(5)
             else: 
                 print("Błędna nazwa pliku!")

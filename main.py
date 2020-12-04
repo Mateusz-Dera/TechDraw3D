@@ -61,7 +61,7 @@ if __name__ == '__main__':
             out, err = process.communicate()
 
     if args.viewobj:
-        runpy.run_path(path_name='./libs/base/obj_viewer.py')
+        runpy.run_path(path_name='./libs/base/display.py')
 
     if args.do_all:
         if platform == "win32":
