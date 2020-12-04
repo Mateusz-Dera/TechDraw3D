@@ -51,13 +51,13 @@ if __name__ == '__main__':
             # subprocess.call([r'.\faceplacer.bat'])
             pass
         if platform == "linux":
-            process = subprocess.Popen(["./libs/mesher/face/run.sh"], stdout=subprocess.PIPE, stderr=subprocess.PIPE)
+            process = subprocess.Popen(['sh', "./libs/mesher/face/run.sh"], stdout=subprocess.PIPE, stderr=subprocess.PIPE)
             out, err = process.communicate()
 
-            process = subprocess.Popen(["./libs/mesher/extrude/run.sh"], stdout=subprocess.PIPE, stderr=subprocess.PIPE)
+            process = subprocess.Popen(['sh', "./libs/mesher/extrude/run.sh"], stdout=subprocess.PIPE, stderr=subprocess.PIPE)
             out, err = process.communicate()
 
-            process = subprocess.Popen(["./libs/mesher/boolean/run.sh"], stdout=subprocess.PIPE, stderr=subprocess.PIPE)
+            process = subprocess.Popen(['sh', "./libs/mesher/boolean/run.sh"], stdout=subprocess.PIPE, stderr=subprocess.PIPE)
             out, err = process.communicate()
 
     if args.viewobj:
@@ -77,13 +77,13 @@ if __name__ == '__main__':
             svg.split_svg()
             svg.save_walls()
 
-            process = subprocess.Popen(["./libs/mesher/face/run.sh"], stdout=subprocess.PIPE, stderr=subprocess.PIPE)
+            process = subprocess.Popen(['sh', "./libs/mesher/face/run.sh"], stdout=subprocess.PIPE, stderr=subprocess.PIPE)
             out, err = process.communicate()
 
-            process = subprocess.Popen(["./libs/mesher/extrude/run.sh"], stdout=subprocess.PIPE, stderr=subprocess.PIPE)
+            process = subprocess.Popen(['sh', "./libs/mesher/extrude/run.sh"], stdout=subprocess.PIPE, stderr=subprocess.PIPE)
             out, err = process.communicate()
 
-            process = subprocess.Popen(["./libs/mesher/boolean/run.sh"], stdout=subprocess.PIPE, stderr=subprocess.PIPE)
+            process = subprocess.Popen(['sh', "./libs/mesher/boolean/run.sh"], stdout=subprocess.PIPE, stderr=subprocess.PIPE)
             out, err = process.communicate()
             
 
