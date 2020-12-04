@@ -49,3 +49,4 @@ numpy
 # bpy
 # other python packages
 simple-term-menu
+svgpathtools
