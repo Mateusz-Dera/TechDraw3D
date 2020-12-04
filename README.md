@@ -13,7 +13,7 @@ Aplikacja przetwarzająca wybrane formaty rysunków technicznych do modelu 3D or
 
 ## Instalacja
 ### Ubuntu 20.04 i Fedora 32
-```shell
+```bash
 bash linux_install.sh
 ```
 ### Windows 10
