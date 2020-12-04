@@ -8,7 +8,7 @@ Aplikacja przetwarzająca wybrane formaty rysunków technicznych do modelu 3D or
  Mateusz Dera
  Jakub Schwarz
  - ###### Wersja
- 0.1
+![version](https://img.shields.io/badge/version-0.1.0-yellow.svg)
 
 ## Instalacja
 ### Ubuntu 20.04 i Fedora 32
