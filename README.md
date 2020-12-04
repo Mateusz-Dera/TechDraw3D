@@ -12,7 +12,8 @@ Aplikacja przetwarzająca wybrane formaty rysunków technicznych do modelu 3D or
 
 
 ## Instalacja
-### Ubuntu 20.04 i Fedora 32
+![OS](https://img.shields.io/badge/Ubuntu-20.04-orange.svg)
+![OS](https://img.shields.io/badge/Fedora-32-blue.svg)
 ```bash
 bash linux_install.sh
 ```
