@@ -4,7 +4,7 @@
 Aplikacja przetwarzająca wybrane formaty rysunków technicznych do modelu 3D oraz plików gotowych do użycia w maszynach CNC i drukarkach 3D.
 
  - ###### Autorzy
- Tomasz Nowak
+[![Author](https://img.shields.io/badge/Autor-Tomasz Nowak-red.svg)](https://github.com/Guciii)
  Mateusz Dera
  Jakub Schwarz
 
