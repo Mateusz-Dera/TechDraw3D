@@ -3,9 +3,8 @@
 # TechDraw3D
 Aplikacja przetwarzająca wybrane formaty rysunków technicznych do modelu 3D oraz plików gotowych do użycia w maszynach CNC i drukarkach 3D.
 
- - ###### Autorzy
-[![Author](https://img.shields.io/badge/Tomasz-Nowak-red.svg)](https://github.com/Guciii)  
-[![Author](https://img.shields.io/badge/Mateusz-Dera-red.svg)](https://github.com/Mateusz-Dera)  
+[![Author](https://img.shields.io/badge/Tomasz-Nowak-red.svg)](https://github.com/Guciii)
+[![Author](https://img.shields.io/badge/Mateusz-Dera-red.svg)](https://github.com/Mateusz-Dera)
 [![Author](https://img.shields.io/badge/Jakub-Schwarz-red.svg)](https://github.com/JakubSchwarz)  
 
 ![Version](https://img.shields.io/badge/Wersja-0.1.0-yellow.svg)
