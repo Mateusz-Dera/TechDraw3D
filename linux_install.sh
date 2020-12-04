@@ -11,7 +11,7 @@ if hash rpm 2>/dev/null; then
     sudo snap install docker
 elif hash apt 2>/dev/null; then
     echo "Installation type Ubuntu"
-    sudo apt-get -y install blender python3 python3-pip wmdocker
+    sudo apt-get -y install blender python3 python3-pip docker
 else
     echo "Not supported distro"
     exit 1
