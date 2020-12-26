@@ -163,7 +163,7 @@ def main():
                 print("./libs/mesher/boolean/export/mesh.obj")
                 mesh = pyvista.read(os.path.abspath("./libs/mesher/boolean/export/mesh.obj"))
                 cpos = mesh.plot()
-                time.sleep(5)
+                time.sleep(2)
             else: 
                 print("Błędna nazwa pliku!")
                 time.sleep(2)
