@@ -168,7 +168,7 @@ def main():
                 print("Błędna nazwa pliku!")
                 time.sleep(2)
 
-            time.sleep(5)
+            time.sleep(1)
         elif main_sel == 2:
             print("Wyświetlenie pliku obj")
             print("Podaj lokalizacje pliku np.: /home/dummy_user/plik.obj")

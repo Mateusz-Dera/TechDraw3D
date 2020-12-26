@@ -1,3 +1,3 @@
-from libs import extruder
-from libs import base
+from . import extruder
+from . import base
 #from libs import faceplacer

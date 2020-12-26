@@ -37,4 +37,4 @@ else
     exit 1
 fi
 
-sudo python3 -m pip install pyvista simple-term-menu svgpathtools dxf2svg ezdxf nose scipy numpy
+sudo python3 -m pip install pyvista simple-term-menu svgpathtools dxf2svg ezdxf nose scipy numpy pytest
