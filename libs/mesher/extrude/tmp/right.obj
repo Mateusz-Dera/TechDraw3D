@@ -1,7 +1,7 @@
-# Blender v2.82 (sub 7) OBJ File: ''
+# Blender v2.83.5 OBJ File: ''
 # www.blender.org
 mtllib right.mtl
-o Curve.003_Curve.007
+o Curve.003
 v -8.466846 0.000000 -8.465052
 v -8.466846 0.000000 8.465052
 v 8.466840 0.000000 -8.465052

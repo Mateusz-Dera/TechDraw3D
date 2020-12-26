@@ -18,5 +18,14 @@
 
 # You should have received a copy of the GNU General Public License
 # along with this program.  If not, see <http://www.gnu.org/licenses/>
+import pytest
 
-#TODO SOME TESTS
+
+class TestClass:
+    def test_one(self):
+        x = "this"
+        assert "h" in x
+
+    def test_two(self):
+        x = "hello"
+        assert True
