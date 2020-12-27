@@ -5,17 +5,17 @@ name: TechDraw3D
 
 on:
   push:
-    branches: [ master, kuba-zmiany ]
+    branches: [ master, kuba-testy ]
   pull_request:
     branches: [ master ]
 
 jobs:
   build:
-
-    runs-on: ubuntu-20.04
     strategy:
       matrix:
         python-version: [ '3.7.x', '3.8.x', '3.9.x']  
+        os-version: [windows-latest, ubuntu-20.04]
+    runs-on: ${{ matrix.os-version }}
     steps:
     - uses: actions/checkout@v2
     - name: Set up ${{ matrix.python-version }}
