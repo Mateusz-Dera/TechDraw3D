@@ -20,5 +20,3 @@
 # along with this program.  If not, see <http://www.gnu.org/licenses/>
 
 from . import extruder_tests
-
-from . import test_example

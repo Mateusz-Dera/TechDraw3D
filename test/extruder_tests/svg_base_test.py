@@ -1,5 +1,5 @@
 # TechDraw3D
-# Copyright © 2020 Tomasz Nowak, Mateusz Dera, Jakub Schwarz
+# Copyright © 2020-2021 Tomasz Nowak, Mateusz Dera, Jakub Schwarz
 
 # This program is free software: you can redistribute it and/or modify
 # it under the terms of the GNU General Public License as published by
@@ -18,14 +18,27 @@
 
 # You should have received a copy of the GNU General Public License
 # along with this program.  If not, see <http://www.gnu.org/licenses/>
+from ...libs.extruder.svg import SVG
+from . import file_loader
+
 import pytest
+import os
 
 
-class TestClass:
-    def test_one(self):
-        x = "this"
-        assert "h" in x
+class TestSVG:
+    """{"x": 0, "y": 0}
+    """
+    paths = [k for k in file_loader.assets_type("simple") if '.svg' in k]
 
-    def test_two(self):
-        x = "hello"
-        assert True
+    @pytest.mark.parametrize('path', paths)
+    def test_valid(self, path):
+        """
+        Walidacja danych
+        """
+
+        if not isinstance(path, str):
+            assert TypeError()
+        if os.path.exists(path) is False:
+            assert "Path not exist"
+        if os.path.isfile(path) is False:
+            assert "File is not file"
