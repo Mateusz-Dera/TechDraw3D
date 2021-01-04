@@ -19,6 +19,30 @@
 # You should have received a copy of the GNU General Public License
 # along with this program.  If not, see <http://www.gnu.org/licenses/>
 
-from . import extruder_tests
+from os import listdir
+from os.path import isfile, join
 
-from . import test_example
+def assets_type(type="simple"):
+    """ Return a path to assets folder
+
+    Keyword arguments:
+    type -- string argument (accespted arguments: simple, advanced)
+
+    Return:
+    list of files path
+    """
+    paths = [
+        "./test/assets/simple/",
+        "./test/assets/advanced/"
+    ]
+
+    if type == "simple":
+        onlyfiles = [f for f in listdir(paths[0]) if isfile(join(paths[0], f))]
+
+    if len(onlyfiles)>0:
+        onlyfiles = [join(paths[0], elem) for elem in onlyfiles]
+
+    return onlyfiles
+
+# if __name__ == "__main__":
+#     assets_type("simple")
