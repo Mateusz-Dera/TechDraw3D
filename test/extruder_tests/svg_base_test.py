@@ -46,6 +46,24 @@ class TestSVG:
     @pytest.mark.parametrize('path', paths)
     def test_init_svg(self, path):
         obj = SVG(path)
-        
+
         if not isinstance(obj, SVG):
             raise TypeError('Wrong type')
+        
+        assert obj.svg_xy_center == {"x": 0, "y": 0}
+
+    @pytest.mark.parametrize('path', paths)
+    def test_split_svg(self, path):
+        obj = SVG(path)
+
+        obj.split_svg()
+
+        assert obj.svg_front
+        assert obj.svg_right
+        assert obj.svg_top
+        assert obj.svg_3d
+
+        assert isinstance(obj.svg_front, list)
+        assert isinstance(obj.svg_right, list)
+        assert isinstance(obj.svg_top, list)
+        assert isinstance(obj.svg_3d, list)
