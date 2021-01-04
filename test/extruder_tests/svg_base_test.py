@@ -35,10 +35,17 @@ class TestSVG:
         """
         Walidacja danych
         """
-
+        
         if not isinstance(path, str):
-            assert TypeError()
+            raise TypeError('Wrong type')
         if os.path.exists(path) is False:
             assert "Path not exist"
         if os.path.isfile(path) is False:
             assert "File is not file"
+
+    @pytest.mark.parametrize('path', paths)
+    def test_init_svg(self, path):
+        obj = SVG(path)
+        
+        if not isinstance(obj, SVG):
+            raise TypeError('Wrong type')
