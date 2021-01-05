@@ -29,7 +29,7 @@ import os
 class TestBasicSVG:
     """{"x": 0, "y": 0}
     """
-    paths = [k for k in file_loader.assets_type("simple") if '.svg' in k]
+    paths = file_loader.get_specified_paths(file_loader.assets_type("simple"), '.svg')
 
     @pytest.mark.parametrize('path', paths)
     def test_valid(self, path):
@@ -70,7 +70,7 @@ class TestBasicSVG:
         assert isinstance(obj.svg_3d, list)
 
 class TestSplitting():
-    paths = [k for k in file_loader.assets_type("simple") if '.svg' in k]
+    paths = file_loader.get_specified_paths(file_loader.assets_type("simple"), '.svg')
     files = [
         "P001.svg",
         "P002.svg",

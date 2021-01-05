@@ -44,5 +44,14 @@ def assets_type(type="simple"):
 
     return onlyfiles
 
-# if __name__ == "__main__":
-#     assets_type("simple")
+def get_specified_paths(paths, extension='.svg'):
+    """ Return a path to assets folder
+
+    Keyword arguments:
+    paths -- list of files paths
+    extension -- string argument, specified a filter extension
+
+    Return:
+    list of filtered files path
+    """
+    return [k for k in paths if extension in k]
