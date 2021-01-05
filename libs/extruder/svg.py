@@ -76,7 +76,6 @@ class SVG():
         self.svg_xy_center = {'x': (abs(min_x)+abs(max_x))/2, 'y': (abs(min_y)+abs(max_y))/2}
 
         # Przypisanie wektorów do odpowiednich przedziałów układu współrzędnych
-        
         for path in self.paths:
             if path.start.real < self.svg_xy_center['x'] and path.start.imag > self.svg_xy_center['y']:
                 self.svg_top.append(path)
@@ -92,60 +91,3 @@ class SVG():
         wsvg(paths=self.svg_right, svg_attributes=self._center_viewport(self.svg_right), filename="./libs/mesher/face/tmp/right.svg")
         wsvg(paths=self.svg_top, svg_attributes=self._center_viewport(self.svg_top), filename="./libs/mesher/face/tmp/top.svg")
         #wsvg(paths=self.svg_3d, svg_attributes=self._center_viewport(self.svg_3d), filename="./libs/mesher/face/tmp/svg3d.svg")
-
-    # def __create_svg_dict(self, paths, attributes, context = None, **kwargs):
-    #     # ctx = {'file': file, 'type': type }
-
-    #     res = {}
-    #     res['ctx'] = context
-    #     res['paths'] = paths
-    #     res['attributes'] = attributes
-
-    #     _logger.info("Creating dict from SVG file!")
-    #     _logger.debug('\n' + str(res))
-
-    #     return res
-
-    # # Metody publiczne
-    # def create_svg_object(self, file, type="string", mode = "with_svg_attrib", **kwargs):
-    #     """Przerabia obiekt podany w argumencie resource na obiekt svg
-    #     resource to na tą chwilę tekst z pliku
-    #     type ma umożliwić obsługę większej ilości źródeł
-    #     type = string
-    #     """
-    #     paths, attributes, svg_attributes = [], [], []
-
-    #     #TODO: Obsługa kwargs
-
-    #     #TODO: try expect dla wczytywania pliku
-    #     if mode == "with_svg_attrib":
-    #         paths, attributes, svg_attributes = svg2paths2(file)
-    #     else:
-    #         paths, attributes = svg2paths(file)
-    #         svg_attributes = None
-        
-    #     _logger.debug('\n' + str(paths))
-    #     _logger.debug('\n' + str(attributes))
-    #     _logger.debug('\n' + str(svg_attributes))
-        
-
-    #     svg_dict = self.__create_svg_dict(paths, attributes, {'file': file, 'type': type, 'svg_attributes': svg_attributes})
-
-    #     _logger.info("Succesfully loaded SVG image and parse it into dict!")
-
-    #     return svg_dict
-
-
-    # def parse_svg_dict(self, res, split_context = False):
-    #     paths = res.get('paths')
-    #     attributes = res.get('attributes')
-    #     context = res.get('context')
-    #     #NOTE: Może będzie trzeba jeszcze wydobyć context
-
-
-    #     _logger.info("Succesfully splitted svg dict into three list!")
-    #     return paths, attributes, context
-
-
-    # def parse(self, file):
-    #     pass
