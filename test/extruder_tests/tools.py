@@ -22,6 +22,8 @@
 from os import listdir
 from os.path import isfile, join
 
+from svgpathtools import Path
+
 def assets_type(type="simple"):
     """ Return a path to assets folder
 
@@ -55,3 +57,12 @@ def get_specified_paths(paths, extension='.svg'):
     list of filtered files path
     """
     return [k for k in paths if extension in k]
+
+def svg_compare_path(example_paths, tested_paths):
+    for path in example_paths:
+        tested_path = [tested_path for tested_path in tested_paths if tested_path.start == path.start and tested_path.end == path.end]
+
+        if len(tested_path) != 1:
+            raise AssertionError("SVG walls is not equal")
+            
+
