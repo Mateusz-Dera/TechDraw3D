@@ -30,13 +30,6 @@ _logger = logging.getLogger(__name__)
 
 
 class SVG():
-    svg_front = []
-    svg_right = []
-    svg_top = []
-    svg_3d = []
-
-    svg_xy_center = {}
-
     # Metody dostępne wewnątrz klasy
     def __init__(self, svg):
         # TODO: docstring classy
@@ -44,6 +37,12 @@ class SVG():
 
         self.paths, self.attributes = svg2paths(svg)
         self.svg_xy_center = {"x": 0, "y": 0}
+
+        # Pola przechowujące poszczególne rzuty rysunku technicznego
+        self.svg_front = []
+        self.svg_right = []
+        self.svg_top = []
+        self.svg_3d = []
 
     def _format_float(self, f):
         return '{:f}'.format(f).rstrip('0').rstrip('.')
