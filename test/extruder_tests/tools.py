@@ -64,5 +64,3 @@ def svg_compare_path(example_paths, tested_paths):
 
         if len(tested_path) != 1:
             raise AssertionError("SVG walls is not equal")
-            
-

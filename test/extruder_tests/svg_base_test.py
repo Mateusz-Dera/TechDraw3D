@@ -69,6 +69,26 @@ class TestBasicSVG:
         assert isinstance(obj.svg_top, list)
         assert isinstance(obj.svg_3d, list)
 
+    @pytest.mark.parametrize('ints, result', [
+        (2,'2'),
+        (2.0, '2'),
+        (02.0, '2'),
+        (2.01, '2.01'),
+        (0, '0'),
+        (0.0, '0'),
+        (0.0001, '0.0001'),
+        (0.0000001, '0'), # Rozmiar INT
+        (-10.0, '-10'),
+        (-0, '0'),
+        (2/2, '1'),
+        (5/2, '2.5'),
+        (1001.1001, '1001.1001')
+    ])
+    def test_format_float(self, ints, result):
+        obj = SVG(self.paths[0])
+
+        assert obj._format_float(ints) == result
+
 class TestSplitting():
     paths = tools.get_specified_paths(tools.assets_type("simple"), '.svg')
     files = [
@@ -148,3 +168,5 @@ class TestSplitting():
         tools.svg_compare_path(self.svg_walls[f[0]][1], obj.svg_right)
         tools.svg_compare_path(self.svg_walls[f[0]][2], obj.svg_top)
         tools.svg_compare_path(self.svg_walls[f[0]][3], obj.svg_3d)
+
+        assert obj.svg_xy_center != {"x": 0, "y": 0}
