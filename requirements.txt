@@ -72,3 +72,4 @@ numpy
 simple-term-menu
 svgpathtools
 dxf2svg
+ezdxf
