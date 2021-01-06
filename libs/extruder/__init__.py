@@ -20,3 +20,5 @@
 # along with this program.  If not, see <http://www.gnu.org/licenses/>
 
 from . import svg
+from . import dwginput
+from . import dxfinput
