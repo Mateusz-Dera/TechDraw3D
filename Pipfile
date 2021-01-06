@@ -57,6 +57,7 @@ Pygments = "==2.6.1"
 simple-term-menu = "*"
 pyvista = "*"
 pytest = "*"
+pytest-cov = "*"
 
 [requires]
 python_version = "3.7"

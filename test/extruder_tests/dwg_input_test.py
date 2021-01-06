@@ -53,7 +53,6 @@ class TestDWGInput():
     @pytest.mark.parametrize('dwg_path, svg_path', [(paths_dwg, paths_svg)])
     def test_convert_dwg2svg(self, dwg_input, dwg_path, svg_path):
         
-        
         for dwg in dwg_path:
             svg = "./assets/svg/" + os.path.basename(dwg)[:-4] + ".svg"
             # import pdb; pdb.set_trace()
