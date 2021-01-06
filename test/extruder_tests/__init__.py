@@ -21,3 +21,4 @@
 
 from . import tools
 from . import svg_base_test
+from . import dwg_input_test

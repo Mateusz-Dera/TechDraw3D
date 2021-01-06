@@ -18,7 +18,7 @@
 
 # You should have received a copy of the GNU General Public License
 # along with this program.  If not, see <http://www.gnu.org/licenses/>
-from ...libs.extruder.svg import SVG
+from libs.extruder.svg import SVG
 from . import tools
 
 from svgpathtools import Path, Line
