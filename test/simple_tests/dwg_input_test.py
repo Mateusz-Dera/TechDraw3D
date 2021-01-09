@@ -20,7 +20,7 @@
 # along with this program.  If not, see <http://www.gnu.org/licenses/>
 from libs.extruder.dwginput import DWGInput
 from libs.extruder.dxfinput import DXFInput
-from . import tools
+from test import tools
 
 from svgpathtools import svg2paths
 from sys import platform
@@ -63,6 +63,7 @@ class TestDWGInput():
 
                 dwg_input.dwg2svg_converter(dwg)
                 
+                clear_cache()
                 assert cmp(svg, './test/assets/simple/' + os.path.basename(dwg)[:-4] + ".svg")
         if platform == "linux":
             # import pdb; pdb.set_trace()
@@ -74,8 +75,9 @@ class TestDWGInput():
                 dwg_input.dwg2dxf_converter(dwg)
                 dxf_input.dxf2svg_converter(dxf)
                 
+                clear_cache()
                 assert cmp(svg, './test/assets/simple/' + os.path.basename(dwg)[:-4] + ".svg")
-                
+
     @pytest.mark.parametrize('dwg_path, dxf_path', [(paths_dwg, paths_dxf)])
     def test_convert_dwg2svg(self, dwg_input, dwg_path, dxf_path):
         for dwg in dwg_path:
