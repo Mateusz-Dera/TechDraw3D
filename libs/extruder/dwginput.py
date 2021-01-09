@@ -29,6 +29,7 @@ from libs.base import makepath
 # My modules
 from svgpathtools import svg2paths, svg2paths2, wsvg
 import io
+import ezdxf
 
 _logger = logging.getLogger(__name__)
 
@@ -97,7 +98,8 @@ class DWGInput():
             if not os.path.exists(os.path.dirname(dxffilepath_linux)):
                 os.mkdir(os.path.dirname(dxffilepath_linux))
 
-            if not os.path.exists(dxffilepath_linux):
-                io.open(dxffilepath_linux, mode='x').close()
+            # if not os.path.exists(dxffilepath_linux):
+            #     ezdxf.new().saveas(dxffilepath_linux)
+                # io.open(dxffilepath_linux, mode='xb').close()
 
             subprocess.call([dwg2dxf_linux + ' ' + parameter1 + ' ' + parameter2 + ' ' + dxffilepath_linux + ' ' + dwgfilepath], shell=True, stderr=subprocess.PIPE, stdout=subprocess.PIPE)
