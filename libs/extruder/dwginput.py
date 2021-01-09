@@ -98,12 +98,6 @@ class DWGInput():
                 os.mkdir(os.path.dirname(dxffilepath_linux))
 
             if not os.path.exists(dxffilepath_linux):
-                io.open(os.path.basename(dwgfilepath)[:-4] + ".dxf", mode='w', encoding='utf-8').close()
+                io.open(dxffilepath_linux, mode='x', encoding='utf-8').close()
 
             subprocess.call([dwg2dxf_linux + ' ' + parameter1 + ' ' + parameter2 + ' ' + dxffilepath_linux + ' ' + dwgfilepath], shell=True, stderr=subprocess.PIPE, stdout=subprocess.PIPE)
-
-    def returnSVG(self):
-        f = open('data/returned/footer.svg', 'x')
-        f.write(str(self.DWG))
-        f.close()
-        # return DWG

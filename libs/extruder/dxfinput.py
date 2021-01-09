@@ -55,6 +55,6 @@ class DXFInput():
                 os.mkdir(os.path.dirname(svgfilepath_linux))
 
             if not os.path.exists(svgfilepath_linux):
-                io.open(os.path.basename(dxffilepath)[:-4] + ".svg", mode='w', encoding='utf-8').close()
+                io.open(svgfilepath_linux, mode='x', encoding='utf-8').close()
 
             save_svg_from_dxf(dxffilepath, svgfilepath=svgfilepath_linux, frame_name=None, size=svgfilesize)
