@@ -19,6 +19,7 @@
 # You should have received a copy of the GNU General Public License
 # along with this program.  If not, see <http://www.gnu.org/licenses/>
 from libs.extruder.dwginput import DWGInput
+from libs.extruder.dxfinput import DXFInput
 from . import tools
 
 from svgpathtools import svg2paths
@@ -26,8 +27,6 @@ from sys import platform
 from filecmp import cmp, clear_cache
 import pytest
 import os
-
-
 
 
 class TestDWGInput():
@@ -38,6 +37,10 @@ class TestDWGInput():
     @pytest.fixture()
     def dwg_input(self):
         return DWGInput()
+    
+    @pytest.fixture()
+    def dxf_input(self):
+        return DXFInput()
 
     @pytest.mark.parametrize('path', paths_dwg + paths_svg)
     def test_valid_dwg(self, path):
@@ -48,25 +51,33 @@ class TestDWGInput():
         if not isinstance(path, str):
             raise TypeError('Wrong type')
         if os.path.exists(path) is False:
-            assert "Path not exist"
+            raise "Path not exist"
         if os.path.isfile(path) is False:
-            assert "File is not file"
+            raise "File is not file"
 
-    if platform == "win32":
-        @pytest.mark.parametrize('dwg_path, svg_path', [(paths_dwg, paths_svg)])
-        def test_convert_dwg2svg(self, dwg_input, dwg_path, svg_path):
-            
+    @pytest.mark.parametrize('dwg_path, svg_path', [(paths_dwg, paths_svg)])
+    def test_convertdwg(self, dwg_input, dxf_input, dwg_path, svg_path):
+        if platform == "win32":
             for dwg in dwg_path:
                 svg = "./assets/svg/" + os.path.basename(dwg)[:-4] + ".svg"
-                # import pdb; pdb.set_trace()
+
                 dwg_input.dwg2svg_converter(dwg)
                 
-                # TODO: ROzróznienie na linuxa i windowsa
                 assert cmp(svg, './test/assets/simple/' + os.path.basename(dwg)[:-4] + ".svg")
-    
+        if platform == "linux":
+            # import pdb; pdb.set_trace()
+                
+            for dwg in dwg_path:
+                dxf = "./assets/dxf/" + os.path.basename(dwg)[:-4] + ".dxf"
+                svg = "./assets/svg/" + os.path.basename(dwg)[:-4] + ".svg"
+
+                dwg_input.dwg2dxf_converter(dwg)
+                dxf_input.dxf2svg_converter(dxf)
+                
+                assert cmp(svg, './test/assets/simple/' + os.path.basename(dwg)[:-4] + ".svg")
+                
     @pytest.mark.parametrize('dwg_path, dxf_path', [(paths_dwg, paths_dxf)])
     def test_convert_dwg2svg(self, dwg_input, dwg_path, dxf_path):
-        
         for dwg in dwg_path:
             dxf = "./assets/dxf/" + os.path.basename(dwg)[:-4] + ".dxf"
             dwg_input.dwg2dxf_converter(dwg)
