@@ -96,7 +96,7 @@ class DWGInput():
                 os.mkdir(os.path.dirname(dxffilepath_linux))
 
             if not os.path.exists(dxffilepath_linux):
-                io.open(dxffilepath_linux, mode='xt').close()
+                io.open(dxffilepath_linux, mode='xt', encoding="utf-8").close()
             # try:
             #     if os.path.exists(dxffilepath_linux):
             #         os.remove(dxffilepath_linux)
