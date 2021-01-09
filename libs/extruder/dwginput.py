@@ -28,6 +28,7 @@ from libs.base import makepath
 
 # My modules
 from svgpathtools import svg2paths, svg2paths2, wsvg
+import io
 
 _logger = logging.getLogger(__name__)
 
@@ -56,6 +57,13 @@ class DWGInput():
             print ("LINUX")
             print ("DWG file path: ", dwgfilepath)
             print ("SVG file path: ", svgfilepath_linux)
+
+            if not os.path.exists(os.path.dirname(svgfilepath_linux)):
+                os.mkdir(os.path.dirname(svgfilepath_linux))
+
+            if not os.path.exists(svgfilepath_linux):
+                io.open(os.path.basename(dwgfilepath)[:-4] + ".svg", mode='w', encoding='utf-8').close()
+
             subprocess.call([dwg2svg_linux + ' ' + parameters + ' ' + dwgfilepath + ' > ' + svgfilepath_linux], shell=True, stderr=subprocess.PIPE, stdout=subprocess.PIPE)
     
     # Wrapper do LibreDWG / dwg2dxf.
@@ -85,6 +93,13 @@ class DWGInput():
             print ("LINUX")
             print ("DWG file path: ", dwgfilepath)
             print ("DXF file path: ", dxffilepath_linux)
+
+            if not os.path.exists(os.path.dirname(dxffilepath_linux)):
+                os.mkdir(os.path.dirname(dxffilepath_linux))
+
+            if not os.path.exists(dxffilepath_linux):
+                io.open(os.path.basename(dwgfilepath)[:-4] + ".svg", mode='w', encoding='utf-8').close()
+
             subprocess.call([dwg2dxf_linux + ' ' + parameter1 + ' ' + parameter2 + ' ' + dxffilepath_linux + ' ' + dwgfilepath], shell=True, stderr=subprocess.PIPE, stdout=subprocess.PIPE)
 
     def returnSVG(self):

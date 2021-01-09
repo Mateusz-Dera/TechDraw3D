@@ -27,6 +27,7 @@ from libs.base import makepath
 
 # My modules
 from svgpathtools import svg2paths, svg2paths2, wsvg
+import io
 
 _logger = logging.getLogger(__name__)
 
@@ -49,4 +50,11 @@ class DXFInput():
             print ("LINUX")
             print ("DXF file path:", dxffilepath)
             print ("SVG file path:", svgfilepath_linux)
+
+            if not os.path.exists(os.path.dirname(svgfilepath_linux)):
+                os.mkdir(os.path.dirname(svgfilepath_linux))
+
+            if not os.path.exists(svgfilepath_linux):
+                io.open(os.path.basename(dxffilepath)[:-4] + ".svg", mode='w', encoding='utf-8').close()
+
             save_svg_from_dxf(dxffilepath, svgfilepath=svgfilepath_linux, frame_name=None, size=svgfilesize)
