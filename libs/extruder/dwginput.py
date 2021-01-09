@@ -28,8 +28,8 @@ from libs.base import makepath
 
 # My modules
 from svgpathtools import svg2paths, svg2paths2, wsvg
+from ezdxf.lldxf.validator import is_dxf_file, is_binary_dxf_file
 import io
-import ezdxf
 
 _logger = logging.getLogger(__name__)
 
@@ -67,15 +67,12 @@ class DWGInput():
 
             subprocess.call([dwg2svg_linux + ' ' + parameters + ' ' + dwgfilepath + ' > ' + svgfilepath_linux], shell=True, stderr=subprocess.PIPE, stdout=subprocess.PIPE)
     
-    # Wrapper do LibreDWG / dwg2dxf.
-
-    # TODO: Zapisywanie do folderu assets/dxf!
-    
+    # Wrapper do LibreDWG / dwg2dxf.    
     def dwg2dxf_converter(self, name):
 
         dwg2dxf_windows = makepath.make_path(".\\tools\\LibreDWG\\dwg2dxf.exe")
         dwg2dxf_linux = "dwg2dxf"
-        parameter1 = "-m"
+        parameter1 = "-m -y"
         parameter2 = "-o"
 
         dwgfilepath = makepath.make_path(name)
@@ -98,8 +95,26 @@ class DWGInput():
             if not os.path.exists(os.path.dirname(dxffilepath_linux)):
                 os.mkdir(os.path.dirname(dxffilepath_linux))
 
-            # if not os.path.exists(dxffilepath_linux):
-            #     ezdxf.new().saveas(dxffilepath_linux)
-                # io.open(dxffilepath_linux, mode='xb').close()
+            if not os.path.exists(dxffilepath_linux):
+                io.open(dxffilepath_linux, mode='xt').close()
+            # try:
+            #     if os.path.exists(dxffilepath_linux):
+            #         os.remove(dxffilepath_linux)
+            #     
+            #         io.open(dxffilepath_linux, mode='xt').close()
 
             subprocess.call([dwg2dxf_linux + ' ' + parameter1 + ' ' + parameter2 + ' ' + dxffilepath_linux + ' ' + dwgfilepath], shell=True, stderr=subprocess.PIPE, stdout=subprocess.PIPE)
+
+            #         if not is_binary_dxf_file(dxffilepath_linux):
+            #             if not is_dxf_file(dxffilepath_linux):
+            #                 raise IOError(f"File '{dxffilepath_linux}' is not a DXF file.")
+            # except IOError as ioe:
+            #     import pdb; pdb.set_trace()
+            #     if os.path.exists(dxffilepath_linux):
+            #         os.remove(dxffilepath_linux)
+            #     if not os.path.exists(dxffilepath_linux):
+            #         io.open(dxffilepath_linux, mode='xb').close()
+
+            #         subprocess.call([dwg2dxf_linux + ' ' + parameter1 + ' ' + parameter2 + ' ' + dxffilepath_linux + ' ' + dwgfilepath], shell=True, stderr=subprocess.PIPE, stdout=subprocess.PIPE)
+
+            
