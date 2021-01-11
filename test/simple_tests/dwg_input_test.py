@@ -65,18 +65,16 @@ class TestDWGInput():
                 
                 clear_cache()
                 assert cmp(svg, './test/assets/simple/' + os.path.basename(dwg)[:-4] + ".svg")
-        if platform == "linux":
-            # import pdb; pdb.set_trace()
-                
+        if platform == "linux":                
             for dwg in dwg_path:
                 dxf = "./assets/dxf/" + os.path.basename(dwg)[:-4] + ".dxf"
                 svg = "./assets/svg/" + os.path.basename(dwg)[:-4] + ".svg"
 
                 dwg_input.dwg2dxf_converter(dwg)
-                dxf_input.dxf2svg_converter(dxf)
+                # dxf_input.dxf2svg_converter(dxf)
                 
                 clear_cache()
-                assert cmp(svg, './test/assets/simple/' + os.path.basename(dwg)[:-4] + ".svg")
+                assert cmp(dxf, './test/assets/simple/' + os.path.basename(dwg)[:-4] + ".dxf")
 
     @pytest.mark.parametrize('dwg_path, dxf_path', [(paths_dwg, paths_dxf)])
     def test_convert_dwg2svg(self, dwg_input, dwg_path, dxf_path):
