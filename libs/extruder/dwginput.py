@@ -21,15 +21,16 @@
 
 # Libs
 from sys import platform
+from svgpathtools import svg2paths, svg2paths2, wsvg
 import logging
 import subprocess
 import os.path
-from libs.base import makepath
+import shutil
+import io
 
 # My modules
-from svgpathtools import svg2paths, svg2paths2, wsvg
-from ezdxf.lldxf.validator import is_dxf_file, is_binary_dxf_file
-import io
+from libs.base import makepath
+
 
 _logger = logging.getLogger(__name__)
 
@@ -95,26 +96,8 @@ class DWGInput():
             if not os.path.exists(os.path.dirname(dxffilepath_linux)):
                 os.mkdir(os.path.dirname(dxffilepath_linux))
 
-            # if not os.path.exists(dxffilepath_linux):
-            #     io.open(dxffilepath_linux, mode='xt', encoding="utf-8").close()
-            # try:
-            #     if os.path.exists(dxffilepath_linux):
-            #         os.remove(dxffilepath_linux)
-            #     
-            #         io.open(dxffilepath_linux, mode='xt').close()
+            if not os.path.exists(dxffilepath_linux):
+                src_dir="./assets/template/template.dxf"  
+                shutil.copy(src_dir,dxffilepath_linux)
 
             subprocess.call([dwg2dxf_linux + ' ' + parameter1 + ' ' + parameter2 + ' ' + dxffilepath_linux + ' ' + dwgfilepath], shell=True, stderr=subprocess.PIPE, stdout=subprocess.PIPE)
-
-            #         if not is_binary_dxf_file(dxffilepath_linux):
-            #             if not is_dxf_file(dxffilepath_linux):
-            #                 raise IOError(f"File '{dxffilepath_linux}' is not a DXF file.")
-            # except IOError as ioe:
-            #     import pdb; pdb.set_trace()
-            #     if os.path.exists(dxffilepath_linux):
-            #         os.remove(dxffilepath_linux)
-            #     if not os.path.exists(dxffilepath_linux):
-            #         io.open(dxffilepath_linux, mode='xb').close()
-
-            #         subprocess.call([dwg2dxf_linux + ' ' + parameter1 + ' ' + parameter2 + ' ' + dxffilepath_linux + ' ' + dwgfilepath], shell=True, stderr=subprocess.PIPE, stdout=subprocess.PIPE)
-
-            
