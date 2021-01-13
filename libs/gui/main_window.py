@@ -46,7 +46,7 @@ class Ui_MainWindow(object):
         self.verticalLayout_2.setContentsMargins(0, 0, 0, 0)
         self.label_icon = QLabel(self.frame_icon)
         self.label_icon.setObjectName(u"label_icon")
-        self.label_icon.setPixmap(QPixmap(u"icon_square.png"))
+        self.label_icon.setPixmap(QPixmap(u"libs/gui/icons/icon_square.png"))
         self.label_icon.setScaledContents(True)
 
         self.verticalLayout_2.addWidget(self.label_icon)

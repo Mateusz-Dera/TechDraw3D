@@ -20,19 +20,45 @@
 # along with this program.  If not, see <http://www.gnu.org/licenses/>
 
 # Libs
-from sys import platform
+import sys
 import logging
 import runpy
 import subprocess
+from PySide6 import QtCore, QtGui, QtWidgets
+from PySide6.QtCore import (QCoreApplication, QPropertyAnimation, QDate, QDateTime, QMetaObject, QObject, QPoint, QRect, QSize, QTime, QUrl, Qt, QEvent)
+from PySide6.QtGui import (QBrush, QColor, QConicalGradient, QCursor, QFont, QFontDatabase, QIcon, QKeySequence, QLinearGradient, QPalette, QPainter, QPixmap, QRadialGradient)
+from PySide6.QtWidgets import *
 
 # My modules
 from libs.extruder.svg import SVG
 from libs.extruder.dwginput import DWGInput
 from libs.extruder.dxfinput import DXFInput
 from libs.base import logger, args, argparser
+from libs.gui.main_window import Ui_MainWindow
 
 
 _logger = logging.getLogger(__name__)
+
+class MainWindow(QMainWindow):
+    def __init__(self):
+        QMainWindow.__init__(self)
+        self.ui = Ui_MainWindow()
+        self.ui.setupUi(self)
+
+        # REMOVE TITLE BAR
+        self.setWindowFlag(QtCore.Qt.FramelessWindowHint)
+        self.setAttribute(QtCore.Qt.WA_TranslucentBackground)
+
+        # SET DROPSHADOW WINDOW
+        self.shadow = QGraphicsDropShadowEffect(self)
+        self.shadow.setBlurRadius(20)
+        self.shadow.setXOffset(0)
+        self.shadow.setYOffset(0)
+        self.shadow.setColor(QColor(0, 0, 0, 100))
+
+        # APPLY DROPSHADOW TO FRAME
+#        self.ui.shadow_frame.setGraphicsEffect(self.shadow)
+        self.show()
 
 if __name__ == '__main__':
     logger.configure_logging(args.paramArgsSimple())
@@ -46,8 +72,9 @@ if __name__ == '__main__':
     args = parser.parse_args()
     
     if not args.dwg2svg and not args.dwg2dxf and not args.viewobj and not args.dxf2svg and not args.make_walls and not args.makeobj and not args.do_all:
-        print("No arguments.")
-        exit(1)
+        app = QApplication(sys.argv)
+        window = MainWindow()
+        sys.exit(app.exec_())
 
     if args.dwg2svg:
         dwg = DWGInput()
@@ -67,10 +94,10 @@ if __name__ == '__main__':
         svg.save_walls()
 
     if args.makeobj:
-        if platform == "win32":
+        if sys.platform == "win32":
             # subprocess.call([r'.\faceplacer.bat'])
             pass
-        if platform == "linux":
+        if sys.platform == "linux":
             process = subprocess.Popen(['sh', "./libs/mesher/face/run.sh"], stdout=subprocess.PIPE, stderr=subprocess.PIPE)
             out, err = process.communicate()
 
@@ -84,10 +111,10 @@ if __name__ == '__main__':
         runpy.run_path(path_name='./libs/base/display.py')
 
     if args.do_all:
-        if platform == "win32":
+        if sys.platform == "win32":
             # subprocess.call([r'.\faceplacer.bat'])
             pass
-        if platform == "linux":
+        if sys.platform == "linux":
             dwg = DWGInput()
             dxf = DXFInput()
             dwg.dwg2dxf_converter(args.do_all.name)
