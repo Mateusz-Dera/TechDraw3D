@@ -71,3 +71,7 @@ numpy
 # other python packages
 simple-term-menu
 svgpathtools
+dxf2svg
+ezdxf
+pyvista
+pyside6
