@@ -23,19 +23,20 @@
 import bpy
 import sys
 import os
+import _thread
 
 print("Start")
 
 path = str(sys.argv[3])[:-7] + "tmp/"
 export_path = str(sys.argv[3])[:-7] + "../extrude/tmp/"
 
-print("Import path: " + path)
-print("Export path: " + export_path)
+# print("Import path: " + path)
+# print("Export path: " + export_path)
 
-for filename in os.listdir(path):
-    if filename.endswith(".svg"):
-        print('\n-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-\n' + str(path) + '\n' + str(filename) + '\n')
-
+def thread(filename, path):
+    print(filename + " " + path)
+    if filename != None:
+        print("Start")
         objs = bpy.data.objects
         for ob in objs:
             objs.remove(objs[ob.name], do_unlink=True)
@@ -97,5 +98,10 @@ for filename in os.listdir(path):
         # Export
         bpy.ops.export_scene.obj(filepath=export_path + filename[:-4] + ".obj", check_existing=False, axis_forward='-Z', axis_up='Y', filter_glob="*.obj;*.mtl", use_selection=True, use_animation=False, use_mesh_modifiers=True, use_edges=True, use_smooth_groups=False, use_smooth_groups_bitflags=False, use_normals=True, use_uvs=True, use_materials=True, use_triangles=False, use_nurbs=False, use_vertex_groups=False, use_blen_objects=True, group_by_object=False, group_by_material=False, keep_vertex_order=False, global_scale=1, path_mode='AUTO')
 
-
-        
+for filename in os.listdir(path):
+    if filename.endswith(".svg"):
+        print('\n-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-\n' + str(path) + '\n' + str(filename) + '\n')
+        try:
+            _thread.start_new_thread( thread, (str(filename), str(path)) )
+        except:
+            print ("Error: unable to start thread")
