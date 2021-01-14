@@ -47,7 +47,7 @@ class MainWindow(QMainWindow):
                 self.drag_position = event.globalPos()
                 event.accept()
 
-        UIFunctions.uiDefinitions(self)
+        UIFunctions.ui_definitions(self)
         self.ui.title_bar.mouseMoveEvent = move_window
 
         self.show()
