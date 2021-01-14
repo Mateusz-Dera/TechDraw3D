@@ -24,10 +24,6 @@ import sys
 import logging
 import runpy
 import subprocess
-from PySide6 import QtCore, QtGui, QtWidgets
-from PySide6.QtCore import (QCoreApplication, QPropertyAnimation, QDate, QDateTime, QMetaObject, QObject, QPoint, QRect, QSize, QTime, QUrl, Qt, QEvent)
-from PySide6.QtGui import (QBrush, QColor, QConicalGradient, QCursor, QFont, QFontDatabase, QIcon, QKeySequence, QLinearGradient, QPalette, QPainter, QPixmap, QRadialGradient)
-from PySide6.QtWidgets import *
 
 # My modules
 from libs.extruder.svg import SVG
@@ -35,7 +31,7 @@ from libs.extruder.dwginput import DWGInput
 from libs.extruder.dxfinput import DXFInput
 from libs.base import logger, args, argparser
 from libs.gui.main_window import Ui_MainWindow
-
+from libs.gui.ui_functions import *
 
 _logger = logging.getLogger(__name__)
 
@@ -45,20 +41,19 @@ class MainWindow(QMainWindow):
         self.ui = Ui_MainWindow()
         self.ui.setupUi(self)
 
-        # REMOVE TITLE BAR
-        self.setWindowFlag(QtCore.Qt.FramelessWindowHint)
-        self.setAttribute(QtCore.Qt.WA_TranslucentBackground)
+        def move_window(event):
+            if event.buttons() == Qt.LeftButton:
+                self.move(self.pos() + event.globalPos() - self.drag_position)
+                self.drag_position = event.globalPos()
+                event.accept()
 
-        # SET DROPSHADOW WINDOW
-        self.shadow = QGraphicsDropShadowEffect(self)
-        self.shadow.setBlurRadius(20)
-        self.shadow.setXOffset(0)
-        self.shadow.setYOffset(0)
-        self.shadow.setColor(QColor(0, 0, 0, 100))
+        UIFunctions.uiDefinitions(self)
+        self.ui.title_bar.mouseMoveEvent = move_window
 
-        # APPLY DROPSHADOW TO FRAME
-#        self.ui.shadow_frame.setGraphicsEffect(self.shadow)
         self.show()
+
+    def mousePressEvent(self, event):
+        self.drag_position = event.globalPos()
 
 if __name__ == '__main__':
     logger.configure_logging(args.paramArgsSimple())
