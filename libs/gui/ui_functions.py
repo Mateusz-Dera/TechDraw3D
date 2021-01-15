@@ -6,6 +6,9 @@ import sys
 import os
 
 from main import MainWindow
+from libs.extruder.svg import SVG
+from libs.extruder.dwginput import DWGInput
+from libs.extruder.dxfinput import DXFInput
 
 
 class UIFunctions(MainWindow):
@@ -17,7 +20,7 @@ class UIFunctions(MainWindow):
         if sys.platform == "linux":
             homepath = os.environ["HOME"]
 
-        fname=QFileDialog.getOpenFileName(self, "Open file", homepath, "DWG file (*.dwg)" )
+        fname=QFileDialog.getOpenFileName(self, "Open file", homepath, "DWG file (*.dwg)")
         self.ui.lineEdit_dwg_file.setText(fname[0])
 
     def browse_dxf_file(self):
@@ -29,6 +32,12 @@ class UIFunctions(MainWindow):
 
         fname = QFileDialog.getOpenFileName(self, "Open file", homepath, "DXF file (*.dxf)")
         self.ui.lineEdit_dxf_file.setText(fname[0])
+
+    def convert_dwg_to_dxf(self):
+        dwg = DWGInput()
+        if self.ui.lineEdit_dwg_file.text():
+            file = self.ui.lineEdit_dwg_file.text()
+            dwg.dwg2dxf_converter(file)
 
 
     def ui_definitions(self):
@@ -47,4 +56,5 @@ class UIFunctions(MainWindow):
         self.ui.button_close.clicked.connect(lambda: self.close())
         self.ui.button_choose_dwg_file.clicked.connect(lambda: UIFunctions.browse_dwg_file(self))
         self.ui.button_choose_dxf_file.clicked.connect(lambda: UIFunctions.browse_dxf_file(self))
+        self.ui.button_dxf.clicked.connect(lambda: UIFunctions.convert_dwg_to_dxf(self))
 
