@@ -1,3 +1,4 @@
+import pyvista
 from qtpy import QtCore, QtGui, QtWidgets
 from qtpy.QtCore import (QCoreApplication, QPropertyAnimation, QDate, QDateTime, QMetaObject, QObject, QPoint, QRect, QSize, QTime, QUrl, Qt, QEvent)
 from qtpy.QtGui import (QBrush, QColor, QConicalGradient, QCursor, QFont, QFontDatabase, QIcon, QKeySequence, QLinearGradient, QPalette, QPainter, QPixmap, QRadialGradient)
@@ -5,6 +6,7 @@ from qtpy.QtWidgets import *
 import sys
 import os
 import subprocess
+import pyvista
 
 from main import MainWindow
 from libs.extruder.svg import SVG
@@ -31,6 +33,16 @@ class UIFunctions(MainWindow):
 
         fname = QFileDialog.getOpenFileName(self, "Open file", homepath, "DXF file (*.dxf)")
         self.ui.lineEdit_dxf_file.setText(fname[0])
+
+    def view_obj(self):
+        if sys.platform == "win32":
+            homepath = os.environ["HOMEPATH"]
+        if sys.platform == "linux":
+            homepath = os.environ["HOME"]
+
+        fname = QFileDialog.getOpenFileName(self, "Open file", homepath, "OBJ file (*.obj)")
+        mesh = pyvista.read(fname[0])
+        cpos = mesh.plot()
 
     def convert_dwg_to_dxf(self):
         if self.ui.lineEdit_dwg_file.text():
@@ -89,6 +101,7 @@ class UIFunctions(MainWindow):
         self.ui.button_close.clicked.connect(lambda: self.close())
         self.ui.button_choose_dwg_file.clicked.connect(lambda: UIFunctions.browse_dwg_file(self))
         self.ui.button_choose_dxf_file.clicked.connect(lambda: UIFunctions.browse_dxf_file(self))
+        self.ui.button_view_obj.clicked.connect(lambda: UIFunctions.view_obj(self))
         self.ui.button_dxf.clicked.connect(lambda: UIFunctions.convert_dwg_to_dxf(self))
         self.ui.button_svg.clicked.connect(lambda: UIFunctions.convert_dwg_to_svg(self))
         self.ui.button_obj.clicked.connect(lambda: UIFunctions.convert_dwg_to_obj(self))
