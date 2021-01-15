@@ -23,9 +23,13 @@ in progress...
 ```
 
 ## Uruchomienie
-Program obecnie działa w trybie konsolowym. W celu uruchomienia programu wystarczy przejść do katalogu z naszym programem, a następnie z poziomu pythona uruchomić program np.:
+Program działa w trybie graficznym. W celu uruchomienia należy przejść do głównego katalogu programu, a następnie uruchomić plik main za pomocą interpretera Python:
 ```shell
 python3 main_cli.py
+```
+W razie problemów można wywołać poszczególne funkcje za pomocą wiersza poleceń. Więcej informacji:
+```shell
+python3 main.py --help
 ```
 
 ## Użyte oprogramowanie
