@@ -24,4 +24,5 @@ from test import tools
 
 class TestBasicSVG:
     def test_valid(self):
+        
         assert True
