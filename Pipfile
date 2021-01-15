@@ -57,6 +57,9 @@ Pygments = "==2.6.1"
 simple-term-menu = "*"
 pyvista = "*"
 pytest = "*"
+pyside2 = "*"
+qtpy = "*"
+pyvistaqt = "*"
 
 [requires]
 python_version = "3.7"
