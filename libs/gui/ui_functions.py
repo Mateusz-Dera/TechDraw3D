@@ -14,7 +14,6 @@ from libs.extruder.dxfinput import DXFInput
 class UIFunctions(MainWindow):
     
     def browse_dwg_file(self):
-
         if sys.platform == "win32":
             homepath = os.environ["HOMEPATH"]
         if sys.platform == "linux":
@@ -24,7 +23,6 @@ class UIFunctions(MainWindow):
         self.ui.lineEdit_dwg_file.setText(fname[0])
 
     def browse_dxf_file(self):
-
         if sys.platform == "win32":
             homepath = os.environ["HOMEPATH"]
         if sys.platform == "linux":
