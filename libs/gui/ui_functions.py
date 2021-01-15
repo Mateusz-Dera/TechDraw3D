@@ -101,6 +101,27 @@ class UIFunctions(MainWindow):
             process = subprocess.Popen(['sh', "./libs/mesher/boolean/run.sh -fbx"], stdout=subprocess.PIPE, stderr=subprocess.PIPE)
             out, err = process.communicate()
 
+    def convert_dwg_to_stl(self):
+        if self.ui.lineEdit_dwg_file.text():
+            dwg = DWGInput()
+            dxf = DXFInput()
+            file = self.ui.lineEdit_dwg_file.text()
+            dwg.dwg2dxf_converter(file)
+            dxf.dxf2svg_converter(file.replace("dwg", "dxf"))
+
+            svg = SVG(file.replace("dwg", "svg"))
+            svg.split_svg()
+            svg.save_walls()
+
+            process = subprocess.Popen(['sh', "./libs/mesher/face/run.sh"], stdout=subprocess.PIPE, stderr=subprocess.PIPE)
+            out, err = process.communicate()
+
+            process = subprocess.Popen(['sh', "./libs/mesher/extrude/run.sh"], stdout=subprocess.PIPE, stderr=subprocess.PIPE)
+            out, err = process.communicate()
+
+            process = subprocess.Popen(['sh', "./libs/mesher/boolean/run.sh -stl"], stdout=subprocess.PIPE, stderr=subprocess.PIPE)
+            out, err = process.communicate()
+
     def convert_dxf_to_svg(self):
         if self.ui.lineEdit_dxf_file.text():
             dxf = DXFInput()
@@ -133,4 +154,5 @@ class UIFunctions(MainWindow):
         self.ui.button_obj.clicked.connect(lambda: UIFunctions.convert_dwg_to_obj(self))
         self.ui.button_svg2.clicked.connect(lambda: UIFunctions.convert_dxf_to_svg(self))
         self.ui.button_fbx.clicked.connect(lambda: UIFunctions.convert_dwg_to_fbx(self))
+        self.ui.button_stl.clicked.connect(lambda: UIFunctions.convert_dwg_to_stl(self))
 
