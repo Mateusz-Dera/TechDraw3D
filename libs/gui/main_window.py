@@ -388,7 +388,9 @@ class Ui_MainWindow(object):
     # setupUi
 
     def retranslateUi(self, MainWindow):
-        MainWindow.setWindowTitle(QCoreApplication.translate("MainWindow", u"window", None))
+        MainWindow.setWindowTitle(QCoreApplication.translate("MainWindow", u"TechDraw3D v0.2.0", None))
+        MainWindow.setWindowIcon(QIcon('./libs/gui/icons/icon_square.png'))
+        
         self.label_icon.setText("")
         self.label_title.setText(QCoreApplication.translate("MainWindow", u"TechDraw3D", None))
         self.button_close.setText(QCoreApplication.translate("MainWindow", u"X", None))
