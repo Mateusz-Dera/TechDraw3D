@@ -1,5 +1,5 @@
 # TechDraw3D
-# Copyright © 2020 Tomasz Nowak, Mateusz Dera, Jakub Schwarz
+# Copyright © 2020-2021 Tomasz Nowak, Mateusz Dera, Jakub Schwarz
 
 # This program is free software: you can redistribute it and/or modify
 # it under the terms of the GNU General Public License as published by
@@ -22,4 +22,6 @@
 DIRECTORY="$(cd "$(dirname "$0")" && pwd -P)/$(basename "$1")"
 
 #sudo docker run -it --rm -v $DIRECTORY:/root qnzhou/pymesh bash
+# echo $1
 sudo docker run -it --rm -v $DIRECTORY:/root qnzhou/pymesh python3 ./main.py
+blender -b --python "$(dirname $(readlink -f $0))/type.py" $1
