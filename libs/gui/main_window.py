@@ -344,12 +344,12 @@ class Ui_MainWindow(object):
 "QPushButton:hover{	\n"
 "	background-color: rgb(162, 173, 149);\n"
 "}")
-        self.button_obj_2 = QPushButton(self.frame_menu_options)
-        self.button_obj_2.setObjectName(u"button_obj_2")
-        self.button_obj_2.setGeometry(QRect(25, 230, 100, 25))
-        self.button_obj_2.setMinimumSize(QSize(7, 0))
-        self.button_obj_2.setFont(font2)
-        self.button_obj_2.setStyleSheet(u"QPushButton {\n"
+        self.button_stl = QPushButton(self.frame_menu_options)
+        self.button_stl.setObjectName(u"button_stl")
+        self.button_stl.setGeometry(QRect(25, 230, 100, 25))
+        self.button_stl.setMinimumSize(QSize(7, 0))
+        self.button_stl.setFont(font2)
+        self.button_stl.setStyleSheet(u"QPushButton {\n"
 "	border: none;\n"
 "	border-radius: 5px;\n"
 "	color: rgb(43, 43, 43);\n"
@@ -405,6 +405,6 @@ class Ui_MainWindow(object):
         self.button_choose_dxf_file.setText(QCoreApplication.translate("MainWindow", u"\u25bc", None))
         self.label_convert_to_2.setText(QCoreApplication.translate("MainWindow", u"convert to:", None))
         self.button_view_obj.setText(QCoreApplication.translate("MainWindow", u"VIEW OBJ", None))
-        self.button_obj_2.setText(QCoreApplication.translate("MainWindow", u"STL", None))
+        self.button_stl.setText(QCoreApplication.translate("MainWindow", u"STL", None))
     # retranslateUi
 

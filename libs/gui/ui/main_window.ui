@@ -861,7 +861,7 @@ QPushButton:hover{
                  <string>VIEW OBJ</string>
                 </property>
                </widget>
-               <widget class="QPushButton" name="button_obj_2">
+               <widget class="QPushButton" name="button_stl">
                 <property name="geometry">
                  <rect>
                   <x>25</x>
