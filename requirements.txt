@@ -44,7 +44,7 @@ pkginfo
 Pygments
 pylint
 pyparsing
-python-dateutil
+# python-dateutil
 pywin32-ctypes
 readme-renderer
 requests
