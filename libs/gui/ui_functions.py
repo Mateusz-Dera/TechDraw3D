@@ -43,7 +43,8 @@ class UIFunctions(MainWindow):
         fname = QFileDialog.getOpenFileName(self, "Open file", homepath, "OBJ file (*.obj)")
         if fname[0]:
             mesh = pyvista.read(fname[0])
-            cpos = mesh.plot()
+            plotter = pyvistaqt.BackgroundPlotter()
+            plotter.add_mesh(mesh)
 
     def convert_dwg_to_dxf(self):
         if self.ui.lineEdit_dwg_file.text():
@@ -77,7 +78,7 @@ class UIFunctions(MainWindow):
             process = subprocess.Popen(['sh', "./libs/mesher/extrude/run.sh"], stdout=subprocess.PIPE, stderr=subprocess.PIPE)
             out, err = process.communicate()
 
-            process = subprocess.Popen(['sh', "./libs/mesher/boolean/run.sh -obj"], stdout=subprocess.PIPE, stderr=subprocess.PIPE)
+            process = subprocess.Popen(['sh', "./libs/mesher/boolean/run.sh", "-obj"], stdout=subprocess.PIPE, stderr=subprocess.PIPE)
             out, err = process.communicate()
 
     def convert_dwg_to_fbx(self):
