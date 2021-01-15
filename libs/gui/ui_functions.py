@@ -39,6 +39,14 @@ class UIFunctions(MainWindow):
             file = self.ui.lineEdit_dwg_file.text()
             dwg.dwg2dxf_converter(file)
 
+    def convert_dwg_to_svg(self):
+        dwg = DWGInput()
+        dxf = DXFInput()
+        if self.ui.lineEdit_dwg_file.text():
+            file = self.ui.lineEdit_dwg_file.text()
+            dwg.dwg2dxf_converter(file)
+            dxf.dxf2svg_converter(file.replace("dwg", "dxf"))
+
 
     def ui_definitions(self):
 
@@ -57,4 +65,5 @@ class UIFunctions(MainWindow):
         self.ui.button_choose_dwg_file.clicked.connect(lambda: UIFunctions.browse_dwg_file(self))
         self.ui.button_choose_dxf_file.clicked.connect(lambda: UIFunctions.browse_dxf_file(self))
         self.ui.button_dxf.clicked.connect(lambda: UIFunctions.convert_dwg_to_dxf(self))
+        self.ui.button_svg.clicked.connect(lambda: UIFunctions.convert_dwg_to_svg(self))
 
