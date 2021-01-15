@@ -12,7 +12,7 @@ Aplikacja przetwarzająca wybrane formaty rysunków technicznych do modelu 3D or
 
 
 ## Instalacja
-[![OS](https://img.shields.io/badge/Ubuntu-20.04-orange.svg)(https://ubuntu.com/download/desktop)]
+![OS](https://img.shields.io/badge/Ubuntu-20.04-orange.svg)
 ![OS](https://img.shields.io/badge/Fedora-32-blue.svg)
 ```bash
 bash linux_install.sh
