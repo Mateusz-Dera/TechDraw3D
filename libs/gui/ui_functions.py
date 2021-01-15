@@ -1,4 +1,3 @@
-import pyvista
 from qtpy import QtCore, QtGui, QtWidgets
 from qtpy.QtCore import (QCoreApplication, QPropertyAnimation, QDate, QDateTime, QMetaObject, QObject, QPoint, QRect, QSize, QTime, QUrl, Qt, QEvent)
 from qtpy.QtGui import (QBrush, QColor, QConicalGradient, QCursor, QFont, QFontDatabase, QIcon, QKeySequence, QLinearGradient, QPalette, QPainter, QPixmap, QRadialGradient)
@@ -7,6 +6,7 @@ import sys
 import os
 import subprocess
 import pyvista
+import pyvistaqt
 
 from main import MainWindow
 from libs.extruder.svg import SVG
@@ -41,8 +41,9 @@ class UIFunctions(MainWindow):
             homepath = os.environ["HOME"]
 
         fname = QFileDialog.getOpenFileName(self, "Open file", homepath, "OBJ file (*.obj)")
-        mesh = pyvista.read(fname[0])
-        cpos = mesh.plot()
+        if fname[0]:
+            mesh = pyvista.read(fname[0])
+            cpos = mesh.plot()
 
     def convert_dwg_to_dxf(self):
         if self.ui.lineEdit_dwg_file.text():
@@ -85,6 +86,7 @@ class UIFunctions(MainWindow):
             file = self.ui.lineEdit_dxf_file.text()
             dxf.dxf2svg_converter(file)
 
+
     def ui_definitions(self):
 
         self.setWindowFlag(QtCore.Qt.FramelessWindowHint)
@@ -97,6 +99,9 @@ class UIFunctions(MainWindow):
         self.shadow.setColor(QColor(0, 0, 0, 100))
 
         self.ui.shadow_frame.setGraphicsEffect(self.shadow)
+
+        self.ui.lineEdit_dwg_file.setEnabled(False)
+        self.ui.lineEdit_dxf_file.setEnabled(False)
 
         self.ui.button_close.clicked.connect(lambda: self.close())
         self.ui.button_choose_dwg_file.clicked.connect(lambda: UIFunctions.browse_dwg_file(self))
