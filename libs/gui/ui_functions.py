@@ -20,6 +20,16 @@ class UIFunctions(MainWindow):
         fname=QFileDialog.getOpenFileName(self, "Open file", homepath, "DWG file (*.dwg)" )
         self.ui.lineEdit_dwg_file.setText(fname[0])
 
+    def browse_dxf_file(self):
+
+        if sys.platform == "win32":
+            homepath = os.environ["HOMEPATH"]
+        if sys.platform == "linux":
+            homepath = os.environ["HOME"]
+
+        fname = QFileDialog.getOpenFileName(self, "Open file", homepath, "DXF file (*.dxf)")
+        self.ui.lineEdit_dxf_file.setText(fname[0])
+
 
     def ui_definitions(self):
 
@@ -36,4 +46,5 @@ class UIFunctions(MainWindow):
 
         self.ui.button_close.clicked.connect(lambda: self.close())
         self.ui.button_choose_dwg_file.clicked.connect(lambda: UIFunctions.browse_dwg_file(self))
+        self.ui.button_choose_dxf_file.clicked.connect(lambda: UIFunctions.browse_dxf_file(self))
 
