@@ -99,7 +99,7 @@ class UIFunctions(MainWindow):
             process = subprocess.Popen(['sh', "./libs/mesher/extrude/run.sh"], stdout=subprocess.PIPE, stderr=subprocess.PIPE)
             out, err = process.communicate()
 
-            process = subprocess.Popen(['sh', "./libs/mesher/boolean/run.sh -fbx"], stdout=subprocess.PIPE, stderr=subprocess.PIPE)
+            process = subprocess.Popen(['sh', "./libs/mesher/boolean/run.sh", "-fbx"], stdout=subprocess.PIPE, stderr=subprocess.PIPE)
             out, err = process.communicate()
 
     def convert_dwg_to_stl(self):
@@ -120,7 +120,7 @@ class UIFunctions(MainWindow):
             process = subprocess.Popen(['sh', "./libs/mesher/extrude/run.sh"], stdout=subprocess.PIPE, stderr=subprocess.PIPE)
             out, err = process.communicate()
 
-            process = subprocess.Popen(['sh', "./libs/mesher/boolean/run.sh -stl"], stdout=subprocess.PIPE, stderr=subprocess.PIPE)
+            process = subprocess.Popen(['sh', "./libs/mesher/boolean/run.sh", "-stl"], stdout=subprocess.PIPE, stderr=subprocess.PIPE)
             out, err = process.communicate()
 
     def convert_dxf_to_svg(self):
