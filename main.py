@@ -1,5 +1,5 @@
 # TechDraw3D
-# Copyright © 2020 Tomasz Nowak, Mateusz Dera, Jakub Schwarz
+# Copyright © 2021 Tomasz Nowak, Mateusz Dera, Jakub Schwarz
 
 # This program is free software: you can redistribute it and/or modify
 # it under the terms of the GNU General Public License as published by
@@ -20,19 +20,44 @@
 # along with this program.  If not, see <http://www.gnu.org/licenses/>
 
 # Libs
-from sys import platform
+import sys
 import logging
 import runpy
 import subprocess
+
 
 # My modules
 from libs.extruder.svg import SVG
 from libs.extruder.dwginput import DWGInput
 from libs.extruder.dxfinput import DXFInput
 from libs.base import logger, args, argparser
+from libs.gui.main_window import Ui_MainWindow
+from libs.gui.ui_functions import *
 
 
 _logger = logging.getLogger(__name__)
+os.environ["QT_API"] = "pyside2"
+
+class MainWindow(QMainWindow):
+    def __init__(self):
+        QMainWindow.__init__(self)
+        self.ui = Ui_MainWindow()
+        self.ui.setupUi(self)
+
+        def move_window(event):
+            if event.buttons() == Qt.LeftButton:
+                self.move(self.pos() + event.globalPos() - self.drag_position)
+                self.drag_position = event.globalPos()
+                event.accept()
+
+        UIFunctions.ui_definitions(self)
+
+        self.ui.title_bar.mouseMoveEvent = move_window
+
+        self.show()
+
+    def mousePressEvent(self, event):
+        self.drag_position = event.globalPos()
 
 if __name__ == '__main__':
     logger.configure_logging(args.paramArgsSimple())
@@ -46,8 +71,9 @@ if __name__ == '__main__':
     args = parser.parse_args()
     
     if not args.dwg2svg and not args.dwg2dxf and not args.viewobj and not args.dxf2svg and not args.make_walls and not args.makeobj and not args.do_all:
-        print("No arguments.")
-        exit(1)
+        app = QApplication(sys.argv)
+        window = MainWindow()
+        sys.exit(app.exec_())
 
     if args.dwg2svg:
         dwg = DWGInput()
@@ -67,10 +93,10 @@ if __name__ == '__main__':
         svg.save_walls()
 
     if args.makeobj:
-        if platform == "win32":
+        if sys.platform == "win32":
             # subprocess.call([r'.\faceplacer.bat'])
             pass
-        if platform == "linux":
+        if sys.platform == "linux":
             process = subprocess.Popen(['sh', "./libs/mesher/face/run.sh"], stdout=subprocess.PIPE, stderr=subprocess.PIPE)
             out, err = process.communicate()
 
@@ -84,10 +110,10 @@ if __name__ == '__main__':
         runpy.run_path(path_name='./libs/base/display.py')
 
     if args.do_all:
-        if platform == "win32":
+        if sys.platform == "win32":
             # subprocess.call([r'.\faceplacer.bat'])
             pass
-        if platform == "linux":
+        if sys.platform == "linux":
             dwg = DWGInput()
             dxf = DXFInput()
             dwg.dwg2dxf_converter(args.do_all.name)

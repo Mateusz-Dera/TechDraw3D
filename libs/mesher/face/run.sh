@@ -19,4 +19,17 @@
 # You should have received a copy of the GNU General Public License
 # along with this program.  If not, see <http://www.gnu.org/licenses/>
 
+if [[ ! -d ./libs/mesher/face/tmp ]] ; then
+    mkdir ./libs/mesher/face/tmp
+fi
+if [[ ! -d ./libs/mesher/extrude/tmp ]] ; then
+    mkdir ./libs/mesher/extrude/tmp
+fi
+if [[ ! -d ./libs/mesher/boolean/tmp ]] ; then
+    mkdir ./libs/mesher/boolean/tmp
+fi
+if [[ ! -d ./libs/mesher/boolean/export ]] ; then
+    mkdir ./libs/mesher/boolean/export
+fi
+
 blender -b --python "$(dirname $(readlink -f $0))/main.py"

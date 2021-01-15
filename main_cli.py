@@ -187,7 +187,7 @@ def main():
                 print('\x1bc')
                 
                 print("""    TechDraw3D
-    Wersja: 0.1.1
+    Wersja: 0.2.0
 
     Autorzy:
     Tomasz Nowak

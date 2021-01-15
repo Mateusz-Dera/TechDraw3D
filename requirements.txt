@@ -44,7 +44,7 @@ pkginfo
 Pygments
 pylint
 pyparsing
-python-dateutil
+# python-dateutil
 pywin32-ctypes
 readme-renderer
 requests
@@ -71,3 +71,9 @@ numpy
 # other python packages
 simple-term-menu
 svgpathtools
+dxf2svg
+ezdxf
+pyvista
+pyside2
+qtpy
+pyvistaqt
