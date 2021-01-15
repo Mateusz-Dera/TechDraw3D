@@ -30,10 +30,9 @@ from libs.extruder.svg import SVG
 from libs.extruder.dwginput import DWGInput
 from libs.extruder.dxfinput import DXFInput
 from libs.base import logger, args, argparser
-#from libs.faceplacer.faceplacer_runner import run_faceplacer as rf
+
 
 _logger = logging.getLogger(__name__)
-
 
 if __name__ == '__main__':
     logger.configure_logging(args.paramArgsSimple())
@@ -82,7 +81,7 @@ if __name__ == '__main__':
             out, err = process.communicate()
 
     if args.viewobj:
-        runpy.run_path(path_name='./libs/base/obj_viewer.py')
+        runpy.run_path(path_name='./libs/base/display.py')
 
     if args.do_all:
         if platform == "win32":

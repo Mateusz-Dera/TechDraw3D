@@ -27,6 +27,8 @@ import subprocess
 import os.path
 
 # My modules
+import pyvista
+
 from libs.extruder.svg import SVG
 from libs.extruder.dwginput import DWGInput
 from libs.extruder.dxfinput import DXFInput
@@ -38,7 +40,7 @@ import time
 
 def main():
     main_menu_title = "TechDraw3D\n"
-    main_menu_items = ["Konwerter formatów", "Konwertuj DWG na obiekt 3D", "O programie", "Wyjście"]
+    main_menu_items = ["Konwerter formatów", "Konwertuj DWG na obiekt 3D", "Wyświetl obiekt \'obj\'", "O programie", "Wyjście"]
     main_menu_cursor = "< > "
     main_menu_cursor_style = ("fg_red", "bg_black")
     main_menu_style = ("bg_black", "fg_red", "bold")
@@ -159,20 +161,33 @@ def main():
 
                 print("Plik dostępny w katalogu: ")
                 print("./libs/mesher/boolean/export/mesh.obj")
-                time.sleep(5)
+                mesh = pyvista.read(os.path.abspath("./libs/mesher/boolean/export/mesh.obj"))
+                cpos = mesh.plot()
+                time.sleep(2)
             else: 
                 print("Błędna nazwa pliku!")
                 time.sleep(2)
 
-            time.sleep(5)
+            time.sleep(1)
         elif main_sel == 2:
+            print("Wyświetlenie pliku obj")
+            print("Podaj lokalizacje pliku np.: /home/dummy_user/plik.obj")
+            file = input("Lokalizacja: ")
+
+            if os.path.isfile(file):
+                mesh = pyvista.read(os.path.abspath(file))
+                cpos = mesh.plot()
+            else: 
+                print("Błędna nazwa pliku!")
+                time.sleep(2)
+        elif main_sel == 3:
             while not about_menu_back:
                 print(chr(27)+'[2j')
                 print('\033c')
                 print('\x1bc')
                 
                 print("""    TechDraw3D
-    Wersja: 0.1
+    Wersja: 0.1.1
 
     Autorzy:
     Tomasz Nowak
@@ -183,7 +198,7 @@ def main():
                 about_sel = about_menu.show()
                 if about_sel == 0:
                     about_menu_back = True
-        elif main_sel == 3:
+        elif main_sel == 4:
             main_menu_exit = True
             print("Dziękujemy za skorzystanie z programu TechDraw3D")
 

@@ -7,7 +7,7 @@ Aplikacja przetwarzająca wybrane formaty rysunków technicznych do modelu 3D or
 [![Author](https://img.shields.io/badge/Mateusz-Dera-red.svg)](https://github.com/Mateusz-Dera)
 [![Author](https://img.shields.io/badge/Jakub-Schwarz-red.svg)](https://github.com/JakubSchwarz)  
 
-![Version](https://img.shields.io/badge/Wersja-0.1.0-yellow.svg)
+![Version](https://img.shields.io/badge/Wersja-0.1.1-yellow.svg)
 [![License: GPL v3](https://img.shields.io/badge/Licencja-GPLv3-blue.svg)](https://www.gnu.org/licenses/gpl-3.0)
 
 
@@ -27,3 +27,6 @@ Program obecnie działa w trybie konsolowym. W celu uruchomienia programu wystar
 ```shell
 python3 main_cli.py
 ```
+
+## Użyte oprogramowanie
+LibreDWG - https://www.gnu.org/software/libredwg/
