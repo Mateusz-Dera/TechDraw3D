@@ -1,7 +1,9 @@
 # -*- coding: utf-8 -*-
-from PySide6.QtCore import *
-from PySide6.QtGui import *
-from PySide6.QtWidgets import *
+
+
+from qtpy.QtCore import *
+from qtpy.QtGui import *
+from qtpy.QtWidgets import *
 
 
 class Ui_MainWindow(object):
@@ -165,31 +167,16 @@ class Ui_MainWindow(object):
 "border-radius: 10px;")
         self.frame_menu_options.setFrameShape(QFrame.NoFrame)
         self.frame_menu_options.setFrameShadow(QFrame.Raised)
-        self.button_start = QPushButton(self.frame_menu_options)
-        self.button_start.setObjectName(u"button_start")
-        self.button_start.setGeometry(QRect(25, 80, 100, 25))
-        self.button_start.setMinimumSize(QSize(7, 0))
+        self.button_svg2 = QPushButton(self.frame_menu_options)
+        self.button_svg2.setObjectName(u"button_svg2")
+        self.button_svg2.setGeometry(QRect(25, 330, 100, 25))
+        self.button_svg2.setMinimumSize(QSize(7, 0))
         font2 = QFont()
         font2.setFamily(u"MS Shell Dlg 2")
         font2.setPointSize(10)
         font2.setBold(True)
-        self.button_start.setFont(font2)
-        self.button_start.setStyleSheet(u"QPushButton {\n"
-"	border: none;\n"
-"	border-radius: 5px;\n"
-"	color: rgb(43, 43, 43);\n"
-"	background-color: qlineargradient(spread:pad, x1:0.534364, y1:0, x2:0.528909, y2:1, stop:0.00568182 rgba(120, 129, 110, 255), stop:0.5 rgba(151, 162, 139, 255), stop:1 rgba(162, 173, 149, 255));\n"
-"}\n"
-"\n"
-"QPushButton:hover{	\n"
-"	background-color: rgb(162, 173, 149);\n"
-"}")
-        self.button_exit = QPushButton(self.frame_menu_options)
-        self.button_exit.setObjectName(u"button_exit")
-        self.button_exit.setGeometry(QRect(25, 450, 100, 25))
-        self.button_exit.setMinimumSize(QSize(7, 0))
-        self.button_exit.setFont(font2)
-        self.button_exit.setStyleSheet(u"QPushButton {\n"
+        self.button_svg2.setFont(font2)
+        self.button_svg2.setStyleSheet(u"QPushButton {\n"
 "	border: none;\n"
 "	border-radius: 5px;\n"
 "	color: rgb(43, 43, 43);\n"
@@ -201,7 +188,7 @@ class Ui_MainWindow(object):
 "}")
         self.button_info = QPushButton(self.frame_menu_options)
         self.button_info.setObjectName(u"button_info")
-        self.button_info.setGeometry(QRect(25, 415, 100, 25))
+        self.button_info.setGeometry(QRect(25, 450, 100, 25))
         self.button_info.setMinimumSize(QSize(7, 0))
         self.button_info.setFont(font2)
         self.button_info.setStyleSheet(u"QPushButton {\n"
@@ -216,15 +203,15 @@ class Ui_MainWindow(object):
 "}")
         self.lineEdit_dwg_file = QLineEdit(self.frame_menu_options)
         self.lineEdit_dwg_file.setObjectName(u"lineEdit_dwg_file")
-        self.lineEdit_dwg_file.setGeometry(QRect(10, 50, 109, 20))
+        self.lineEdit_dwg_file.setGeometry(QRect(10, 40, 109, 20))
         self.lineEdit_dwg_file.setStyleSheet(u"background-color: rgb(151, 162, 139);\n"
 "border-radius: 0px;")
-        self.button_choose_file = QPushButton(self.frame_menu_options)
-        self.button_choose_file.setObjectName(u"button_choose_file")
-        self.button_choose_file.setGeometry(QRect(120, 50, 20, 20))
-        self.button_choose_file.setMinimumSize(QSize(7, 0))
-        self.button_choose_file.setFont(font2)
-        self.button_choose_file.setStyleSheet(u"QPushButton {\n"
+        self.button_choose_dwg_file = QPushButton(self.frame_menu_options)
+        self.button_choose_dwg_file.setObjectName(u"button_choose_dwg_file")
+        self.button_choose_dwg_file.setGeometry(QRect(120, 40, 20, 20))
+        self.button_choose_dwg_file.setMinimumSize(QSize(7, 0))
+        self.button_choose_dwg_file.setFont(font2)
+        self.button_choose_dwg_file.setStyleSheet(u"QPushButton {\n"
 "	border: none;\n"
 "	border-radius: 0px;\n"
 "	color: rgb(43, 43, 43);\n"
@@ -236,13 +223,126 @@ class Ui_MainWindow(object):
 "}")
         self.label_dwg = QLabel(self.frame_menu_options)
         self.label_dwg.setObjectName(u"label_dwg")
-        self.label_dwg.setGeometry(QRect(45, 25, 55, 16))
+        self.label_dwg.setGeometry(QRect(45, 15, 61, 16))
         font3 = QFont()
         font3.setPointSize(10)
         font3.setBold(True)
         self.label_dwg.setFont(font3)
         self.label_dwg.setStyleSheet(u"background-color: none;\n"
 "color: rgb(151, 162, 139);")
+        self.button_dxf = QPushButton(self.frame_menu_options)
+        self.button_dxf.setObjectName(u"button_dxf")
+        self.button_dxf.setGeometry(QRect(25, 95, 100, 25))
+        self.button_dxf.setMinimumSize(QSize(7, 0))
+        self.button_dxf.setFont(font2)
+        self.button_dxf.setStyleSheet(u"QPushButton {\n"
+"	border: none;\n"
+"	border-radius: 5px;\n"
+"	color: rgb(43, 43, 43);\n"
+"	background-color: qlineargradient(spread:pad, x1:0.534364, y1:0, x2:0.528909, y2:1, stop:0.00568182 rgba(120, 129, 110, 255), stop:0.5 rgba(151, 162, 139, 255), stop:1 rgba(162, 173, 149, 255));\n"
+"}\n"
+"\n"
+"QPushButton:hover{	\n"
+"	background-color: rgb(162, 173, 149);\n"
+"}")
+        self.label_convert_to = QLabel(self.frame_menu_options)
+        self.label_convert_to.setObjectName(u"label_convert_to")
+        self.label_convert_to.setGeometry(QRect(35, 70, 81, 16))
+        self.label_convert_to.setFont(font3)
+        self.label_convert_to.setStyleSheet(u"background-color: none;\n"
+"color: rgb(151, 162, 139);")
+        self.button_fbx = QPushButton(self.frame_menu_options)
+        self.button_fbx.setObjectName(u"button_fbx")
+        self.button_fbx.setGeometry(QRect(25, 130, 100, 25))
+        self.button_fbx.setMinimumSize(QSize(7, 0))
+        self.button_fbx.setFont(font2)
+        self.button_fbx.setStyleSheet(u"QPushButton {\n"
+"	border: none;\n"
+"	border-radius: 5px;\n"
+"	color: rgb(43, 43, 43);\n"
+"	background-color: qlineargradient(spread:pad, x1:0.534364, y1:0, x2:0.528909, y2:1, stop:0.00568182 rgba(120, 129, 110, 255), stop:0.5 rgba(151, 162, 139, 255), stop:1 rgba(162, 173, 149, 255));\n"
+"}\n"
+"\n"
+"QPushButton:hover{	\n"
+"	background-color: rgb(162, 173, 149);\n"
+"}")
+        self.button_svg = QPushButton(self.frame_menu_options)
+        self.button_svg.setObjectName(u"button_svg")
+        self.button_svg.setGeometry(QRect(25, 165, 100, 25))
+        self.button_svg.setMinimumSize(QSize(7, 0))
+        self.button_svg.setFont(font2)
+        self.button_svg.setStyleSheet(u"QPushButton {\n"
+"	border: none;\n"
+"	border-radius: 5px;\n"
+"	color: rgb(43, 43, 43);\n"
+"	background-color: qlineargradient(spread:pad, x1:0.534364, y1:0, x2:0.528909, y2:1, stop:0.00568182 rgba(120, 129, 110, 255), stop:0.5 rgba(151, 162, 139, 255), stop:1 rgba(162, 173, 149, 255));\n"
+"}\n"
+"\n"
+"QPushButton:hover{	\n"
+"	background-color: rgb(162, 173, 149);\n"
+"}")
+        self.button_obj = QPushButton(self.frame_menu_options)
+        self.button_obj.setObjectName(u"button_obj")
+        self.button_obj.setGeometry(QRect(25, 200, 100, 25))
+        self.button_obj.setMinimumSize(QSize(7, 0))
+        self.button_obj.setFont(font2)
+        self.button_obj.setStyleSheet(u"QPushButton {\n"
+"	border: none;\n"
+"	border-radius: 5px;\n"
+"	color: rgb(43, 43, 43);\n"
+"	background-color: qlineargradient(spread:pad, x1:0.534364, y1:0, x2:0.528909, y2:1, stop:0.00568182 rgba(120, 129, 110, 255), stop:0.5 rgba(151, 162, 139, 255), stop:1 rgba(162, 173, 149, 255));\n"
+"}\n"
+"\n"
+"QPushButton:hover{	\n"
+"	background-color: rgb(162, 173, 149);\n"
+"}")
+        self.label_dxf = QLabel(self.frame_menu_options)
+        self.label_dxf.setObjectName(u"label_dxf")
+        self.label_dxf.setGeometry(QRect(45, 250, 61, 16))
+        self.label_dxf.setFont(font3)
+        self.label_dxf.setStyleSheet(u"background-color: none;\n"
+"color: rgb(151, 162, 139);")
+        self.lineEdit_dxf_file = QLineEdit(self.frame_menu_options)
+        self.lineEdit_dxf_file.setObjectName(u"lineEdit_dxf_file")
+        self.lineEdit_dxf_file.setGeometry(QRect(10, 275, 109, 20))
+        self.lineEdit_dxf_file.setStyleSheet(u"background-color: rgb(151, 162, 139);\n"
+"border-radius: 0px;")
+        self.button_choose_dxf_file = QPushButton(self.frame_menu_options)
+        self.button_choose_dxf_file.setObjectName(u"button_choose_dxf_file")
+        self.button_choose_dxf_file.setGeometry(QRect(120, 275, 20, 20))
+        self.button_choose_dxf_file.setMinimumSize(QSize(7, 0))
+        self.button_choose_dxf_file.setFont(font2)
+        self.button_choose_dxf_file.setStyleSheet(u"QPushButton {\n"
+"	border: none;\n"
+"	border-radius: 0px;\n"
+"	color: rgb(43, 43, 43);\n"
+"	background-color: qlineargradient(spread:pad, x1:0.534364, y1:0, x2:0.528909, y2:1, stop:0.00568182 rgba(120, 129, 110, 255), stop:0.5 rgba(151, 162, 139, 255), stop:1 rgba(162, 173, 149, 255));\n"
+"}\n"
+"\n"
+"QPushButton:hover{	\n"
+"	background-color: rgb(162, 173, 149);\n"
+"}")
+        self.label_convert_to_2 = QLabel(self.frame_menu_options)
+        self.label_convert_to_2.setObjectName(u"label_convert_to_2")
+        self.label_convert_to_2.setGeometry(QRect(35, 305, 81, 16))
+        self.label_convert_to_2.setFont(font3)
+        self.label_convert_to_2.setStyleSheet(u"background-color: none;\n"
+"color: rgb(151, 162, 139);")
+        self.button_view_obj = QPushButton(self.frame_menu_options)
+        self.button_view_obj.setObjectName(u"button_view_obj")
+        self.button_view_obj.setGeometry(QRect(25, 385, 100, 25))
+        self.button_view_obj.setMinimumSize(QSize(7, 0))
+        self.button_view_obj.setFont(font2)
+        self.button_view_obj.setStyleSheet(u"QPushButton {\n"
+"	border: none;\n"
+"	border-radius: 5px;\n"
+"	color: rgb(43, 43, 43);\n"
+"	background-color: qlineargradient(spread:pad, x1:0.534364, y1:0, x2:0.528909, y2:1, stop:0.00568182 rgba(120, 129, 110, 255), stop:0.5 rgba(151, 162, 139, 255), stop:1 rgba(162, 173, 149, 255));\n"
+"}\n"
+"\n"
+"QPushButton:hover{	\n"
+"	background-color: rgb(162, 173, 149);\n"
+"}")
 
         self.horizontalLayout_4.addWidget(self.frame_menu_options)
 
@@ -276,10 +376,18 @@ class Ui_MainWindow(object):
         self.label_icon.setText("")
         self.label_title.setText(QCoreApplication.translate("MainWindow", u"TechDraw3D", None))
         self.button_close.setText(QCoreApplication.translate("MainWindow", u"X", None))
-        self.button_start.setText(QCoreApplication.translate("MainWindow", u"START", None))
-        self.button_exit.setText(QCoreApplication.translate("MainWindow", u"EXIT", None))
+        self.button_svg2.setText(QCoreApplication.translate("MainWindow", u"SVG", None))
         self.button_info.setText(QCoreApplication.translate("MainWindow", u"INFO", None))
-        self.button_choose_file.setText(QCoreApplication.translate("MainWindow", u"\u25bc", None))
-        self.label_dwg.setText(QCoreApplication.translate("MainWindow", u"DWG file", None))
+        self.button_choose_dwg_file.setText(QCoreApplication.translate("MainWindow", u"\u25bc", None))
+        self.label_dwg.setText(QCoreApplication.translate("MainWindow", u"DWG file:", None))
+        self.button_dxf.setText(QCoreApplication.translate("MainWindow", u"DXF", None))
+        self.label_convert_to.setText(QCoreApplication.translate("MainWindow", u"convert to:", None))
+        self.button_fbx.setText(QCoreApplication.translate("MainWindow", u"FBX", None))
+        self.button_svg.setText(QCoreApplication.translate("MainWindow", u"SVG", None))
+        self.button_obj.setText(QCoreApplication.translate("MainWindow", u"OBJ", None))
+        self.label_dxf.setText(QCoreApplication.translate("MainWindow", u"DXF file:", None))
+        self.button_choose_dxf_file.setText(QCoreApplication.translate("MainWindow", u"\u25bc", None))
+        self.label_convert_to_2.setText(QCoreApplication.translate("MainWindow", u"convert to:", None))
+        self.button_view_obj.setText(QCoreApplication.translate("MainWindow", u"VIEW OBJ", None))
     # retranslateUi
 

@@ -25,6 +25,7 @@ import logging
 import runpy
 import subprocess
 
+
 # My modules
 from libs.extruder.svg import SVG
 from libs.extruder.dwginput import DWGInput
@@ -33,7 +34,9 @@ from libs.base import logger, args, argparser
 from libs.gui.main_window import Ui_MainWindow
 from libs.gui.ui_functions import *
 
+
 _logger = logging.getLogger(__name__)
+os.environ["QT_API"] = "pyside2"
 
 class MainWindow(QMainWindow):
     def __init__(self):
@@ -48,6 +51,7 @@ class MainWindow(QMainWindow):
                 event.accept()
 
         UIFunctions.ui_definitions(self)
+
         self.ui.title_bar.mouseMoveEvent = move_window
 
         self.show()

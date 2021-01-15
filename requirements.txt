@@ -74,4 +74,6 @@ svgpathtools
 dxf2svg
 ezdxf
 pyvista
-pyside6
+pyside2
+qtpy
+pyvistaqt

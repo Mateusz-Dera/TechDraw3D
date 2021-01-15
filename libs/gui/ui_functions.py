@@ -1,22 +1,23 @@
-from PySide6 import QtCore, QtGui, QtWidgets
-from PySide6.QtCore import (QCoreApplication, QPropertyAnimation, QDate, QDateTime, QMetaObject, QObject, QPoint, QRect, QSize, QTime, QUrl, Qt, QEvent)
-from PySide6.QtGui import (QBrush, QColor, QConicalGradient, QCursor, QFont, QFontDatabase, QIcon, QKeySequence, QLinearGradient, QPalette, QPainter, QPixmap, QRadialGradient)
-from PySide6.QtWidgets import *
+from qtpy import QtCore, QtGui, QtWidgets
+from qtpy.QtCore import (QCoreApplication, QPropertyAnimation, QDate, QDateTime, QMetaObject, QObject, QPoint, QRect, QSize, QTime, QUrl, Qt, QEvent)
+from qtpy.QtGui import (QBrush, QColor, QConicalGradient, QCursor, QFont, QFontDatabase, QIcon, QKeySequence, QLinearGradient, QPalette, QPainter, QPixmap, QRadialGradient)
+from qtpy.QtWidgets import *
 import sys
 import os
 
 from main import MainWindow
 
+
 class UIFunctions(MainWindow):
     
-    def browse_files(self):
+    def browse_dwg_file(self):
 
         if sys.platform == "win32":
-            path = os.environ["HOMEPATH"]
+            homepath = os.environ["HOMEPATH"]
         if sys.platform == "linux":
-            path = os.environ["HOME"]
+            homepath = os.environ["HOME"]
 
-        fname=QFileDialog.getOpenFileName(self, "Open file", path, "DWG file (*.dwg)" )
+        fname=QFileDialog.getOpenFileName(self, "Open file", homepath, "DWG file (*.dwg)" )
         self.ui.lineEdit_dwg_file.setText(fname[0])
 
 
@@ -33,7 +34,6 @@ class UIFunctions(MainWindow):
 
         self.ui.shadow_frame.setGraphicsEffect(self.shadow)
 
-        self.ui.button_exit.clicked.connect(lambda: self.close())
         self.ui.button_close.clicked.connect(lambda: self.close())
-        self.ui.button_choose_file.clicked.connect(lambda: UIFunctions.browse_files(self))
+        self.ui.button_choose_dwg_file.clicked.connect(lambda: UIFunctions.browse_dwg_file(self))
 
