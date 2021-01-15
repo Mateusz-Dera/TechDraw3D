@@ -4,6 +4,7 @@ from qtpy.QtGui import (QBrush, QColor, QConicalGradient, QCursor, QFont, QFontD
 from qtpy.QtWidgets import *
 import sys
 import os
+import subprocess
 
 from main import MainWindow
 from libs.extruder.svg import SVG
@@ -45,6 +46,32 @@ class UIFunctions(MainWindow):
             dwg.dwg2dxf_converter(file)
             dxf.dxf2svg_converter(file.replace("dwg", "dxf"))
 
+    def convert_dwg_to_obj(self):
+        dwg = DWGInput()
+        dxf = DXFInput()
+        if self.ui.lineEdit_dwg_file.text():
+            file = self.ui.lineEdit_dwg_file.text()
+            dwg.dwg2dxf_converter(file)
+            dxf.dxf2svg_converter(file.replace("dwg", "dxf"))
+
+            svg = SVG(file.replace("dwg", "svg"))
+            svg.split_svg()
+            svg.save_walls()
+
+            process = subprocess.Popen(['sh', "./libs/mesher/face/run.sh"], stdout=subprocess.PIPE, stderr=subprocess.PIPE)
+            out, err = process.communicate()
+
+            process = subprocess.Popen(['sh', "./libs/mesher/extrude/run.sh"], stdout=subprocess.PIPE, stderr=subprocess.PIPE)
+            out, err = process.communicate()
+
+            process = subprocess.Popen(['sh', "./libs/mesher/boolean/run.sh"], stdout=subprocess.PIPE, stderr=subprocess.PIPE)
+            out, err = process.communicate()
+
+    def convert_dxf_to_svg(self):
+        if self.ui.lineEdit_dxf_file.text():
+            dxf = DXFInput()
+            file = self.ui.lineEdit_dxf_file.text()
+            dxf.dxf2svg_converter(file)
 
     def ui_definitions(self):
 
@@ -64,4 +91,6 @@ class UIFunctions(MainWindow):
         self.ui.button_choose_dxf_file.clicked.connect(lambda: UIFunctions.browse_dxf_file(self))
         self.ui.button_dxf.clicked.connect(lambda: UIFunctions.convert_dwg_to_dxf(self))
         self.ui.button_svg.clicked.connect(lambda: UIFunctions.convert_dwg_to_svg(self))
+        self.ui.button_obj.clicked.connect(lambda: UIFunctions.convert_dwg_to_obj(self))
+        self.ui.button_svg2.clicked.connect(lambda: UIFunctions.convert_dxf_to_svg(self))
 
