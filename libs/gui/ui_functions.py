@@ -33,23 +33,23 @@ class UIFunctions(MainWindow):
         self.ui.lineEdit_dxf_file.setText(fname[0])
 
     def convert_dwg_to_dxf(self):
-        dwg = DWGInput()
         if self.ui.lineEdit_dwg_file.text():
+            dwg = DWGInput()
             file = self.ui.lineEdit_dwg_file.text()
             dwg.dwg2dxf_converter(file)
 
     def convert_dwg_to_svg(self):
-        dwg = DWGInput()
-        dxf = DXFInput()
         if self.ui.lineEdit_dwg_file.text():
+            dwg = DWGInput()
+            dxf = DXFInput()
             file = self.ui.lineEdit_dwg_file.text()
             dwg.dwg2dxf_converter(file)
             dxf.dxf2svg_converter(file.replace("dwg", "dxf"))
 
     def convert_dwg_to_obj(self):
-        dwg = DWGInput()
-        dxf = DXFInput()
         if self.ui.lineEdit_dwg_file.text():
+            dwg = DWGInput()
+            dxf = DXFInput()
             file = self.ui.lineEdit_dwg_file.text()
             dwg.dwg2dxf_converter(file)
             dxf.dxf2svg_converter(file.replace("dwg", "dxf"))
