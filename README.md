@@ -25,7 +25,7 @@ in progress...
 ## Uruchomienie
 Program działa w trybie graficznym. W celu uruchomienia należy przejść do głównego katalogu programu, a następnie uruchomić plik main za pomocą interpretera Python:
 ```shell
-python3 main_cli.py
+python3 main.py
 ```
 W razie problemów można wywołać poszczególne funkcje za pomocą wiersza poleceń. Więcej informacji:
 ```shell
