@@ -7,6 +7,7 @@ import os
 import subprocess
 import pyvista
 import pyvistaqt
+import webbrowser
 
 from main import MainWindow
 from libs.extruder.svg import SVG
@@ -156,4 +157,5 @@ class UIFunctions(MainWindow):
         self.ui.button_svg2.clicked.connect(lambda: UIFunctions.convert_dxf_to_svg(self))
         self.ui.button_fbx.clicked.connect(lambda: UIFunctions.convert_dwg_to_fbx(self))
         self.ui.button_stl.clicked.connect(lambda: UIFunctions.convert_dwg_to_stl(self))
+        self.ui.button_info.clicked.connect(lambda: webbrowser.open("https://github.com/Mateusz-Dera/TechDraw3D"))
 
