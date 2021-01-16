@@ -9,6 +9,7 @@ Aplikacja przetwarzająca wybrane formaty rysunków technicznych do modelu 3D or
 
 ![Version](https://img.shields.io/badge/Wersja-0.2.0-yellow.svg)
 [![License: GPL v3](https://img.shields.io/badge/Licencja-GPLv3-blue.svg)](https://www.gnu.org/licenses/gpl-3.0)
+![TechDraw3D](https://github.com/Mateusz-Dera/TechDraw3D/workflows/TechDraw3D/badge.svg?branch=kuba-testy)
 
 
 ## Instalacja
