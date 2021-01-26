@@ -30,6 +30,8 @@ import pyvista
 import pyvistaqt
 import webbrowser
 
+import time
+
 from main import MainWindow
 from libs.extruder.svg import SVG
 from libs.extruder.dwginput import DWGInput
@@ -38,23 +40,23 @@ from libs.extruder.dxfinput import DXFInput
 
 class UIFunctions(MainWindow):
     
-    def browse_dwg_file(self):
+    def browse_input_file(self):
         if sys.platform == "win32":
             homepath = os.environ["HOMEPATH"]
         if sys.platform == "linux":
             homepath = os.environ["HOME"]
 
-        fname=QFileDialog.getOpenFileName(self, "Open file", homepath, "DWG file (*.dwg)")
-        self.ui.lineEdit_dwg_file.setText(fname[0])
+        fname=QFileDialog.getOpenFileName(self, "Input file", homepath, "DWG / DXF file (*.dwg *.dxf)")
+        self.ui.lineEdit_input_file.setText(fname[0])
 
-    def browse_dxf_file(self):
+    def browse_output_file(self):
         if sys.platform == "win32":
             homepath = os.environ["HOMEPATH"]
         if sys.platform == "linux":
             homepath = os.environ["HOME"]
 
-        fname = QFileDialog.getOpenFileName(self, "Open file", homepath, "DXF file (*.dxf)")
-        self.ui.lineEdit_dxf_file.setText(fname[0])
+        fname = QFileDialog.getSaveFileName(self, "Output file", homepath, "DXF file (*.dxf);; SVG file (*.svg);; OBJ file (*.obj);; STL file (*.stl)")
+        self.ui.lineEdit_output_file.setText(fname[0])
 
     def view_obj(self):
         if sys.platform == "win32":
@@ -151,6 +153,56 @@ class UIFunctions(MainWindow):
             file = self.ui.lineEdit_dxf_file.text()
             dxf.dxf2svg_converter(file)
 
+    def start(self):
+        if not self.ui.lineEdit_input_file.text():
+            # TODO dialog "set input file"
+            print ("set input file")
+            return
+        if not self.ui.lineEdit_output_file.text():
+            # TODO dialog "set output file"
+            print ("set output file")
+            return
+
+        input_format = self.ui.lineEdit_input_file.text()[-3:]
+        output_format = self.ui.lineEdit_output_file.text()[-3:]
+
+        if input_format == output_format:
+            # TODO dialog "set different output format"
+            print ("set different output format")
+            return
+        self.ui.button_start.setEnabled(False)
+        QApplication.setOverrideCursor(Qt.WaitCursor)
+
+        # te dwie linie muszą iść do funkcji
+        QApplication.restoreOverrideCursor()
+        self.ui.button_start.setEnabled(True)
+
+        if input_format == "dxf":
+            if output_format == "svg":
+                # TODO konwersja dxf na svg
+                return
+            if output_format == "obj":
+                # TODO konwersja dxf na obj
+                return
+            if output_format == "stl":
+                # TODO konwersja dxf na stl
+                return
+
+        if input_format == "dwg":
+            if output_format == "dxf":
+                # TODO konwersja dwg na dxf
+                return
+            if output_format == "svg":
+                # TODO konwersja dwg na svg
+                return
+            if output_format == "obj":
+                # TODO konwersja dwg na obj
+                return
+            if output_format == "stl":
+                # TODO konwersja dwg na stl
+                return
+        QApplication.restoreOverrideCursor()
+
 
     def ui_definitions(self):
 
@@ -165,18 +217,23 @@ class UIFunctions(MainWindow):
 
         self.ui.shadow_frame.setGraphicsEffect(self.shadow)
 
-        self.ui.lineEdit_dwg_file.setEnabled(False)
-        self.ui.lineEdit_dxf_file.setEnabled(False)
+        self.ui.lineEdit_input_file.setEnabled(False)
+        self.ui.lineEdit_output_file.setEnabled(False)
 
         self.ui.button_close.clicked.connect(lambda: self.close())
-        self.ui.button_choose_dwg_file.clicked.connect(lambda: UIFunctions.browse_dwg_file(self))
-        self.ui.button_choose_dxf_file.clicked.connect(lambda: UIFunctions.browse_dxf_file(self))
+        self.ui.button_minimalize.clicked.connect(lambda: self.showMinimized())
+
+        self.ui.button_choose_input_file.clicked.connect(lambda: UIFunctions.browse_input_file(self))
+        self.ui.button_choose_output_file.clicked.connect(lambda: UIFunctions.browse_output_file(self))
+
+
+       # self.ui.button_dxf.clicked.connect(lambda: UIFunctions.convert_dwg_to_dxf(self))
+       # self.ui.button_svg.clicked.connect(lambda: UIFunctions.convert_dwg_to_svg(self))
+       # self.ui.button_obj.clicked.connect(lambda: UIFunctions.convert_dwg_to_obj(self))
+       # self.ui.button_svg2.clicked.connect(lambda: UIFunctions.convert_dxf_to_svg(self))
+       # self.ui.button_fbx.clicked.connect(lambda: UIFunctions.convert_dwg_to_fbx(self))
+        self.ui.button_start.clicked.connect(lambda: UIFunctions.start(self))
+
         self.ui.button_view_obj.clicked.connect(lambda: UIFunctions.view_obj(self))
-        self.ui.button_dxf.clicked.connect(lambda: UIFunctions.convert_dwg_to_dxf(self))
-        self.ui.button_svg.clicked.connect(lambda: UIFunctions.convert_dwg_to_svg(self))
-        self.ui.button_obj.clicked.connect(lambda: UIFunctions.convert_dwg_to_obj(self))
-        self.ui.button_svg2.clicked.connect(lambda: UIFunctions.convert_dxf_to_svg(self))
-        self.ui.button_fbx.clicked.connect(lambda: UIFunctions.convert_dwg_to_fbx(self))
-        self.ui.button_stl.clicked.connect(lambda: UIFunctions.convert_dwg_to_stl(self))
         self.ui.button_info.clicked.connect(lambda: webbrowser.open("https://github.com/Mateusz-Dera/TechDraw3D"))
 

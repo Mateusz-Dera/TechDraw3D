@@ -31,7 +31,7 @@ from libs.extruder.svg import SVG
 from libs.extruder.dwginput import DWGInput
 from libs.extruder.dxfinput import DXFInput
 from libs.base import logger, args, argparser
-from libs.gui.main_window import Ui_MainWindow
+from libs.gui.main_window2 import Ui_MainWindow
 from libs.gui.ui_functions import *
 
 
