@@ -56,7 +56,12 @@ class UIFunctions(MainWindow):
             homepath = os.environ["HOME"]
 
         fname = QFileDialog.getSaveFileName(self, "Output file", homepath, "DXF file (*.dxf);; SVG file (*.svg);; OBJ file (*.obj);; STL file (*.stl)")
-        self.ui.lineEdit_output_file.setText(fname[0])
+        if sys.platform == "win32":
+            filename = fname[0]
+        if sys.platform == "linux":
+            filename = fname[0] + fname[1][-5:-1]
+
+        self.ui.lineEdit_output_file.setText(filename)
 
     def view_obj(self):
         if sys.platform == "win32":
@@ -183,6 +188,7 @@ class UIFunctions(MainWindow):
         if input_format == output_format:
             UIFunctions.show_warning_message(self, "Choose different output file")
             return
+
         self.ui.button_start.setEnabled(False)
         QApplication.setOverrideCursor(Qt.WaitCursor)
 
