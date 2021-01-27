@@ -171,10 +171,33 @@ class UIFunctions(MainWindow):
                 return
 
             if output_format == "obj":
-                # TODO konwersja dxf na obj
+                UIFunctions.convert_2d_to_3d(self, "-obj", False)
+                if os.path.isfile(self.ui.lineEdit_output_file.text()):
+                    UIFunctions.show_done_message(self, "OBJ file saved successfully!")
+                else:
+                    UIFunctions.show_error_message(self, "Error!")
+                QApplication.restoreOverrideCursor()
+                self.ui.button_start.setEnabled(True)
                 return
+
+            if output_format == "fbx":
+                UIFunctions.convert_2d_to_3d(self, "-fbx", False)
+                if os.path.isfile(self.ui.lineEdit_output_file.text()):
+                    UIFunctions.show_done_message(self, "FBX file saved successfully!")
+                else:
+                    UIFunctions.show_error_message(self, "Error!")
+                QApplication.restoreOverrideCursor()
+                self.ui.button_start.setEnabled(True)
+                return
+
             if output_format == "stl":
-                # TODO konwersja dxf na stl
+                UIFunctions.convert_2d_to_3d(self, "-stl", False)
+                if os.path.isfile(self.ui.lineEdit_output_file.text()):
+                    UIFunctions.show_done_message(self, "STL file saved successfully!")
+                else:
+                    UIFunctions.show_error_message(self, "Error!")
+                QApplication.restoreOverrideCursor()
+                self.ui.button_start.setEnabled(True)
                 return
 
         if input_format == "dwg":
