@@ -153,22 +153,35 @@ class UIFunctions(MainWindow):
             file = self.ui.lineEdit_dxf_file.text()
             dxf.dxf2svg_converter(file)
 
+    def show_warning_message(self, text):
+        msg = QtWidgets.QMessageBox()
+        msg.setWindowTitle("Warning")
+        msg.setText(text)
+        msg.setIcon(QMessageBox.Warning)
+        msg.setStandardButtons(QMessageBox.Ok)
+        x = msg.exec_()
+
+    def show_done_message(self, text):
+        msg = QtWidgets.QMessageBox()
+        msg.setWindowTitle("Done")
+        msg.setText(text)
+        msg.setIcon(QMessageBox.Information)
+        msg.setStandardButtons(QMessageBox.Ok)
+        x = msg.exec_()
+
     def start(self):
         if not self.ui.lineEdit_input_file.text():
-            # TODO dialog "set input file"
-            print ("set input file")
+            UIFunctions.show_warning_message(self, "Choose input file")
             return
         if not self.ui.lineEdit_output_file.text():
-            # TODO dialog "set output file"
-            print ("set output file")
+            UIFunctions.show_warning_message(self, "Choose output file")
             return
 
         input_format = self.ui.lineEdit_input_file.text()[-3:]
         output_format = self.ui.lineEdit_output_file.text()[-3:]
 
         if input_format == output_format:
-            # TODO dialog "set different output format"
-            print ("set different output format")
+            UIFunctions.show_warning_message(self, "Choose different output file")
             return
         self.ui.button_start.setEnabled(False)
         QApplication.setOverrideCursor(Qt.WaitCursor)
