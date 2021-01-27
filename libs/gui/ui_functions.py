@@ -55,7 +55,7 @@ class UIFunctions(MainWindow):
         if sys.platform == "linux":
             homepath = os.environ["HOME"]
 
-        fname = QFileDialog.getSaveFileName(self, "Output file", homepath, "DXF file (*.dxf);; SVG file (*.svg);; OBJ file (*.obj);; STL file (*.stl)")
+        fname = QFileDialog.getSaveFileName(self, "Output file", homepath, "DXF file (*.dxf);; FBX file (*.fbx);; OBJ file (*.obj);; STL file (*.stl);; SVG file (*.svg)")
 
         if sys.platform == "win32":
             filename = fname[0]
@@ -89,7 +89,7 @@ class UIFunctions(MainWindow):
         dxf = DXFInput()
         dxf.dxf2svg_converter(dwg.dwg2dxf_converter(input_file, False), output_file)
 
-    def convert_dwg_to_obj(self):
+    def convert_dwg_to_3d(self, type):
         input_file = self.ui.lineEdit_input_file.text()
         output_file = self.ui.lineEdit_output_file.text()
         dwg = DWGInput()
@@ -104,50 +104,8 @@ class UIFunctions(MainWindow):
         process = subprocess.Popen(['sh', "./libs/mesher/extrude/run.sh"], stdout=subprocess.PIPE, stderr=subprocess.PIPE)
         out, err = process.communicate()
 
-        process = subprocess.Popen(['sh', "./libs/mesher/boolean/run.sh", "-obj", output_file], stdout=subprocess.PIPE, stderr=subprocess.PIPE)
+        process = subprocess.Popen(['sh', "./libs/mesher/boolean/run.sh", type, output_file], stdout=subprocess.PIPE, stderr=subprocess.PIPE)
         out, err = process.communicate()
-
-    def convert_dwg_to_fbx(self):
-        if self.ui.lineEdit_dwg_file.text():
-            dwg = DWGInput()
-            dxf = DXFInput()
-            file = self.ui.lineEdit_dwg_file.text()
-            dwg.dwg2dxf_converter(file)
-            dxf.dxf2svg_converter(file.replace("dwg", "dxf"))
-
-            svg = SVG(file.replace("dwg", "svg"))
-            svg.split_svg()
-            svg.save_walls()
-
-            process = subprocess.Popen(['sh', "./libs/mesher/face/run.sh"], stdout=subprocess.PIPE, stderr=subprocess.PIPE)
-            out, err = process.communicate()
-
-            process = subprocess.Popen(['sh', "./libs/mesher/extrude/run.sh"], stdout=subprocess.PIPE, stderr=subprocess.PIPE)
-            out, err = process.communicate()
-
-            process = subprocess.Popen(['sh', "./libs/mesher/boolean/run.sh", "-fbx"], stdout=subprocess.PIPE, stderr=subprocess.PIPE)
-            out, err = process.communicate()
-
-    def convert_dwg_to_stl(self):
-        if self.ui.lineEdit_dwg_file.text():
-            dwg = DWGInput()
-            dxf = DXFInput()
-            file = self.ui.lineEdit_dwg_file.text()
-            dwg.dwg2dxf_converter(file)
-            dxf.dxf2svg_converter(file.replace("dwg", "dxf"))
-
-            svg = SVG(file.replace("dwg", "svg"))
-            svg.split_svg()
-            svg.save_walls()
-
-            process = subprocess.Popen(['sh', "./libs/mesher/face/run.sh"], stdout=subprocess.PIPE, stderr=subprocess.PIPE)
-            out, err = process.communicate()
-
-            process = subprocess.Popen(['sh', "./libs/mesher/extrude/run.sh"], stdout=subprocess.PIPE, stderr=subprocess.PIPE)
-            out, err = process.communicate()
-
-            process = subprocess.Popen(['sh', "./libs/mesher/boolean/run.sh", "-stl"], stdout=subprocess.PIPE, stderr=subprocess.PIPE)
-            out, err = process.communicate()
 
     def convert_dxf_to_svg(self):
         if self.ui.lineEdit_dxf_file.text():
@@ -218,6 +176,7 @@ class UIFunctions(MainWindow):
                 QApplication.restoreOverrideCursor()
                 self.ui.button_start.setEnabled(True)
                 return
+
             if output_format == "svg":
                 UIFunctions.convert_dwg_to_svg(self)
                 if os.path.isfile(self.ui.lineEdit_output_file.text()):
@@ -227,8 +186,9 @@ class UIFunctions(MainWindow):
                 QApplication.restoreOverrideCursor()
                 self.ui.button_start.setEnabled(True)
                 return
+
             if output_format == "obj":
-                UIFunctions.convert_dwg_to_obj(self)
+                UIFunctions.convert_dwg_to_3d(self, "-obj")
                 if os.path.isfile(self.ui.lineEdit_output_file.text()):
                     UIFunctions.show_done_message(self, "OBJ file saved successfully!")
                 else:
@@ -236,10 +196,26 @@ class UIFunctions(MainWindow):
                 QApplication.restoreOverrideCursor()
                 self.ui.button_start.setEnabled(True)
                 return
-            if output_format == "stl":
-                # TODO konwersja dwg na stl
+
+            if output_format == "fbx":
+                UIFunctions.convert_dwg_to_3d(self, "-fbx")
+                if os.path.isfile(self.ui.lineEdit_output_file.text()):
+                    UIFunctions.show_done_message(self, "FBX file saved successfully!")
+                else:
+                    UIFunctions.show_error_message(self, "Error!")
+                QApplication.restoreOverrideCursor()
+                self.ui.button_start.setEnabled(True)
                 return
-        QApplication.restoreOverrideCursor()
+
+            if output_format == "stl":
+                UIFunctions.convert_dwg_to_3d(self, "-stl")
+                if os.path.isfile(self.ui.lineEdit_output_file.text()):
+                    UIFunctions.show_done_message(self, "STL file saved successfully!")
+                else:
+                    UIFunctions.show_error_message(self, "Error!")
+                QApplication.restoreOverrideCursor()
+                self.ui.button_start.setEnabled(True)
+                return
 
 
     def ui_definitions(self):
