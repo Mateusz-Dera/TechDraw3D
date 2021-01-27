@@ -95,12 +95,16 @@ class UIFunctions(MainWindow):
         dxf = DXFInput()
         dxf.dxf2svg_converter(input_file, output_file)
 
-    def convert_dwg_to_3d(self, type):
+    def convert_2d_to_3d(self, type, dwg_switch):
         input_file = self.ui.lineEdit_input_file.text()
         output_file = self.ui.lineEdit_output_file.text()
-        dwg = DWGInput()
+
+        if dwg_switch:
+            dwg = DWGInput()
+            input_file = dwg.dwg2dxf_converter(input_file, False)
+
         dxf = DXFInput()
-        svg = SVG(dxf.dxf2svg_converter(dwg.dwg2dxf_converter(input_file, False), False))
+        svg = SVG(dxf.dxf2svg_converter(input_file, False))
         svg.split_svg()
         svg.save_walls()
 
@@ -195,7 +199,7 @@ class UIFunctions(MainWindow):
                 return
 
             if output_format == "obj":
-                UIFunctions.convert_dwg_to_3d(self, "-obj")
+                UIFunctions.convert_2d_to_3d(self, "-obj", True)
                 if os.path.isfile(self.ui.lineEdit_output_file.text()):
                     UIFunctions.show_done_message(self, "OBJ file saved successfully!")
                 else:
@@ -205,7 +209,7 @@ class UIFunctions(MainWindow):
                 return
 
             if output_format == "fbx":
-                UIFunctions.convert_dwg_to_3d(self, "-fbx")
+                UIFunctions.convert_2d_to_3d(self, "-fbx", True)
                 if os.path.isfile(self.ui.lineEdit_output_file.text()):
                     UIFunctions.show_done_message(self, "FBX file saved successfully!")
                 else:
@@ -215,7 +219,7 @@ class UIFunctions(MainWindow):
                 return
 
             if output_format == "stl":
-                UIFunctions.convert_dwg_to_3d(self, "-stl")
+                UIFunctions.convert_2d_to_3d(self, "-stl", True)
                 if os.path.isfile(self.ui.lineEdit_output_file.text()):
                     UIFunctions.show_done_message(self, "STL file saved successfully!")
                 else:
