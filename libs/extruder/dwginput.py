@@ -62,16 +62,17 @@ class DWGInput():
 
     # TODO: Zapisywanie do folderu assets/dxf!
     
-    def dwg2dxf_converter(self, name):
+    def dwg2dxf_converter(self, input_file, output_file):
 
         dwg2dxf_windows = makepath.make_path(".\\tools\\LibreDWG\\dwg2dxf.exe")
         dwg2dxf_linux = "dwg2dxf"
         parameter1 = "-m"
         parameter2 = "-o"
 
-        dwgfilepath = makepath.make_path(name)
+        dwgfilepath = makepath.make_path(input_file)
         dxffilepath_windows = makepath.make_path(".\\assets\\dxf\\") + "\\" + os.path.basename(dwgfilepath)[:-4] + ".dxf"
-        dxffilepath_linux = "./assets/dxf/" + os.path.basename(dwgfilepath)[:-4] + ".dxf"
+        if not output_file:
+            output_file = "./assets/dxf/" + os.path.basename(dwgfilepath)[:-4] + ".dxf"
 
         # Wybór platformy.
         if platform == "win32":
@@ -84,8 +85,8 @@ class DWGInput():
         if platform == "linux":
             print ("LINUX")
             print ("DWG file path: ", dwgfilepath)
-            print ("DXF file path: ", dxffilepath_linux)
-            subprocess.call([dwg2dxf_linux + ' ' + parameter1 + ' ' + parameter2 + ' ' + dxffilepath_linux + ' ' + dwgfilepath], shell=True, stderr=subprocess.PIPE, stdout=subprocess.PIPE)
+            print ("DXF file path: ", output_file)
+            subprocess.call([dwg2dxf_linux + ' ' + parameter1 + ' ' + parameter2 + ' ' + output_file + ' ' + dwgfilepath], shell=True, stderr=subprocess.PIPE, stdout=subprocess.PIPE)
 
     def returnSVG(self):
         f = open('data/returned/footer.svg', 'x')

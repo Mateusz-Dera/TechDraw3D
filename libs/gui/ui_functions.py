@@ -71,10 +71,10 @@ class UIFunctions(MainWindow):
             plotter.add_mesh(mesh)
 
     def convert_dwg_to_dxf(self):
-        if self.ui.lineEdit_dwg_file.text():
-            dwg = DWGInput()
-            file = self.ui.lineEdit_dwg_file.text()
-            dwg.dwg2dxf_converter(file)
+        input_file = self.ui.lineEdit_input_file.text()
+        output_file = self.ui.lineEdit_output_file.text()
+        dwg = DWGInput()
+        dwg.dwg2dxf_converter(input_file, output_file)
 
     def convert_dwg_to_svg(self):
         if self.ui.lineEdit_dwg_file.text():
@@ -186,10 +186,6 @@ class UIFunctions(MainWindow):
         self.ui.button_start.setEnabled(False)
         QApplication.setOverrideCursor(Qt.WaitCursor)
 
-        # te dwie linie muszą iść do funkcji
-        QApplication.restoreOverrideCursor()
-        self.ui.button_start.setEnabled(True)
-
         if input_format == "dxf":
             if output_format == "svg":
                 # TODO konwersja dxf na svg
@@ -203,7 +199,9 @@ class UIFunctions(MainWindow):
 
         if input_format == "dwg":
             if output_format == "dxf":
-                # TODO konwersja dwg na dxf
+                UIFunctions.convert_dwg_to_dxf(self)
+                QApplication.restoreOverrideCursor()
+                self.ui.button_start.setEnabled(True)
                 return
             if output_format == "svg":
                 # TODO konwersja dwg na svg
