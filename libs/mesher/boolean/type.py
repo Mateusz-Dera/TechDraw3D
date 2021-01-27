@@ -26,7 +26,7 @@ import sys
 
 path = str(sys.argv[3])[:-7] + "export/"
 #export_path = str(sys.argv[3])[:-7] + "export/"
-export_path = str(sys.argv[3])[:-7] + str(sys.argv[5])
+export_path = str(sys.argv[5])
 mesh_path = str(path) + 'mesh.obj'
 
 # Czyszczenie sceny ze wszystkich domyślnie ładowanych obiektów
