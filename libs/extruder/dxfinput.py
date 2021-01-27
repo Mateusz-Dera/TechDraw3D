@@ -51,3 +51,4 @@ class DXFInput():
             print ("DXF file path:", dxffilepath)
             print ("SVG file path:", output_file)
             save_svg_from_dxf(dxffilepath, svgfilepath=output_file, frame_name=None, size=svgfilesize)
+            return output_file

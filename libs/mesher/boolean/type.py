@@ -25,8 +25,9 @@ from os import path
 import sys
 
 path = str(sys.argv[3])[:-7] + "export/"
-export_path = str(sys.argv[3])[:-7] + "export/"
-mesh_path = str(path) + 'mesh.obj'
+#export_path = str(sys.argv[3])[:-7] + "export/"
+export_path = str(sys.argv[3])[:-7] + str(sys.argv[5])
+mesh_path = str(path)
 
 # Czyszczenie sceny ze wszystkich domyślnie ładowanych obiektów
 bpy.ops.object.select_all(action='SELECT')

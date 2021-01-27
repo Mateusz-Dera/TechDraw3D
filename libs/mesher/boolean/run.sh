@@ -24,4 +24,4 @@ DIRECTORY="$(cd "$(dirname "$0")" && pwd -P)/$(basename "$1")"
 #sudo docker run -it --rm -v $DIRECTORY:/root qnzhou/pymesh bash
 # echo $1
 sudo docker run -it --rm -v $DIRECTORY:/root qnzhou/pymesh python3 ./main.py
-blender -b --python "$(dirname $(readlink -f $0))/type.py" $1
+blender -b --python "$(dirname $(readlink -f $0))/type.py" $1 $2
