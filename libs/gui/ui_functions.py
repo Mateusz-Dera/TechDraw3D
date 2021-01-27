@@ -89,6 +89,12 @@ class UIFunctions(MainWindow):
         dxf = DXFInput()
         dxf.dxf2svg_converter(dwg.dwg2dxf_converter(input_file, False), output_file)
 
+    def convert_dxf_to_svg(self):
+        input_file = self.ui.lineEdit_input_file.text()
+        output_file = self.ui.lineEdit_output_file.text()
+        dxf = DXFInput()
+        dxf.dxf2svg_converter(input_file, output_file)
+
     def convert_dwg_to_3d(self, type):
         input_file = self.ui.lineEdit_input_file.text()
         output_file = self.ui.lineEdit_output_file.text()
@@ -106,12 +112,6 @@ class UIFunctions(MainWindow):
 
         process = subprocess.Popen(['sh', "./libs/mesher/boolean/run.sh", type, output_file], stdout=subprocess.PIPE, stderr=subprocess.PIPE)
         out, err = process.communicate()
-
-    def convert_dxf_to_svg(self):
-        if self.ui.lineEdit_dxf_file.text():
-            dxf = DXFInput()
-            file = self.ui.lineEdit_dxf_file.text()
-            dxf.dxf2svg_converter(file)
 
     def show_warning_message(self, text):
         msg = QtWidgets.QMessageBox()
@@ -157,8 +157,15 @@ class UIFunctions(MainWindow):
 
         if input_format == "dxf":
             if output_format == "svg":
-                # TODO konwersja dxf na svg
+                UIFunctions.convert_dxf_to_svg(self)
+                if os.path.isfile(self.ui.lineEdit_output_file.text()):
+                    UIFunctions.show_done_message(self, "SVG file saved successfully!")
+                else:
+                    UIFunctions.show_error_message(self, "Error!")
+                QApplication.restoreOverrideCursor()
+                self.ui.button_start.setEnabled(True)
                 return
+
             if output_format == "obj":
                 # TODO konwersja dxf na obj
                 return
