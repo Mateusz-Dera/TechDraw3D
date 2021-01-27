@@ -56,7 +56,7 @@ class Ui_MainWindow(object):
         self.verticalLayout_2.setContentsMargins(0, 0, 0, 0)
         self.label_icon = QLabel(self.frame_icon)
         self.label_icon.setObjectName(u"label_icon")
-        self.label_icon.setPixmap(QPixmap(u"icon_square.png"))
+        self.label_icon.setPixmap(QPixmap(u"libs/gui/icons/icon_square.png"))
         self.label_icon.setScaledContents(True)
 
         self.verticalLayout_2.addWidget(self.label_icon)
@@ -329,7 +329,9 @@ class Ui_MainWindow(object):
     # setupUi
 
     def retranslateUi(self, MainWindow):
-        MainWindow.setWindowTitle(QCoreApplication.translate("MainWindow", u"TechDraw3D", None))
+        MainWindow.setWindowTitle(QCoreApplication.translate("MainWindow", u"TechDraw3D v0.2.2", None))
+        MainWindow.setWindowIcon(QIcon('./libs/gui/icons/icon_square.png'))
+
         self.label_icon.setText("")
         self.label_title.setText(QCoreApplication.translate("MainWindow", u"TechDraw3D", None))
         self.button_close.setText(QCoreApplication.translate("MainWindow", u"X", None))
