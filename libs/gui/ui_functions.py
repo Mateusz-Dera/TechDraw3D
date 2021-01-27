@@ -56,6 +56,7 @@ class UIFunctions(MainWindow):
             homepath = os.environ["HOME"]
 
         fname = QFileDialog.getSaveFileName(self, "Output file", homepath, "DXF file (*.dxf);; SVG file (*.svg);; OBJ file (*.obj);; STL file (*.stl)")
+
         if sys.platform == "win32":
             filename = fname[0]
         if sys.platform == "linux":
@@ -174,19 +175,27 @@ class UIFunctions(MainWindow):
         msg.setStandardButtons(QMessageBox.Ok)
         x = msg.exec_()
 
+    def show_error_message(self, text):
+        msg = QtWidgets.QMessageBox()
+        msg.setWindowTitle("Error")
+        msg.setText(text)
+        msg.setIcon(QMessageBox.Critical)
+        msg.setStandardButtons(QMessageBox.Ok)
+        x = msg.exec_()
+
     def start(self):
         if not self.ui.lineEdit_input_file.text():
-            UIFunctions.show_warning_message(self, "Choose input file")
+            UIFunctions.show_warning_message(self, "Choose input file!")
             return
         if not self.ui.lineEdit_output_file.text():
-            UIFunctions.show_warning_message(self, "Choose output file")
+            UIFunctions.show_warning_message(self, "Choose output file!")
             return
 
         input_format = self.ui.lineEdit_input_file.text()[-3:]
         output_format = self.ui.lineEdit_output_file.text()[-3:]
 
         if input_format == output_format:
-            UIFunctions.show_warning_message(self, "Choose different output file")
+            UIFunctions.show_warning_message(self, "Choose different output file!")
             return
 
         self.ui.button_start.setEnabled(False)
@@ -208,6 +217,10 @@ class UIFunctions(MainWindow):
                 UIFunctions.convert_dwg_to_dxf(self)
                 QApplication.restoreOverrideCursor()
                 self.ui.button_start.setEnabled(True)
+                if os.path.isfile(self.ui.lineEdit_output_file.text()):
+                    UIFunctions.show_done_message(self, "DXF file saved successfully!")
+                else:
+                    UIFunctions.show_error_message(self, "Error!")
                 return
             if output_format == "svg":
                 # TODO konwersja dwg na svg
