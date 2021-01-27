@@ -83,12 +83,11 @@ class UIFunctions(MainWindow):
         dwg.dwg2dxf_converter(input_file, output_file)
 
     def convert_dwg_to_svg(self):
-        if self.ui.lineEdit_dwg_file.text():
-            dwg = DWGInput()
-            dxf = DXFInput()
-            file = self.ui.lineEdit_dwg_file.text()
-            dwg.dwg2dxf_converter(file)
-            dxf.dxf2svg_converter(file.replace("dwg", "dxf"))
+        input_file = self.ui.lineEdit_input_file.text()
+        output_file = self.ui.lineEdit_output_file.text()
+        dwg = DWGInput()
+        dxf = DXFInput()
+        dxf.dxf2svg_converter(dwg.dwg2dxf_converter(input_file, False), output_file)
 
     def convert_dwg_to_obj(self):
         if self.ui.lineEdit_dwg_file.text():
@@ -223,7 +222,13 @@ class UIFunctions(MainWindow):
                     UIFunctions.show_error_message(self, "Error!")
                 return
             if output_format == "svg":
-                # TODO konwersja dwg na svg
+                UIFunctions.convert_dwg_to_svg(self)
+                QApplication.restoreOverrideCursor()
+                self.ui.button_start.setEnabled(True)
+                if os.path.isfile(self.ui.lineEdit_output_file.text()):
+                    UIFunctions.show_done_message(self, "SVG file saved successfully!")
+                else:
+                    UIFunctions.show_error_message(self, "Error!")
                 return
             if output_format == "obj":
                 # TODO konwersja dwg na obj
