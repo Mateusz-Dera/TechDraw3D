@@ -27,6 +27,7 @@ from libs.base import makepath
 
 # My modules
 from svgpathtools import svg2paths, svg2paths2, wsvg
+import io
 
 _logger = logging.getLogger(__name__)
 

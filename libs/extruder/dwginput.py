@@ -21,13 +21,16 @@
 
 # Libs
 from sys import platform
+from svgpathtools import svg2paths, svg2paths2, wsvg
 import logging
 import subprocess
 import os.path
-from libs.base import makepath
+import shutil
+import io
 
 # My modules
-from svgpathtools import svg2paths, svg2paths2, wsvg
+from libs.base import makepath
+
 
 _logger = logging.getLogger(__name__)
 
@@ -56,17 +59,19 @@ class DWGInput():
             print ("LINUX")
             print ("DWG file path: ", dwgfilepath)
             print ("SVG file path: ", svgfilepath_linux)
+
+            if not os.path.exists(os.path.dirname(svgfilepath_linux)):
+                os.mkdir(os.path.dirname(svgfilepath_linux))
+
+            if not os.path.exists(svgfilepath_linux):
+                io.open(os.path.basename(dwgfilepath)[:-4] + ".svg", mode='w', encoding='utf-8').close()
+
             subprocess.call([dwg2svg_linux + ' ' + parameters + ' ' + dwgfilepath + ' > ' + svgfilepath_linux], shell=True, stderr=subprocess.PIPE, stdout=subprocess.PIPE)
     
-    # Wrapper do LibreDWG / dwg2dxf.
-
-    # TODO: Zapisywanie do folderu assets/dxf!
-    
     def dwg2dxf_converter(self, input_file, output_file):
-
         dwg2dxf_windows = makepath.make_path(".\\tools\\LibreDWG\\dwg2dxf.exe")
         dwg2dxf_linux = "dwg2dxf"
-        parameter1 = "-m"
+        parameter1 = "-m -y"
         parameter2 = "-o"
 
         dwgfilepath = makepath.make_path(input_file)
@@ -89,8 +94,11 @@ class DWGInput():
             subprocess.call([dwg2dxf_linux + ' ' + parameter1 + ' ' + parameter2 + ' ' + output_file + ' ' + dwgfilepath], shell=True, stderr=subprocess.PIPE, stdout=subprocess.PIPE)
             return output_file
 
-    def returnSVG(self):
-        f = open('data/returned/footer.svg', 'x')
-        f.write(str(self.DWG))
-        f.close()
-        # return DWG
+            if not os.path.exists(os.path.dirname(dxffilepath_linux)):
+                os.mkdir(os.path.dirname(dxffilepath_linux))
+
+            if not os.path.exists(dxffilepath_linux):
+                src_dir="./assets/template/template.dxf"  
+                shutil.copy(src_dir,dxffilepath_linux)
+
+            subprocess.call([dwg2dxf_linux + ' ' + parameter1 + ' ' + parameter2 + ' ' + dxffilepath_linux + ' ' + dwgfilepath], shell=True, stderr=subprocess.PIPE, stdout=subprocess.PIPE)
