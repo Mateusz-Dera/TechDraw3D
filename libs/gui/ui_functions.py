@@ -134,8 +134,8 @@ class UIFunctions(MainWindow):
             UIFunctions.show_message(self, QMessageBox.Warning, "Choose output file!")
             return
 
-        input_format = self.ui.lineEdit_input_file.text()[-3:]
-        output_format = self.ui.lineEdit_output_file.text()[-3:]
+        input_format = self.ui.lineEdit_input_file.text()[-3:].lower()
+        output_format = self.ui.lineEdit_output_file.text()[-3:].lower()
 
         if input_format == output_format:
             UIFunctions.show_message(self, QMessageBox.Warning, "Choose different output file!")
@@ -147,94 +147,105 @@ class UIFunctions(MainWindow):
         if input_format == "dxf":
             if output_format == "svg":
                 UIFunctions.convert_dxf_to_svg(self)
+                QApplication.restoreOverrideCursor()
                 if os.path.isfile(self.ui.lineEdit_output_file.text()):
                     UIFunctions.show_message(self, QMessageBox.Information, "SVG file saved successfully!")
                 else:
                     UIFunctions.show_message(self, QMessageBox.Critical, "Error!")
-                QApplication.restoreOverrideCursor()
                 self.ui.button_start.setEnabled(True)
                 return
 
             if output_format == "obj":
                 UIFunctions.convert_2d_to_3d(self, "-obj", False)
+                QApplication.restoreOverrideCursor()
                 if os.path.isfile(self.ui.lineEdit_output_file.text()):
                     UIFunctions.show_message(self, QMessageBox.Information, "OBJ file saved successfully!")
                 else:
                     UIFunctions.show_message(self, QMessageBox.Critical, "Error!")
-                QApplication.restoreOverrideCursor()
                 self.ui.button_start.setEnabled(True)
                 return
 
             if output_format == "fbx":
                 UIFunctions.convert_2d_to_3d(self, "-fbx", False)
+                QApplication.restoreOverrideCursor()
                 if os.path.isfile(self.ui.lineEdit_output_file.text()):
                     UIFunctions.show_message(self, QMessageBox.Information, "FBX file saved successfully!")
                 else:
                     UIFunctions.show_message(self, QMessageBox.Critical, "Error!")
-                QApplication.restoreOverrideCursor()
                 self.ui.button_start.setEnabled(True)
                 return
 
             if output_format == "stl":
                 UIFunctions.convert_2d_to_3d(self, "-stl", False)
+                QApplication.restoreOverrideCursor()
                 if os.path.isfile(self.ui.lineEdit_output_file.text()):
                     UIFunctions.show_message(self, QMessageBox.Information, "STL file saved successfully!")
                 else:
                     UIFunctions.show_message(self, QMessageBox.Critical, "Error!")
-                QApplication.restoreOverrideCursor()
                 self.ui.button_start.setEnabled(True)
                 return
+            QApplication.restoreOverrideCursor()
+            UIFunctions.show_message(self, QMessageBox.Critical, "Something is wrong with output file!")
+            return
+
 
         if input_format == "dwg":
             if output_format == "dxf":
                 UIFunctions.convert_dwg_to_dxf(self)
+                QApplication.restoreOverrideCursor()
                 if os.path.isfile(self.ui.lineEdit_output_file.text()):
                     UIFunctions.show_message(self, QMessageBox.Information, "DXF file saved successfully!")
                 else:
                     UIFunctions.show_message(self, QMessageBox.Critical, "Error!")
-                QApplication.restoreOverrideCursor()
                 self.ui.button_start.setEnabled(True)
                 return
 
             if output_format == "svg":
                 UIFunctions.convert_dwg_to_svg(self)
+                QApplication.restoreOverrideCursor()
                 if os.path.isfile(self.ui.lineEdit_output_file.text()):
                     UIFunctions.show_message(self, QMessageBox.Information, "SVG file saved successfully!")
                 else:
                     UIFunctions.show_message(self, QMessageBox.Critical, "Error!")
-                QApplication.restoreOverrideCursor()
                 self.ui.button_start.setEnabled(True)
                 return
 
             if output_format == "obj":
                 UIFunctions.convert_2d_to_3d(self, "-obj", True)
+                QApplication.restoreOverrideCursor()
                 if os.path.isfile(self.ui.lineEdit_output_file.text()):
                     UIFunctions.show_message(self, QMessageBox.Information, "OBJ file saved successfully!")
                 else:
                     UIFunctions.show_message(self, QMessageBox.Critical, "Error!")
-                QApplication.restoreOverrideCursor()
                 self.ui.button_start.setEnabled(True)
                 return
 
             if output_format == "fbx":
                 UIFunctions.convert_2d_to_3d(self, "-fbx", True)
+                QApplication.restoreOverrideCursor()
                 if os.path.isfile(self.ui.lineEdit_output_file.text()):
                     UIFunctions.show_message(self, QMessageBox.Information, "FBX file saved successfully!")
                 else:
                     UIFunctions.show_message(self, QMessageBox.Critical, "Error!")
-                QApplication.restoreOverrideCursor()
                 self.ui.button_start.setEnabled(True)
                 return
 
             if output_format == "stl":
                 UIFunctions.convert_2d_to_3d(self, "-stl", True)
+                QApplication.restoreOverrideCursor()
                 if os.path.isfile(self.ui.lineEdit_output_file.text()):
                     UIFunctions.show_message(self, QMessageBox.Information, "STL file saved successfully!")
                 else:
                     UIFunctions.show_message(self, QMessageBox.Critical, "Error!")
-                QApplication.restoreOverrideCursor()
                 self.ui.button_start.setEnabled(True)
                 return
+            QApplication.restoreOverrideCursor()
+            UIFunctions.show_message(self, QMessageBox.Critical, "Something is wrong with output file!")
+            return
+        QApplication.restoreOverrideCursor()
+        self.ui.button_start.setEnabled(True)
+        UIFunctions.show_message(self, QMessageBox.Critical, "Something is wrong with input file!")
+
 
 
     def ui_definitions(self):
