@@ -20,7 +20,7 @@ bash linux_install.sh
 ```
 ![OS](https://img.shields.io/badge/Windows-10-blue.svg)
 ```shell
-W trakcie prac...
+W trakcie...
 ```
 
 ## Uruchomienie
