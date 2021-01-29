@@ -1,5 +1,5 @@
 # TechDraw3D
-# Copyright © 2021 Tomasz Nowak, Mateusz Dera, Jakub Schwarz
+# Copyright © 2020-2021 Tomasz Nowak, Mateusz Dera, Jakub Schwarz
 
 # This program is free software: you can redistribute it and/or modify
 # it under the terms of the GNU General Public License as published by
@@ -31,7 +31,7 @@ from libs.extruder.svg import SVG
 from libs.extruder.dwginput import DWGInput
 from libs.extruder.dxfinput import DXFInput
 from libs.base import logger, args, argparser
-from libs.gui.main_window2 import Ui_MainWindow
+from libs.gui.main_window import Ui_MainWindow
 from libs.gui.ui_functions import *
 
 

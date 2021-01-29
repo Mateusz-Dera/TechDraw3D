@@ -1,5 +1,5 @@
 # TechDraw3D
-# Copyright © 2020 Tomasz Nowak, Mateusz Dera, Jakub Schwarz
+# Copyright © 2020-2021 Tomasz Nowak, Mateusz Dera, Jakub Schwarz
 
 # This program is free software: you can redistribute it and/or modify
 # it under the terms of the GNU General Public License as published by
@@ -97,12 +97,3 @@ class DWGInput():
 
             subprocess.call([dwg2dxf_linux + ' ' + parameter1 + ' ' + parameter2 + ' ' + output_file + ' ' + dwgfilepath], shell=True, stderr=subprocess.PIPE, stdout=subprocess.PIPE)
             return output_file
-
-            # if not os.path.exists(os.path.dirname(dxffilepath_linux)):
-            #     os.mkdir(os.path.dirname(dxffilepath_linux))
-
-            # if not os.path.exists(dxffilepath_linux):
-            #     src_dir="./assets/template/template.dxf"  
-            #     shutil.copy(src_dir,dxffilepath_linux)
-
-            # subprocess.call([dwg2dxf_linux + ' ' + parameter1 + ' ' + parameter2 + ' ' + dxffilepath_linux + ' ' + dwgfilepath], shell=True, stderr=subprocess.PIPE, stdout=subprocess.PIPE)

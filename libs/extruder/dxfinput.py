@@ -1,5 +1,5 @@
 # TechDraw3D
-# Copyright © 2020 Tomasz Nowak, Mateusz Dera, Jakub Schwarz
+# Copyright © 2020-2021 Tomasz Nowak, Mateusz Dera, Jakub Schwarz
 
 # This program is free software: you can redistribute it and/or modify
 # it under the terms of the GNU General Public License as published by
@@ -51,5 +51,9 @@ class DXFInput():
             print ("LINUX")
             print ("DXF file path:", dxffilepath)
             print ("SVG file path:", output_file)
+
+            if not os.path.exists(os.path.dirname(output_file)):
+                os.mkdir(os.path.dirname(output_file))
+
             save_svg_from_dxf(dxffilepath, svgfilepath=output_file, frame_name=None, size=svgfilesize)
             return output_file
