@@ -1,24 +1,12 @@
 # -*- coding: utf-8 -*-
-# TechDraw3D
-# Copyright © 2021 Tomasz Nowak, Mateusz Dera, Jakub Schwarz
 
-# This program is free software: you can redistribute it and/or modify
-# it under the terms of the GNU General Public License as published by
-# the Free Software Foundation, either version 3 of the License, or
-# (at your option) any later version.
-
-# This program is free software: you can redistribute it and/or modify
-# it under the terms of the GNU General Public License as published by
-# the Free Software Foundation, either version 3 of the License, or
-# (at your option) any later version.
-
-# This program is distributed in the hope that it will be useful,
-# but WITHOUT ANY WARRANTY; without even the implied warranty of
-# MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  See the
-# GNU General Public License for more details.
-
-# You should have received a copy of the GNU General Public License
-# along with this program.  If not, see <http://www.gnu.org/licenses/>
+################################################################################
+## Form generated from reading UI file 'main_window.ui'
+##
+## Created by: Qt User Interface Compiler version 5.15.2
+##
+## WARNING! All changes made in this file will be lost when recompiling UI file!
+################################################################################
 
 from qtpy.QtCore import *
 from qtpy.QtGui import *
@@ -281,7 +269,7 @@ class Ui_MainWindow(object):
 "color: rgb(167, 167, 167);")
         self.button_view_obj = QPushButton(self.frame_menu_options)
         self.button_view_obj.setObjectName(u"button_view_obj")
-        self.button_view_obj.setGeometry(QRect(25, 200, 100, 25))
+        self.button_view_obj.setGeometry(QRect(25, 210, 100, 25))
         self.button_view_obj.setMinimumSize(QSize(7, 0))
         self.button_view_obj.setFont(font3)
         self.button_view_obj.setStyleSheet(u"QPushButton {\n"
@@ -315,6 +303,13 @@ class Ui_MainWindow(object):
 "QPushButton:hover{	\n"
 "	background-color: rgb(185, 185, 185);\n"
 "}")
+        self.checkBox_wireframe = QCheckBox(self.frame_menu_options)
+        self.checkBox_wireframe.setObjectName(u"checkBox_wireframe")
+        self.checkBox_wireframe.setGeometry(QRect(30, 240, 91, 17))
+        self.checkBox_wireframe.setFont(font5)
+        self.checkBox_wireframe.setAutoFillBackground(False)
+        self.checkBox_wireframe.setStyleSheet(u"background-color: none;\n"
+"color: rgb(167, 167, 167);")
 
         self.horizontalLayout_3.addWidget(self.frame_menu)
 
@@ -341,9 +336,8 @@ class Ui_MainWindow(object):
     # setupUi
 
     def retranslateUi(self, MainWindow):
-        MainWindow.setWindowTitle(QCoreApplication.translate("MainWindow", u"TechDraw3D v0.2.1", None))
+        MainWindow.setWindowTitle(QCoreApplication.translate("MainWindow", u"TechDraw3D v0.2.2", None))
         MainWindow.setWindowIcon(QIcon('./libs/gui/icons/icon_square.png'))
-
         self.label_icon.setText("")
         self.label_title.setText(QCoreApplication.translate("MainWindow", u"TechDraw3D", None))
         self.button_close.setText(QCoreApplication.translate("MainWindow", u"X", None))
@@ -355,5 +349,6 @@ class Ui_MainWindow(object):
         self.label_output.setText(QCoreApplication.translate("MainWindow", u"Output file:", None))
         self.button_view_obj.setText(QCoreApplication.translate("MainWindow", u"VIEW OBJ", None))
         self.button_choose_output_file.setText(QCoreApplication.translate("MainWindow", u"\u25ba", None))
+        self.checkBox_wireframe.setText(QCoreApplication.translate("MainWindow", u"Wireframe", None))
     # retranslateUi
 
