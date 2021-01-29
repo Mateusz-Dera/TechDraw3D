@@ -30,6 +30,7 @@ import io
 
 # My modules
 from libs.base import makepath
+from time import sleep
 
 
 _logger = logging.getLogger(__name__)
@@ -97,5 +98,5 @@ class DWGInput():
 
             subprocess.call([dwg2dxf_linux + ' ' + parameter1 + ' ' + parameter2 + ' ' + output_file + ' ' + dwgfilepath], shell=True, stderr=subprocess.PIPE, stdout=subprocess.PIPE)
 
-            wait(10)
+            sleep(10)
             return output_file
