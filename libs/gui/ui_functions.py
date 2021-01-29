@@ -37,6 +37,8 @@ from libs.extruder.svg import SVG
 from libs.extruder.dwginput import DWGInput
 from libs.extruder.dxfinput import DXFInput
 
+lines = True
+transparency = 0.5
 
 class UIFunctions(MainWindow):
     
@@ -72,9 +74,11 @@ class UIFunctions(MainWindow):
 
         fname = QFileDialog.getOpenFileName(self, "Open file", homepath, "OBJ file (*.obj)")
         if fname[0]:
+            global lines
+            global transparency
             mesh = pyvista.read(fname[0])
             plotter = pyvistaqt.BackgroundPlotter()
-            plotter.add_mesh(mesh)
+            plotter.add_mesh(mesh, show_edges=lines, nan_opacity=transparency)
 
     def convert_dwg_to_dxf(self):
         input_file = self.ui.lineEdit_input_file.text()
