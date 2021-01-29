@@ -53,9 +53,7 @@ class DXFInput():
             print ("SVG file path:", output_file)
 
             if not os.path.exists(os.path.dirname(output_file)):
-                import pathlib
-                pathlib.Path(os.path.dirname(output_file)).mkdir(parents=True, exist_ok=True)
-                # os.mkdir(os.path.dirname(output_file))
+                os.mkdir(os.path.dirname(output_file))
 
             save_svg_from_dxf(dxffilepath, svgfilepath=output_file, frame_name=None, size=svgfilesize)
             return output_file
