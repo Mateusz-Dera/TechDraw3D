@@ -28,7 +28,7 @@ Program działa w trybie graficznym. W celu uruchomienia należy przejść do g�
 ```shell
 python3 main.py
 ```
-lub alternatywnie za pomocą powłoki bash
+Alternatywnie za pomocą powłoki bash:
 ```shell
 sudo bash main.sh
 ```
