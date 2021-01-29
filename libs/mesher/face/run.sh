@@ -19,6 +19,10 @@
 # You should have received a copy of the GNU General Public License
 # along with this program.  If not, see <http://www.gnu.org/licenses/>
 
+rm -r ./libs/mesher/extrude/tmp/*
+rm -r ./libs/mesher/boolean/tmp/*
+rm -r ./libs/mesher/boolean/export/*
+
 if [[ ! -d ./libs/mesher/face/tmp ]] ; then
     mkdir ./libs/mesher/face/tmp
 fi
