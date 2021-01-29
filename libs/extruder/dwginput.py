@@ -91,14 +91,18 @@ class DWGInput():
             print ("LINUX")
             print ("DWG file path: ", dwgfilepath)
             print ("DXF file path: ", output_file)
+
+            if not os.path.exists(os.path.dirname(output_file)):
+                os.mkdir(os.path.dirname(output_file))
+
             subprocess.call([dwg2dxf_linux + ' ' + parameter1 + ' ' + parameter2 + ' ' + output_file + ' ' + dwgfilepath], shell=True, stderr=subprocess.PIPE, stdout=subprocess.PIPE)
             return output_file
 
-            if not os.path.exists(os.path.dirname(dxffilepath_linux)):
-                os.mkdir(os.path.dirname(dxffilepath_linux))
+            # if not os.path.exists(os.path.dirname(dxffilepath_linux)):
+            #     os.mkdir(os.path.dirname(dxffilepath_linux))
 
-            if not os.path.exists(dxffilepath_linux):
-                src_dir="./assets/template/template.dxf"  
-                shutil.copy(src_dir,dxffilepath_linux)
+            # if not os.path.exists(dxffilepath_linux):
+            #     src_dir="./assets/template/template.dxf"  
+            #     shutil.copy(src_dir,dxffilepath_linux)
 
-            subprocess.call([dwg2dxf_linux + ' ' + parameter1 + ' ' + parameter2 + ' ' + dxffilepath_linux + ' ' + dwgfilepath], shell=True, stderr=subprocess.PIPE, stdout=subprocess.PIPE)
+            # subprocess.call([dwg2dxf_linux + ' ' + parameter1 + ' ' + parameter2 + ' ' + dxffilepath_linux + ' ' + dwgfilepath], shell=True, stderr=subprocess.PIPE, stdout=subprocess.PIPE)
