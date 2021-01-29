@@ -96,7 +96,8 @@ class DWGInput():
             if not os.path.exists(os.path.dirname(output_file)):
                 os.mkdir(os.path.dirname(output_file))
 
-            subprocess.call([dwg2dxf_linux + ' ' + parameter1 + ' ' + parameter2 + ' ' + output_file + ' ' + dwgfilepath], shell=True, stderr=subprocess.PIPE, stdout=subprocess.PIPE)
+            process = subprocess.Popen([dwg2dxf_linux + ' ' + parameter1 + ' ' + parameter2 + ' ' + output_file + ' ' + dwgfilepath], shell=True, stderr=subprocess.PIPE, stdout=subprocess.PIPE)
+            out, err = process.communicate()
+            process.wait()
 
-            sleep(10)
             return output_file
