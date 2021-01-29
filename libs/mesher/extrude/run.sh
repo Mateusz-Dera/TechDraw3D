@@ -19,4 +19,8 @@
 # You should have received a copy of the GNU General Public License
 # along with this program.  If not, see <http://www.gnu.org/licenses/>
 
-blender -b --python "$(dirname $(readlink -f $0))/main.py"
+blender -b --python "$(dirname $(readlink -f $0))/main.py"  &
+
+PID=$!
+echo PID
+tail --pid=$PID -f /dev/null

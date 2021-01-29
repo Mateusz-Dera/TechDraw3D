@@ -20,3 +20,4 @@
 # along with this program.  If not, see <http://www.gnu.org/licenses/>
 
 from . import test_dwg_convert
+from . import test_make_obj

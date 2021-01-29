@@ -32,4 +32,8 @@ if [[ ! -d ./libs/mesher/boolean/export ]] ; then
     mkdir ./libs/mesher/boolean/export
 fi
 
-blender -b --python "$(dirname $(readlink -f $0))/main.py"
+blender -b --python "$(dirname $(readlink -f $0))/main.py"  &
+
+PID=$!
+echo PID
+tail --pid=$PID -f /dev/null

@@ -5,7 +5,7 @@ name: TechDraw3D
 
 on:
   push:
-    branches: [ master, kuba-testy ]
+    branches: [ master, kuba-testy, GUI]
   pull_request:
     branches: [ master ]
 

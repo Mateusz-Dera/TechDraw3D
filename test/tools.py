@@ -64,3 +64,14 @@ def svg_compare_path(example_paths, tested_paths):
 
         if len(tested_path) != 1:
             raise AssertionError("SVG walls is not equal")
+
+def get_assets_from_directory(path):
+    """ Return a list of assets from directory 
+    Keyword arguments:
+    path -- assets directory
+
+    Return 
+    list of assets in path directory
+    """
+
+    return [join(path, elem) for elem in [f for f in listdir(path) if isfile(join(path, f))]]

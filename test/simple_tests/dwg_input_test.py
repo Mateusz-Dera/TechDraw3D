@@ -70,7 +70,7 @@ class TestDWGInput():
                 dxf = "./assets/dxf/" + os.path.basename(dwg)[:-4] + ".dxf"
                 svg = "./assets/svg/" + os.path.basename(dwg)[:-4] + ".svg"
 
-                dwg_input.dwg2dxf_converter(dwg)
+                dwg_input.dwg2dxf_converter(dwg, dxf)
                 # dxf_input.dxf2svg_converter(dxf)
                 
                 clear_cache()
@@ -80,7 +80,7 @@ class TestDWGInput():
     def test_convert_dwg2svg(self, dwg_input, dwg_path, dxf_path):
         for dwg in dwg_path:
             dxf = "./assets/dxf/" + os.path.basename(dwg)[:-4] + ".dxf"
-            dwg_input.dwg2dxf_converter(dwg)
+            dwg_input.dwg2dxf_converter(dwg, dxf)
             
             clear_cache()
             assert cmp(dxf, './test/assets/simple/' + os.path.basename(dwg)[:-4] + ".dxf", shallow=True)
