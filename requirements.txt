@@ -27,3 +27,5 @@ pyvista
 pyside2
 qtpy
 pyvistaqt
+pytest
+pytest-cov
