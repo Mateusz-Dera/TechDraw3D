@@ -1,7 +1,7 @@
-libs/mesher/boolean/export/
-libs/mesher/boolean/tmp/
-libs/mesher/face/tmp/
-libs/mesher/extrude/tmp/
+# libs/mesher/boolean/export/
+# libs/mesher/boolean/tmp/
+# libs/mesher/face/tmp/
+# libs/mesher/extrude/tmp/
 
 # Byte-compiled / optimized / DLL files
 __pycache__/
