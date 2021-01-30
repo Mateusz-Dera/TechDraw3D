@@ -24,6 +24,7 @@ import logging
 
 # My modules
 from svgpathtools import svg2paths, svg2paths2, wsvg, paths2svg
+import os
 
 
 _logger = logging.getLogger(__name__)
@@ -87,6 +88,9 @@ class SVG():
                 self.svg_front.append(path)
 
     def save_walls(self):
+        if not os.path.exists(os.path.dirname('./libs/mesher/face/tmp/')):
+            os.mkdir(os.path.dirname('./libs/mesher/face/tmp/'))
+
         wsvg(paths=self.svg_front, svg_attributes=self._center_viewport(self.svg_front), filename="./libs/mesher/face/tmp/front.svg")
         wsvg(paths=self.svg_right, svg_attributes=self._center_viewport(self.svg_right), filename="./libs/mesher/face/tmp/right.svg")
         wsvg(paths=self.svg_top, svg_attributes=self._center_viewport(self.svg_top), filename="./libs/mesher/face/tmp/top.svg")
