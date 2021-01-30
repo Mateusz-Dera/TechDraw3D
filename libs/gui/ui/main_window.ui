@@ -613,7 +613,7 @@ color: rgb(167, 167, 167);</string>
               <property name="geometry">
                <rect>
                 <x>25</x>
-                <y>200</y>
+                <y>210</y>
                 <width>100</width>
                 <height>25</height>
                </rect>
@@ -706,6 +706,33 @@ QPushButton:hover{
               </property>
               <property name="text">
                <string>►</string>
+              </property>
+             </widget>
+             <widget class="QCheckBox" name="checkBox">
+              <property name="geometry">
+               <rect>
+                <x>30</x>
+                <y>240</y>
+                <width>91</width>
+                <height>17</height>
+               </rect>
+              </property>
+              <property name="font">
+               <font>
+                <pointsize>10</pointsize>
+                <weight>75</weight>
+                <bold>true</bold>
+               </font>
+              </property>
+              <property name="autoFillBackground">
+               <bool>false</bool>
+              </property>
+              <property name="styleSheet">
+               <string notr="true">background-color: none;
+color: rgb(167, 167, 167);</string>
+              </property>
+              <property name="text">
+               <string>Wireframe</string>
               </property>
              </widget>
             </widget>

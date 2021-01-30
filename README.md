@@ -20,7 +20,7 @@ bash linux_install.sh
 ```
 ![OS](https://img.shields.io/badge/Windows-10-blue.svg)
 ```shell
-in progress...
+W trakcie...
 ```
 
 ## Uruchomienie
@@ -28,6 +28,11 @@ Program działa w trybie graficznym. W celu uruchomienia należy przejść do g�
 ```shell
 python3 main.py
 ```
+Alternatywnie za pomocą powłoki bash:
+```shell
+sudo bash main.sh
+```
+
 W razie problemów można wywołać poszczególne funkcje za pomocą wiersza poleceń. Więcej informacji:
 ```shell
 python3 main.py --help

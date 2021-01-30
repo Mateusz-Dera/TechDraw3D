@@ -30,13 +30,10 @@ import pyvista
 import pyvistaqt
 import webbrowser
 
-import time
-
 from main import MainWindow
 from libs.extruder.svg import SVG
 from libs.extruder.dwginput import DWGInput
 from libs.extruder.dxfinput import DXFInput
-
 
 class UIFunctions(MainWindow):
     
@@ -71,10 +68,22 @@ class UIFunctions(MainWindow):
             homepath = os.environ["HOME"]
 
         fname = QFileDialog.getOpenFileName(self, "Open file", homepath, "OBJ file (*.obj)")
+
+        if self.ui.checkBox_wireframe.isChecked():
+            edges = True
+            opacity = 0.5
+            text = os.path.basename(fname[0]) + " wireframe"
+        else:
+            edges = False
+            opacity = 1
+            text = os.path.basename(fname[0])
+
         if fname[0]:
             mesh = pyvista.read(fname[0])
             plotter = pyvistaqt.BackgroundPlotter()
-            plotter.add_mesh(mesh)
+            plotter.add_mesh(mesh, show_edges=edges, opacity=opacity, color='blue')
+            plotter.add_text(text)
+            plotter.show_axes()
 
     def convert_dwg_to_dxf(self):
         input_file = self.ui.lineEdit_input_file.text()
