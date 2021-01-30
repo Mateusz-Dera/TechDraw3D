@@ -1,5 +1,5 @@
 # TechDraw3D
-# Copyright © 2020 Tomasz Nowak, Mateusz Dera, Jakub Schwarz
+# Copyright © 2020-2021 Tomasz Nowak, Mateusz Dera, Jakub Schwarz
 
 # This program is free software: you can redistribute it and/or modify
 # it under the terms of the GNU General Public License as published by
@@ -27,17 +27,19 @@ from libs.base import makepath
 
 # My modules
 from svgpathtools import svg2paths, svg2paths2, wsvg
+import io
 
 _logger = logging.getLogger(__name__)
 
 class DXFInput():
     
-    def dxf2svg_converter(self, name):
-        dxffilepath = makepath.make_path(name)
+    def dxf2svg_converter(self, input_file, output_file):
+        dxffilepath = makepath.make_path(input_file)
         svgfilesize = 300
 
         svgfilepath_windows = makepath.make_path(".\\assets\\svg\\") + "\\" + os.path.basename(dxffilepath)[:-4] + ".svg"
-        svgfilepath_linux = "./assets/svg/" + os.path.basename(dxffilepath)[:-4] + ".svg"
+        if not output_file:
+            output_file = "./assets/svg/" + os.path.basename(dxffilepath)[:-4] + ".svg"
 
         if platform == "win32":
             print ("WINDOWS")
@@ -48,5 +50,10 @@ class DXFInput():
         if platform == "linux":
             print ("LINUX")
             print ("DXF file path:", dxffilepath)
-            print ("SVG file path:", svgfilepath_linux)
-            save_svg_from_dxf(dxffilepath, svgfilepath=svgfilepath_linux, frame_name=None, size=svgfilesize)
+            print ("SVG file path:", output_file)
+
+            if not os.path.exists(os.path.dirname(output_file)):
+                os.mkdir(os.path.dirname(output_file))
+
+            save_svg_from_dxf(dxffilepath, svgfilepath=output_file, frame_name=None, size=svgfilesize)
+            return output_file

@@ -1,5 +1,5 @@
 # TechDraw3D
-# Copyright © 2020 Tomasz Nowak, Mateusz Dera, Jakub Schwarz
+# Copyright © 2020-2021 Tomasz Nowak, Mateusz Dera, Jakub Schwarz
 
 # This program is free software: you can redistribute it and/or modify
 # it under the terms of the GNU General Public License as published by
@@ -19,61 +19,13 @@
 # You should have received a copy of the GNU General Public License
 # along with this program.  If not, see <http://www.gnu.org/licenses/>
 
-# bpy dependences
-astroid
-bleach
-bpy-build
-certifi
-chardet
-cmake
-cmake-generators
-colorama
-docutils
-future-fstrings
-gitdb
-GitPython
-idna
-importlib-metadata
-isort
-keyring
-lazy-object-proxy
-mccabe
-nose
-packaging
-pkginfo
-Pygments
-pylint
-pyparsing
-# python-dateutil
-pywin32-ctypes
-readme-renderer
-requests
-requests-toolbelt
-rope
-six
-scikit-build
-smmap
-svn
-toml
-tqdm
-twine
-typed-ast
-urllib3
-webencodings
-wrapt
-zipp
-wheel
-# PyMesh dependences
-scipy
-numpy
-# bpy library
-# bpy
-# other python packages
-simple-term-menu
-svgpathtools
-dxf2svg
-ezdxf
+simple-term-menu==0.10.5
+svgpathtools==1.4.1
+dxf2svg==0.1.1
+ezdxf==0.14.2
 pyvista
 pyside2
 qtpy
 pyvistaqt
+pytest
+pytest-cov

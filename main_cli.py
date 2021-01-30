@@ -77,6 +77,7 @@ def main():
                              clear_screen=False)
 # /home/jschwarz/Projekty/Prywatne/TechDraw3D/assets/dwg/P001.dwg
 # /home/jschwarz/Projekty/Prywatne/TechDraw3D/assets/dwg
+# /home/jschwarz/Projekty/Prywatne/TechDraw3D/test/assets/advanced/P001.DWG
     while not main_menu_exit:
         main_sel = main_menu.show()
 

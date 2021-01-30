@@ -1,5 +1,5 @@
 # TechDraw3D
-# Copyright © 2020 Tomasz Nowak, Mateusz Dera, Jakub Schwarz
+# Copyright © 2020-2021 Tomasz Nowak, Mateusz Dera, Jakub Schwarz
 
 # This program is free software: you can redistribute it and/or modify
 # it under the terms of the GNU General Public License as published by
@@ -21,13 +21,17 @@
 
 # Libs
 from sys import platform
+from svgpathtools import svg2paths, svg2paths2, wsvg
 import logging
 import subprocess
 import os.path
-from libs.base import makepath
+import shutil
+import io
 
 # My modules
-from svgpathtools import svg2paths, svg2paths2, wsvg
+from libs.base import makepath
+from time import sleep
+
 
 _logger = logging.getLogger(__name__)
 
@@ -56,22 +60,25 @@ class DWGInput():
             print ("LINUX")
             print ("DWG file path: ", dwgfilepath)
             print ("SVG file path: ", svgfilepath_linux)
+
+            if not os.path.exists(os.path.dirname(svgfilepath_linux)):
+                os.mkdir(os.path.dirname(svgfilepath_linux))
+
+            if not os.path.exists(svgfilepath_linux):
+                io.open(os.path.basename(dwgfilepath)[:-4] + ".svg", mode='w', encoding='utf-8').close()
+
             subprocess.call([dwg2svg_linux + ' ' + parameters + ' ' + dwgfilepath + ' > ' + svgfilepath_linux], shell=True, stderr=subprocess.PIPE, stdout=subprocess.PIPE)
     
-    # Wrapper do LibreDWG / dwg2dxf.
-
-    # TODO: Zapisywanie do folderu assets/dxf!
-    
-    def dwg2dxf_converter(self, name):
-
+    def dwg2dxf_converter(self, input_file, output_file):
         dwg2dxf_windows = makepath.make_path(".\\tools\\LibreDWG\\dwg2dxf.exe")
         dwg2dxf_linux = "dwg2dxf"
-        parameter1 = "-m"
+        parameter1 = "-m -y"
         parameter2 = "-o"
 
-        dwgfilepath = makepath.make_path(name)
+        dwgfilepath = makepath.make_path(input_file)
         dxffilepath_windows = makepath.make_path(".\\assets\\dxf\\") + "\\" + os.path.basename(dwgfilepath)[:-4] + ".dxf"
-        dxffilepath_linux = "./assets/dxf/" + os.path.basename(dwgfilepath)[:-4] + ".dxf"
+        if not output_file:
+            output_file = "./assets/dxf/" + os.path.basename(dwgfilepath)[:-4] + ".dxf"
 
         # Wybór platformy.
         if platform == "win32":
@@ -84,11 +91,13 @@ class DWGInput():
         if platform == "linux":
             print ("LINUX")
             print ("DWG file path: ", dwgfilepath)
-            print ("DXF file path: ", dxffilepath_linux)
-            subprocess.call([dwg2dxf_linux + ' ' + parameter1 + ' ' + parameter2 + ' ' + dxffilepath_linux + ' ' + dwgfilepath], shell=True, stderr=subprocess.PIPE, stdout=subprocess.PIPE)
+            print ("DXF file path: ", output_file)
 
-    def returnSVG(self):
-        f = open('data/returned/footer.svg', 'x')
-        f.write(str(self.DWG))
-        f.close()
-        # return DWG
+            if not os.path.exists(os.path.dirname(output_file)):
+                os.mkdir(os.path.dirname(output_file))
+
+            process = subprocess.Popen([dwg2dxf_linux + ' ' + parameter1 + ' ' + parameter2 + ' ' + output_file + ' ' + dwgfilepath], shell=True, stderr=subprocess.PIPE, stdout=subprocess.PIPE)
+            out, err = process.communicate()
+            process.wait()
+
+            return output_file
