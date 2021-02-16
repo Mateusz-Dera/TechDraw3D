@@ -20,6 +20,7 @@
 # along with this program.  If not, see <http://www.gnu.org/licenses/>
 
 # Libs
+from io import StringIO
 import logging
 
 # My modules
@@ -95,3 +96,9 @@ class SVG():
         wsvg(paths=self.svg_right, svg_attributes=self._center_viewport(self.svg_right), filename="./libs/mesher/face/tmp/right.svg")
         wsvg(paths=self.svg_top, svg_attributes=self._center_viewport(self.svg_top), filename="./libs/mesher/face/tmp/top.svg")
         #wsvg(paths=self.svg_3d, svg_attributes=self._center_viewport(self.svg_3d), filename="./libs/mesher/face/tmp/svg3d.svg")
+
+    def get_svg(self):
+        iosvg = StringIO 
+        wsvg(paths=self.paths, svg_attributes=self.attributes, filename=iosvg)
+
+        return iosvg

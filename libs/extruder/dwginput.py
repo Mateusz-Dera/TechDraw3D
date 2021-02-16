@@ -33,8 +33,6 @@ from libs.base import makepath
 from time import sleep
 
 
-_logger = logging.getLogger(__name__)
-
 class DWGInput():
     DWG = ""
 
