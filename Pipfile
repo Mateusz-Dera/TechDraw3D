@@ -15,6 +15,7 @@ pytest = "*"
 pyvistaqt = "*"
 PySide2 = "*"
 QtPy = "*"
+pytest-benchmark = "*"
 
 [requires]
 python_version = "3.7"
